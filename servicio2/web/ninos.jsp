@@ -24,30 +24,46 @@
   
 </head>
 
-<script>
-    function hide(){
-    document.getElementById('inscripcion').style.display = 'none';
-    //alert('swag');
-    }
-    function show(){
-    document.getElementById('inscripcion').style.display = 'block';
-    //alert('swag');
-    }
-    function showIncripcion(){
-        document.getElementById('inscripcion').style.display = 'none';
-        document.getElementById('listaNinos').style.display = 'block';
-    }
-    function showBajasEmpresa(){
-        document.getElementById('bajaEmpresa').style.display = 'block';
-        document.getElementById('altaEmpresa').style.display = 'none';
-    }
-    function hideAll(){
-        document.getElementById('altaEmpresa').style.display = 'none';
-        document.getElementById('bajaEmpresa').style.display = 'none';
-    }
+<script type="text/javascript" language="JavaScript"><!--
+function HideContent(d) {
+document.getElementById(d).style.display = "none";
+}
+function ShowContent(d) {
+document.getElementById(d).style.display = "block";
+}
+function ReverseDisplay(d) {
+if(document.getElementById(d).style.display == "none") { document.getElementById(d).style.display = "block"; }
+else { document.getElementById(d).style.display = "none"; }
+}
+//--></script>
+
+
+
+<script type="text/javascript" language="JavaScript">
+
+function HideAllShowOne(d) {
+// Between the quotation marks, list the id values of each div.
+
+var IDvaluesOfEachDiv = "listaDeNinos inscripcion darDeAlta darDeBaja";
+
+//-------------------------------------------------------------
+IDvaluesOfEachDiv = IDvaluesOfEachDiv.replace(/[,\s"']/g," ");
+IDvaluesOfEachDiv = IDvaluesOfEachDiv.replace(/^\s*/,"");
+IDvaluesOfEachDiv = IDvaluesOfEachDiv.replace(/\s*$/,"");
+IDvaluesOfEachDiv = IDvaluesOfEachDiv.replace(/  +/g," ");
+var IDlist = IDvaluesOfEachDiv.split(" ");
+for(var i=0; i<IDlist.length; i++) { HideContent(IDlist[i]); }
+ShowContent(d);
+}
+
 </script>
 
-<body onload="hideAll();">
+
+
+
+
+
+<body >
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -95,11 +111,11 @@
           ${requestScope.res}Ni&ntildeos
         </h1>
         <p>
-          <a class="btn btn-primary btn-lg" href="#" onclick="showListaDeNinos();">Lista de Ninos »</a>
-          <a class="btn btn-primary btn-lg" href="#" onclick="showInscripcion();">Inscripcion »</a>
-          <a class="btn btn-primary btn-lg" href="#" onclick="showDarDeAlta();">Dar de Alta »</a>
-          <a class="btn btn-primary btn-lg" href="#" onclick="showDarDeBaja();">Dar de Baja »</a>
-          <a class="btn btn-primary btn-lg" href="#" onclick="showModificar();">Modificar »</a>
+          <a class="btn btn-primary btn-lg" href="javascript:HideAllShowOne('listaDeNinos')" >Lista de Ninos »</a>
+          <a class="btn btn-primary btn-lg" href="javascript:HideAllShowOne('inscripcion')" >Inscripcion »</a>
+          <a class="btn btn-primary btn-lg" href="javascript:HideAllShowOne('darDeAlta')" >Dar de Alta »</a>
+          <a class="btn btn-primary btn-lg" href="javascript:HideAllShowOne('darDeBaja')" >Dar de Baja »</a>
+          <a class="btn btn-primary btn-lg" href="javascript:HideAllShowOne('modificar')" >Modificar »</a>
         </p>
       </div>
     </div>
@@ -111,7 +127,8 @@
       <div class="bs-docs-section">
 
         <div class="row">
-          <div class="col-lg-12" id="listaDeNinos">
+
+          <div class="col-lg-12" id="listaDeNinos" style="display:none;">
             <div class="page-header">
                 <h1 id="tables">Lista de Ni&ntildeos</h1>
             </div>
@@ -378,7 +395,7 @@
                                 
                                    
                                    
-              <a href="#" class="btn btn-info">Volver</a>
+              <a href="inicio.jsp" class="btn btn-info">Volver</a>
           </div>
         </div>
       </div>        
@@ -397,15 +414,13 @@
       <!-- Nuevo alumno
       ================================================== -->
        <div class="container">
-      <div id="inscripcion">
       <div class="bs-docs-section">
+        <div class="col-lg-12" id="inscripcion" style="display:none;">          
         <div class="row">
-          <div class="col-lg-12" id="inscripcion">
+          
             <div class="page-header">
-              <h1 id="forms">Nuevo Alumno</h1>
+              <h1 id="forms">Inscripcion</h1>
             </div>
-          </div>
-        </div>
 
         <div class="row">
           <div class="col-lg-6">
@@ -414,7 +429,7 @@
                         
                   <fieldset>
                     
-                    <h3><legend>Inscripcion</legend></h3>
+                    <h3><legend>Nuevo Alumno</legend></h3>
                   
                     <div class="form-horizontal">
                         
@@ -539,7 +554,7 @@
       <div class="col-lg-10 col-lg-offset-2">
         <button class="btn btn-default">Cancelar</button>
         <button type="guardar" class="btn btn-primary">Guardar</button>
-        <a href="#" class="btn btn-info">Volver</a>
+        <a href="inicio.jsp" class="btn btn-info">Volver</a>
       </div>
                              
                       
@@ -551,7 +566,16 @@
                 </fieldset>
               </form>
             </div>
-          </div>
+        </div>
+            </div>
+        </div>
+                      </div>
+        </div>
+       </div>
+
+     
+     
+      
           
             
             <!-- Dar de alta -->
@@ -560,12 +584,11 @@
             
       <div class="bs-docs-section">
         <div class="row">
-          <div class="col-lg-12">
+            <div class="col-lg-12" id="darDeAlta" style="display:none;">
             <div class="page-header">
               <h1 id="forms">Dar de Alta</h1>
             </div>
-          </div>
-        </div>
+      
 
         <div class="row">
           <div class="col-lg-6">
@@ -772,7 +795,7 @@
       <div class="col-lg-10 col-lg-offset-2">
         <button class="btn btn-default">Cancelar</button>
         <button type="guardar" class="btn btn-primary">Guardar</button>
-        <a href="#" class="btn btn-info">Volver</a>
+        <a href="inicio.jsp" class="btn btn-info">Volver</a>
       </div>
                              
                       
@@ -799,13 +822,11 @@
       <div id="inscripcion">
       <div class="bs-docs-section">
         <div class="row">
-          <div class="col-lg-12" id="inscripcion">
+            <div class="col-lg-12" id="darDeBaja" style="display:none;">
             <div class="page-header">
               <h1 id="forms">Dar de Baja</h1>
             </div>
-          </div>
-        </div>
-
+          
         <div class="row">
           <div class="col-lg-6">
             <div class="well bs-component">
@@ -846,7 +867,7 @@
       <div class="col-lg-10 col-lg-offset-2">
         <button class="btn btn-default">Cancelar</button>
         <button type="guardar" class="btn btn-primary">Guardar</button>
-        <a href="#" class="btn btn-info">Volver</a>
+        <a href="inicio.jsp" class="btn btn-info">Volver</a>
       </div>
                              
                       
@@ -872,12 +893,11 @@
       <div id="inscripcion">
       <div class="bs-docs-section">
         <div class="row">
-          <div class="col-lg-12" id="inscripcion">
+            <div class="col-lg-12" id="modificar" style="display: none;">
             <div class="page-header">
               <h1 id="forms">Modificar a un Alumno</h1>
             </div>
-          </div>
-        </div>
+          
 
         <div class="row">
           <div class="col-lg-6">
@@ -1203,7 +1223,7 @@
       <div class="col-lg-10 col-lg-offset-2">
         <button class="btn btn-default">Cancelar</button>
         <button type="guardar" class="btn btn-primary">Guardar</button>
-        <a href="#" class="btn btn-info">Volver</a>
+        <a href="inicio.jsp" class="btn btn-info">Volver</a>
       </div>
                              
                       
