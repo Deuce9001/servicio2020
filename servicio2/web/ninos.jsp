@@ -44,13 +44,14 @@ else { document.getElementById(d).style.display = "none"; }
 function HideAllShowOne(d) {
 // Between the quotation marks, list the id values of each div.
 
-var IDvaluesOfEachDiv = "listaDeNinos inscripcion darDeAlta darDeBaja";
+var IDvaluesOfEachDiv = "listaDeNinos inscripcion darDeAlta darDeBaja modificar";
 
 //-------------------------------------------------------------
 IDvaluesOfEachDiv = IDvaluesOfEachDiv.replace(/[,\s"']/g," ");
 IDvaluesOfEachDiv = IDvaluesOfEachDiv.replace(/^\s*/,"");
 IDvaluesOfEachDiv = IDvaluesOfEachDiv.replace(/\s*$/,"");
 IDvaluesOfEachDiv = IDvaluesOfEachDiv.replace(/  +/g," ");
+
 var IDlist = IDvaluesOfEachDiv.split(" ");
 for(var i=0; i<IDlist.length; i++) { HideContent(IDlist[i]); }
 ShowContent(d);
