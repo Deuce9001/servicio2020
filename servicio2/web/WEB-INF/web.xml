@@ -29,6 +29,10 @@
         <servlet-name>AltaPersonal</servlet-name>
         <servlet-class>AltaPersonal</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AltaEvento</servlet-name>
+        <servlet-class>AltaEvento</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -56,6 +60,10 @@
     <servlet-mapping>
         <servlet-name>AltaPersonal</servlet-name>
         <url-pattern>/AltaPersonal</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AltaEvento</servlet-name>
+        <url-pattern>/AltaEvento</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
