@@ -40,7 +40,6 @@ public class Login extends HttpServlet {
                     ps.setString(1,usuario);
                     ps.setString(2,password);
                     ResultSet rs = ps.executeQuery();
-                    System.out.println("Coneccion con la base de datos realizada");
                     while (rs.next()) {
                         st = true;
                         session.setAttribute("usuario", rs.getString("usuario"));
