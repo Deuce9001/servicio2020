@@ -29,7 +29,6 @@ public class AltaPersonal extends HttpServlet {
             throws ServletException, IOException {
         
         HttpSession session = request.getSession();
-        int id = Integer.parseInt(request.getParameter("id"));
         String nombre = request.getParameter("nom");
         String apellido = request.getParameter("apellido");
         String nombreCompleto = nombre + apellido;
@@ -41,21 +40,21 @@ public class AltaPersonal extends HttpServlet {
         String actividades = request.getParameter("actividades");
         String estatus = request.getParameter("estatus");
         String tipo = request.getParameter("tipo");
+        String sql = "INSERT INTO Personal (nombre,direccion,tel,cel,posicion,curriculum,actividades,estatus,tipo ) VALUES (?,?,?,?,?,?,?,?,?);";
         boolean st = false;
         try {
             Class.forName("con.mysql.jdbc.Driver");
             try (Connection con = DriverManager.getConnection("jdbc:mysql://servicio2020.caafufvdj2xl.us-west-2.rds.amazonaws.com/servicio2020", "servicio2020", "servicio2020")) {
-                try (PreparedStatement ps = con.prepareStatement("INSERT INTO Personal VALUES (?,?,?,?,?,?,?,?,?,?)")) {
-                    ps.setInt(1, id);
-                    ps.setString(2, nombreCompleto);
-                    ps.setString(3, direccion);
-                    ps.setInt(4, tel);
-                    ps.setInt(5, cel);
-                    ps.setString(6, posicion);
-                    ps.setString(7, curriculum);
-                    ps.setString(8, actividades);
-                    ps.setString(9, estatus);
-                    ps.setString(10, tipo);
+                try (PreparedStatement ps = con.prepareStatement(sql)) {
+                    ps.setString(1, nombreCompleto);
+                    ps.setString(2, direccion);
+                    ps.setInt(3, tel);
+                    ps.setInt(4, cel);
+                    ps.setString(5, posicion);
+                    ps.setString(6, curriculum);
+                    ps.setString(7, actividades);
+                    ps.setString(8, estatus);
+                    ps.setString(9, tipo);
                     ResultSet rs = ps.executeQuery();
                     while (rs.next()) {
                         st = true;

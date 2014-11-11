@@ -381,19 +381,19 @@
                   &nbsp;
                   &nbsp;
                   &nbsp;                    
-                    
+                  <form method="POST" action="/AltaNino" >
                     <div class="form-horizontal"
                          <h2>Fecha de Inscripcion:</h2>
 		<span>
-			<input id="element_3_1" name="element_3_1" class="element text" size="2" maxlength="2" value="" type="text"> /
+			<input id="element_3_1" name="mes" class="element text" size="2" maxlength="2" value="" type="text"> /
 			<label for="element_3_1">MM</label>
 		</span>
 		<span>
-			<input id="element_3_2" name="element_3_2" class="element text" size="2" maxlength="2" value="" type="text"> /
+			<input id="element_3_2" name="dia" class="element text" size="2" maxlength="2" value="" type="text"> /
 			<label for="element_3_2">DD</label>
 		</span>
 		<span>
-	 		<input id="element_3_3" name="element_3_3" class="element text" size="4" maxlength="4" value="" type="text">
+	 		<input id="element_3_3" name="ano" class="element text" size="4" maxlength="4" value="" type="text">
 			<label for="element_3_3">YYYY</label>
 		</span>
 	
@@ -403,8 +403,8 @@
 		<script type="text/javascript">
 			Calendar.setup({
 			inputField	 : "element_3_3",
-			baseField    : "element_3",
-			displayArea  : "calendar_3",
+			baseField        : "element_3",
+			displayArea      : "calendar_3",
 			button		 : "cal_img_3",
 			ifFormat	 : "%B %e, %Y",
 			onSelect	 : selectDate
@@ -424,37 +424,37 @@
 
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox"> Acta de Nacimiento
+                          <input type="checkbox" value="acta_nac"> Acta de Nacimiento
                         </label>                          
                       </div>
                     
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox"> Cartilla de Vacunacion
+                          <input type="checkbox" value="cartilla"> Cartilla de Vacunacion
                         </label>                          
                       </div>                 
                  
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox"> Aviso de Privacidad
+                          <input type="checkbox" value="aviso"> Aviso de Privacidad
                         </label>                          
                       </div>      
                         
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox"> CURP
+                          <input type="checkbox" value="curp"> CURP
                         </label>                          
                       </div>                        
                   
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox"> Reglamento
+                          <input type="checkbox" value="reglamento"> Reglamento
                         </label>                          
                       </div>
                         
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox"> Expediente Médico
+                          <input type="checkbox" value="medico"> Expediente Médico
                         </label>                          
                       </div>
                         
@@ -466,7 +466,7 @@
                         
                     </div>
                   </div>
-                  
+                  </form>
                   
                   &nbsp;
                   &nbsp;
@@ -519,7 +519,7 @@
                     <div class="form-horizontal">
      
               
-                        
+                        <form method="POST" action="/AltaNino">       
                  <h2></h2>Nombre(s):
                                 &nbsp;
 		<span>
@@ -619,7 +619,7 @@
                         
                     <div class="form-group">
                         
-                         <label class="col-lg-2 control-label">Programa:</label>
+                         <label class="col-lg-2 control-label">Grado Escolar:</label>
                          
                     <div class="col-lg-10">
                      <select class="form-control" id="select">
@@ -717,7 +717,7 @@
       </div>
                              
                       
-                  </div>              
+                  </div>  </form>            
                     
                     
                     

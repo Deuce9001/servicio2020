@@ -36,11 +36,12 @@ public class AltaHistoriaClinica extends HttpServlet {
         String medicamentos = request.getParameter("medicamentos");
         String tipo_sanguineo = request.getParameter("tipo_sanguineo");
         int id_nino = Integer.parseInt(request.getParameter("id_nino"));
+        String sql = "INSERT INTO HistoriaClinica (id_nino,enfermedades,peso,estatura,medicamentos,tipo_sanguineo) VALUES (?,?,?,?,?,?);";
         boolean st = false;
         try {
             Class.forName("con.mysql.jdbc.Driver");
             try (Connection con = DriverManager.getConnection("jdbc:mysql://servicio2020.caafufvdj2xl.us-west-2.rds.amazonaws.com/servicio2020", "servicio2020", "servicio2020")) {
-                try (PreparedStatement ps = con.prepareStatement("INSERT INTO HistoriaClinica VALUES (?,?,?,?,?,?,?)")) {
+                try (PreparedStatement ps = con.prepareStatement(sql)) {
                     ps.setInt(1, id);
                     ps.setInt(2, id_nino);
                     ps.setString(3, enfermedades);
@@ -52,13 +53,15 @@ public class AltaHistoriaClinica extends HttpServlet {
                     while (rs.next()) {
                         st = true;
                     }
+                } finally {
+                    con.close();
                 }
                 if (st) {
-                    session.setAttribute("res", "El registro de la Historia Clinica ha sido exitoso!");
+                    request.setAttribute("res", "El registro de la Historia Clinica ha sido exitoso!");
                     RequestDispatcher rd = getServletContext().getRequestDispatcher("/ninos.jsp");
                     rd.include(request, response);
                 } else {
-                    session.setAttribute("res", "Lo sentimos, hubo errores al realizar el registro, ingrese los datos nuevamente, por favor");
+                    request.setAttribute("res", "Lo sentimos, hubo errores al realizar el registro, ingrese los datos nuevamente, por favor");
                     RequestDispatcher rd = getServletContext().getRequestDispatcher("/altaHistoriaClinica.jsp");
                     rd.include(request, response);
                 }

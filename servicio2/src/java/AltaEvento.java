@@ -74,12 +74,12 @@ public class AltaEvento extends HttpServlet {
                     con.close();
                 }
                 if (st) {
-                    session.setAttribute("res", "El registro del horario fue exitoso!");
-                    session.setAttribute("matricula", session.getAttribute("id"));
+                    request.setAttribute("res", "El registro del horario fue exitoso!");
+                    request.setAttribute("matricula", session.getAttribute("id"));
                     RequestDispatcher rd = getServletContext().getRequestDispatcher("/altaHistoriaClinica.jsp");
                     rd.include(request, response);
                 } else {
-                    session.setAttribute("res", "Lo sentimos, hubo un problema en registro, introduzca los datos nuevamente.");
+                    request.setAttribute("res", "Lo sentimos, hubo un problema en registro, introduzca los datos nuevamente.");
                     RequestDispatcher rd = getServletContext().getRequestDispatcher("/altaHorario.jsp");
                     rd.include(request, response);
                 }

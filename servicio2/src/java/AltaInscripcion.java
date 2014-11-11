@@ -30,7 +30,6 @@ public class AltaInscripcion extends HttpServlet {
             throws ServletException, IOException {
         
         HttpSession session = request.getSession();
-        int id = Integer.parseInt(request.getParameter("id"));
         int dia = Integer.parseInt(request.getParameter("dia"));
         int mes = Integer.parseInt(request.getParameter("mes"));
         int ano = Integer.parseInt(request.getParameter("ano"));
@@ -43,25 +42,27 @@ public class AltaInscripcion extends HttpServlet {
         String ex_med = request.getParameter("medico");
         String boleta = request.getParameter("boleta");
         int id_nino = Integer.parseInt(request.getParameter("id_nino"));
+        String sql = "INSERT INTO Inscripcion (id_nino,fecha_insc,acta_nac,cartilla_vac,curp,av_privacidad,reglamento,ex_med,boleta_calif) VALUES (?,?,?,?,?,?,?,?,?);";
         boolean st = false;
         try {
             Class.forName("con.mysql.jdbc.Driver");
             try (Connection con = DriverManager.getConnection("jdbc:mysql://servicio2020.caafufvdj2xl.us-west-2.rds.amazonaws.com/servicio2020", "servicio2020", "servicio2020")) {
-                try (PreparedStatement ps = con.prepareStatement("INSERT INTO Nino Inscripcion VALUES (?,?,?,?,?,?,?,?,?,?)")) {
-                    ps.setInt(1, id);
-                    ps.setInt(2, id_nino);
-                    ps.setDate(3, fecha_ins);
-                    ps.setString(4, acta_nac);
-                    ps.setString(5, cartilla_vac);
-                    ps.setString(6, curp);
-                    ps.setString(7, aviso);
-                    ps.setString(8, reglamento);
-                    ps.setString(9, ex_med);
-                    ps.setString(10, boleta);
+                try (PreparedStatement ps = con.prepareStatement(sql)) {
+                    ps.setInt(1, id_nino);
+                    ps.setDate(2, fecha_ins);
+                    ps.setString(3, acta_nac);
+                    ps.setString(4, cartilla_vac);
+                    ps.setString(5, curp);
+                    ps.setString(6, aviso);
+                    ps.setString(7, reglamento);
+                    ps.setString(8, ex_med);
+                    ps.setString(9, boleta);
                     ResultSet rs = ps.executeQuery();
                     while (rs.next()) {
                         st = true;
                     }
+                } finally {
+                    con.close();
                 }
                 // Imprime si la ejecución de la query fue correcta, en caso de serlo, devuelve un string "res" diciento que la operacion fue exitosa.
                 if (st) {

@@ -30,7 +30,6 @@ public class AltaHorario extends HttpServlet {
             throws ServletException, IOException {
         
         HttpSession session = request.getSession();
-        int id = Integer.parseInt(request.getParameter("id"));
         String dias = request.getParameter("dias");
         int horaE = Integer.parseInt(request.getParameter("hora_entrada"));
         int minutoE = Integer.parseInt(request.getParameter("minuto_entrada"));
@@ -49,27 +48,27 @@ public class AltaHorario extends HttpServlet {
         }
         Time h_sal = new Time(horaS, minutoS, 00);
         int id_nino = Integer.parseInt(request.getParameter("id_nino"));
+        String sql = "INSERT INTO Horario (dias,h_ent,h_sal,id_nino) VALUES (?,?,?,?);";
         boolean st = false;
         try {
             Class.forName("con.mysql.jdbc.Driver");
             try (Connection con = DriverManager.getConnection("jdbc:mysql://servicio2020.caafufvdj2xl.us-west-2.rds.amazonaws.com/servicio2020", "servicio2020", "servicio2020")) {
-                try (PreparedStatement ps = con.prepareStatement("INSERT INTO Horario VALUES (?,?,?,?,?)")) {
-                    ps.setInt(1, id);
-                    ps.setString(2, dias);
-                    ps.setTime(3, h_ent);
-                    ps.setTime(4, h_sal);
-                    ps.setInt(5, id_nino);
+                try (PreparedStatement ps = con.prepareStatement(sql)) {
+                    ps.setString(1, dias);
+                    ps.setTime(2, h_ent);
+                    ps.setTime(3, h_sal);
+                    ps.setInt(4, id_nino);
                     ResultSet rs = ps.executeQuery();
                     while (rs.next()) {
                         st = true;
                     }
                 }
                 if (st) {
-                    session.setAttribute("res", "El registro del horario fue exitoso!");
+                    request.setAttribute("res", "El registro del horario fue exitoso!");
                     RequestDispatcher rd = getServletContext().getRequestDispatcher("/altaHistoriaClinica.jsp");
                     rd.include(request, response);
                 } else {
-                    session.setAttribute("res", "Lo sentimos, hubo un problema en registro, introduzca los datos nuevamente.");
+                    request.setAttribute("res", "Lo sentimos, hubo un problema en registro, introduzca los datos nuevamente.");
                     RequestDispatcher rd = getServletContext().getRequestDispatcher("/altaHorario.jsp");
                     rd.include(request, response);
                 }

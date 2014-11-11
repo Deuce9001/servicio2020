@@ -35,6 +35,8 @@ public class AltaNino extends HttpServlet {
         HttpSession session = request.getSession();
         int id = Integer.parseInt(request.getParameter("id"));
         String nombre = request.getParameter("nombre");
+        String apellidos = request.getParameter("apellidos");
+        String nombreCompleto = nombre + " " + apellidos;
         int dia = Integer.parseInt(request.getParameter("dia"));
         int mes = Integer.parseInt(request.getParameter("mes"));
         int ano = Integer.parseInt(request.getParameter("ano"));
@@ -46,21 +48,21 @@ public class AltaNino extends HttpServlet {
         InputStream foto = new ByteArrayInputStream(request.getParameter("foto").getBytes(StandardCharsets.UTF_8));
         String alergias = request.getParameter("alergias");
         boolean st = false;
-        Date date = new Date(ano,mes,dia);
+        String sql = "INSERT INTO Nino (nombre,fecha_nac,sexo,direccion,tel,grado_escolar,programa,foto,alergias) VALUES (?,?,?,?,?,?,?,?,?);";
+        Date fecha_nac = new Date(ano,mes,dia);
         try {
             Class.forName("con.mysql.jdbc.Driver");
             try (Connection con = DriverManager.getConnection("jdbc:mysql://servicio2020.caafufvdj2xl.us-west-2.rds.amazonaws.com/servicio2020", "servicio2020", "servicio2020")) {
-                try (PreparedStatement ps = con.prepareStatement("INSERT INTO Nino VALUES (?,?,?,?,?,?,?,?,?,?,?) ")) {
-                    ps.setInt(1,id);
-                    ps.setString(2,nombre);
-                    ps.setDate(3, date);
-                    ps.setString(4,sexo);
-                    ps.setString(5, direccion);
-                    ps.setInt(6, tel);
-                    ps.setString(7, grado_escolar);
-                    ps.setString(8, programa);
-                    ps.setBlob(9, foto);
-                    ps.setString(10, alergias);
+                try (PreparedStatement ps = con.prepareStatement(sql)) {
+                    ps.setString(1, nombreCompleto);
+                    ps.setDate(2, fecha_nac);
+                    ps.setString(3, sexo);
+                    ps.setString(4, direccion);
+                    ps.setInt(5, tel);
+                    ps.setString(6, grado_escolar);
+                    ps.setString(7, programa);
+                    ps.setBlob(8, foto);
+                    ps.setString(9, alergias);
                     ResultSet rs = ps.executeQuery();
                     while (rs.next()) {
                         st = true;

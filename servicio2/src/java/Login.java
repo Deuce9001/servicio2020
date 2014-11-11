@@ -31,12 +31,13 @@ public class Login extends HttpServlet {
         HttpSession session = request.getSession();
         String usuario = request.getParameter("usuario");
         String password = request.getParameter("password");
+        String sql = "SELECT * FROM Usuario WHERE usuario=? AND password=?;";
         boolean st = false;
         
         try {
             Class.forName("con.mysql.jdbc.Driver");
             try (Connection con = DriverManager.getConnection("jdbc:mysql://servicio2020.caafufvdj2xl.us-west-2.rds.amazonaws.com/servicio2020", "servicio2020", "servicio2020")) {
-                try (PreparedStatement ps = con.prepareStatement("SELECT * FROM Usuario WHERE usuario=? AND password=?;")) {
+                try (PreparedStatement ps = con.prepareStatement(sql)) {
                     ps.setString(1,usuario);
                     ps.setString(2,password);
                     ResultSet rs = ps.executeQuery();
