@@ -65,10 +65,14 @@ public class AltaNino extends HttpServlet {
                     while (rs.next()) {
                         st = true;
                         session.setAttribute("nombre", session.getAttribute("nombre"));
+                        session.setAttribute("id", session.getAttribute("id"));
                     }
+                } finally {
+                    con.close();
                 }
                 if (st) {
                     request.setAttribute("res", session.getAttribute("nombre") + " registrado exitosamente!");
+                    request.setAttribute("matricula", session.getAttribute("id"));
                     RequestDispatcher rd = getServletContext().getRequestDispatcher("/altaInscripcion.jsp");
                     rd.include(request,response);
                 } else {

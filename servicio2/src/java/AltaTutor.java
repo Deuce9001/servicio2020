@@ -60,10 +60,14 @@ public class AltaTutor extends HttpServlet {
                     while (rs.next()) {
                         st = true;
                         session.setAttribute("nombre", session.getAttribute("nombre"));
+                        session.setAttribute("id", session.getAttribute("id"));
                     }
+                } finally {
+                    con.close();
                 }
                 if (st) {
                     session.setAttribute("res", session.getAttribute("nombre") + " registrado exitosamente!");
+                    session.setAttribute("matricula", session.getAttribute("id"));
                     RequestDispatcher rd = getServletContext().getRequestDispatcher("/ninos.jsp");
                     rd.include(request, response);
                 } else {
@@ -75,7 +79,5 @@ public class AltaTutor extends HttpServlet {
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(AltaTutor.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
-
 }

@@ -60,10 +60,12 @@ public class AltaPersonal extends HttpServlet {
                     while (rs.next()) {
                         st = true;
                         session.setAttribute("nombre", session.getAttribute("nombre"));
+                        session.setAttribute("id", session.getAttribute("id"));
                     }
                 }
                 if (st) {
                     session.setAttribute("res", session.getAttribute(nombre) + " agregado exitosamente");
+                    session.setAttribute("matricula", session.getAttribute("id"));
                     RequestDispatcher rd = getServletContext().getRequestDispatcher("/personal.jsp");
                     rd.include(request, response);
                 } else {

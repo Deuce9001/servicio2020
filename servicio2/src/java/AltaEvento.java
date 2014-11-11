@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -30,42 +31,51 @@ public class AltaEvento extends HttpServlet {
             throws ServletException, IOException {
         
         HttpSession session = request.getSession();
-        int id = Integer.parseInt(request.getParameter("id"));
-        String dias = request.getParameter("dias");
-        int horaE = Integer.parseInt(request.getParameter("hora_entrada"));
-        int minutoE = Integer.parseInt(request.getParameter("minuto_entrada"));
-        String meridianoE = request.getParameter("meridiano_entrada");
-        if (meridianoE.equals("pm")) {
-            horaE = horaE + 12;
+        String nombre = request.getParameter("nombre");
+        String descripcion = request.getParameter("descripcion");
+        String lugar = request.getParameter("lugar");
+        int dia = Integer.parseInt(request.getParameter("dia"));
+        int mes = Integer.parseInt(request.getParameter("mes"));
+        int ano = Integer.parseInt(request.getParameter("ano"));
+        Date fecha = new Date(ano, mes, dia);
+        int horaI = Integer.parseInt(request.getParameter("horaI"));
+        int minI = Integer.parseInt(request.getParameter("minI"));
+        String meridianoI = request.getParameter("meridianoI");
+        if (meridianoI.equals("pm")) {
+            horaI = horaI + 12;
         } else {
         }
-        Time h_ent = new Time(horaE, minutoE, 00);
-        int horaS = Integer.parseInt(request.getParameter("hora_salida"));
-        int minutoS = Integer.parseInt(request.getParameter("minuto_salida"));
-        String meridianoS = request.getParameter("meridiano_entrada");
-        if (meridianoS.equals("pm")) {
-            horaS = horaS + 12;
+        Time h_inicio = new Time(horaI, minI, 00);
+        int horaF = Integer.parseInt(request.getParameter("horaF"));
+        int minF = Integer.parseInt(request.getParameter("minF"));
+        String meridianoF = request.getParameter("meridianoF");
+        if (meridianoF.equals("pm")) {
+            horaF = horaF + 12;
         } else {
         }
-        Time h_sal = new Time(horaS, minutoS, 00);
-        int id_nino = Integer.parseInt(request.getParameter("id_nino"));
+        Time h_fin = new Time(horaF, minF, 00);
+        String sql = "INSERT INTO Evento (nombre,descripcion,lugar,fecha,h_inicio,h_fin) VALUES (?,?,?,?,?);";
         boolean st = false;
         try {
             Class.forName("con.mysql.jdbc.Driver");
             try (Connection con = DriverManager.getConnection("jdbc:mysql://servicio2020.caafufvdj2xl.us-west-2.rds.amazonaws.com/servicio2020", "servicio2020", "servicio2020")) {
-                try (PreparedStatement ps = con.prepareStatement("INSERT INTO Horario VALUES (?,?,?,?,?)")) {
-                    ps.setInt(1, id);
-                    ps.setString(2, dias);
-                    ps.setTime(3, h_ent);
-                    ps.setTime(4, h_sal);
-                    ps.setInt(5, id_nino);
+                try (PreparedStatement ps = con.prepareStatement(sql)) {
+                    ps.setString(1, nombre);
+                    ps.setString(2, descripcion);
+                    ps.setString(3, lugar);
+                    ps.setTime(4, h_inicio);
+                    ps.setTime(5, h_fin);
                     ResultSet rs = ps.executeQuery();
                     while (rs.next()) {
                         st = true;
+                        session.setAttribute("id", session.getAttribute("id"));
                     }
+                } finally {
+                    con.close();
                 }
                 if (st) {
                     session.setAttribute("res", "El registro del horario fue exitoso!");
+                    session.setAttribute("matricula", session.getAttribute("id"));
                     RequestDispatcher rd = getServletContext().getRequestDispatcher("/altaHistoriaClinica.jsp");
                     rd.include(request, response);
                 } else {
