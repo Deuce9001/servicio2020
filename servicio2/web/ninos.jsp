@@ -368,8 +368,8 @@
                   &nbsp;
                   &nbsp;
                   &nbsp;
-                    <input id="disabledInput" type="text" placeholder="Matricula" disabled="">
-                  &nbsp;
+                    <input id="disabledInput" type="text" placeholder="Matricula" disabled="" required="required" name="id" />
+                  &nbsp; 
                   &nbsp;
                   &nbsp;
                   &nbsp;
