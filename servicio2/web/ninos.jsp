@@ -117,6 +117,9 @@ ShowContent(d);
           <a class="btn btn-primary btn-lg" href="javascript:HideAllShowOne('darDeAlta')" >Dar de Alta »</a>
           <a class="btn btn-primary btn-lg" href="javascript:HideAllShowOne('darDeBaja')" >Dar de Baja »</a>
           <a class="btn btn-primary btn-lg" href="javascript:HideAllShowOne('modificar')" >Modificar »</a>
+          <a class="btn btn-primary btn-lg" href="javascript:HideAllShowOne('modificar')" >Horario »</a>
+          <a class="btn btn-primary btn-lg" href="javascript:HideAllShowOne('modificar')" >Historial Clinico »</a>
+          
         </p>
       </div>
     </div>
