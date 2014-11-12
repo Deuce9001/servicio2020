@@ -430,7 +430,6 @@
                                     <div class="form-horizontal">
                       
       <div class="col-lg-10 col-lg-offset-2">
-        <button class="btn btn-default">Cancelar</button>
         <button type="guardar" class="btn btn-primary">Guardar</button>
         <a href="inicio.jsp" class="btn btn-info">Volver</a>
       </div>
