@@ -107,9 +107,9 @@ ShowContent(d);
           ${requestScope.res}General
         </h1>
         <p>
-          <a class="btn btn-primary btn-lg" href="javascript:HideAllShowOne('llegada')" >Llegadas »</a>
-          <a class="btn btn-primary btn-lg" href="javascript:HideAllShowOne('salida')" >Salidas »</a>
-          <a class="btn btn-primary btn-lg" href="javascript:HideAllShowOne('informacionGeneral')" >Informacion General »</a>
+          <a class="btn btn-primary btn-lg" href="llegadas.jsp" >Llegadas »</a>
+          <a class="btn btn-primary btn-lg" href="salidas.jsp" >Salidas »</a>
+          <a class="btn btn-primary btn-lg" href="informacionGeneral.jsp" >Informacion General »</a>
                    
 
         </p>
@@ -177,153 +177,7 @@ ShowContent(d);
                 </tbody>
               </table> 
             </div>
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp; 
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp; 
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp; 
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp; 
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;  
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;  
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;  
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;  
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;  
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;
-                  &nbsp;  
+                   
                                 
                                    
                                    
@@ -640,71 +494,10 @@ ShowContent(d);
                 </div>
                      <br>
                  
-                  
-                                        
-            &nbsp;
-                                        &nbsp;
-                                        &nbsp;
-                                               &nbsp;
-                                        &nbsp;
-                                        &nbsp;
-                                               &nbsp;
-                                        &nbsp;
-                                        &nbsp;
-                                               &nbsp;
-                                        &nbsp;
-                                        &nbsp;
-                                               &nbsp;
-                                        &nbsp;
-                                        &nbsp;
-             &nbsp;
-                                        &nbsp;
-                                        &nbsp;
-                                               &nbsp;
-                                        &nbsp;
-                                        &nbsp;
-                                               &nbsp;
-                                        &nbsp;
-                                        &nbsp;
-                                               &nbsp;
-                                        &nbsp;
-                                        &nbsp;
-                                               &nbsp;
-                                        &nbsp;
-                                        &nbsp;
-            &nbsp;
-                                        &nbsp;
-                                        &nbsp;
-                                               &nbsp;
-                                        &nbsp;
-                                        &nbsp;
-                                               &nbsp;
-                                        &nbsp;
-                                        &nbsp;
-                                               &nbsp;
-                                        &nbsp;
-                                        &nbsp;
-                                               &nbsp;
-                                        &nbsp;
-                                        &nbsp;
-            &nbsp;
-                                        &nbsp;
-                                        &nbsp;
-                                               &nbsp;
-                                        &nbsp;
-                                        &nbsp;
-                                               &nbsp;
-                                        &nbsp;
-                                        &nbsp;
-                                               &nbsp;
-                                        &nbsp;
-                                        &nbsp;
-                                               &nbsp;
-                                        &nbsp;
-                                        &nbsp;                                        
+                                                         
 
          
-            <a href="javascript:HideAllShowOne('informacionGeneral')" class="btn btn-success">Aceptar</a>
+            <a href="javascript:HideAllShowOne('informacionGeneral')" class="btn btn-info">Volver</a>
 
                    
                       
