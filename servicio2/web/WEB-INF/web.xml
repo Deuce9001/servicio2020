@@ -33,6 +33,10 @@
         <servlet-name>AltaEvento</servlet-name>
         <servlet-class>AltaEvento</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ModificaNino</servlet-name>
+        <servlet-class>ModificaNino</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -64,6 +68,10 @@
     <servlet-mapping>
         <servlet-name>AltaEvento</servlet-name>
         <url-pattern>/AltaEvento</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ModificaNino</servlet-name>
+        <url-pattern>/ModificaNino</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
