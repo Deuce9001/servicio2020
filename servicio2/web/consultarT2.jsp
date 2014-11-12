@@ -360,10 +360,9 @@
                   
                                     <div class="form-horizontal">
                       
-      <div class="col-lg-10 col-lg-offset-2">
-        <button type="guardar" class="btn btn-primary">Guardar Cambios</button>
-        <a href="inicio.jsp" class="btn btn-info">Volver</a>
-      </div>
+              <a href="inicio.jsp" class="btn btn-info">Volver</a>
+
+      
                              
                       
                   </div>              
