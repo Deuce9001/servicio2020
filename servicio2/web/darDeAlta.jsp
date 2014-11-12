@@ -126,17 +126,17 @@
                     </div>
                     <br>
                 <div class="form-horizontal"
-                         <h2>Fecha de Inscripcion:</h2>
+                         <h2>Fecha de Nacimiento: </h2>
 		<span>
-			<input id="element_3_1" name="element_3_1" class="element text" size="2" maxlength="2" value="" type="text"> /
+			<input id="element_3_1" name="mes" class="element text" size="2" maxlength="2" value="" type="text"> /
 			<label for="element_3_1">MM</label>
 		</span>
 		<span>
-			<input id="element_3_2" name="element_3_2" class="element text" size="2" maxlength="2" value="" type="text"> /
+			<input id="element_3_2" name="dia" class="element text" size="2" maxlength="2" value="" type="text"> /
 			<label for="element_3_2">DD</label>
 		</span>
 		<span>
-	 		<input id="element_3_3" name="element_3_3" class="element text" size="4" maxlength="4" value="" type="text">
+	 		<input id="element_3_3" name="ano" class="element text" size="4" maxlength="4" value="" type="text">
 			<label for="element_3_3">YYYY</label>
 		</span>
 	
@@ -162,12 +162,12 @@
                         <h2></h2>Sexo:
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox"> Masculino
+                          <input type="checkbox" name="sexo" value="Masculino"> Masculino
                         </label>                          
                       </div>                
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox"> Femenino
+                          <input type="checkbox" name="sexo" value="Femenino"> Femenino
                         </label>                          
                       </div> 
                     </div>
@@ -177,7 +177,7 @@
                     
                         <h2></h2>Telefono:
                         &nbsp;
-			<input id="telefono" name= "Telefono" class="element text" maxlength="8" size="10" value=""/>
+			<input id="telefono" name= "tel" class="element text" maxlength="8" size="10" value=""/>
                         
                     </div>
                          
@@ -190,7 +190,7 @@
                        <div class="form-group">
                          <label for="textArea" class="col-lg-2 control-label">Direccion:</label>
                             <div class="col-lg-10">
-                       <textarea class="form-control" rows="3" id="textArea"></textarea>
+                       <input type="text" class="form-control" rows="3" id="textArea"/>
                         </div>
                        </div>  
                         </div>   
@@ -201,7 +201,7 @@
                        <div class="form-group">
                          <label for="textArea" class="col-lg-2 control-label">Alergias:</label>
                             <div class="col-lg-10">
-                       <textarea class="form-control" rows="3" id="textArea"></textarea>
+                       <input type="text" class="form-control" rows="3" id="textArea" />
                         </div>
                        </div>  
                         </div>                    
@@ -212,18 +212,18 @@
                          <label class="col-lg-2 control-label">Programa:</label>
                          
                     <div class="col-lg-10">
-                     <select class="form-control" id="select">
+                     <select name="grado_escolar" class="form-control" id="select">
                          
                          
-                            <option>1ro Maternal</option>
-                            <option>2do Maternal</option>
-                            <option>3ro Maternal</option>   
+                            <option value="1ro Maternal">1ro Maternal</option>
+                            <option value="2do Maternal">2do Maternal</option>
+                            <option value="3ro Maternal">3ro Maternal</option>   
                             
-                            <option>1ro Preescolar</option>                            
+                            <option value="1ro Preescolar">1ro Preescolar</option>                            
                             
-                            <option>1ro Primaria</option>
-                            <option>2do Primaria</option>
-                            <option>3ro Primaria</option>
+                            <option value="1ro Primaria">1ro Primaria</option>
+                            <option value="2do Primaria">2do Primaria</option>
+                            <option value="3ro Primaria">3ro Primaria</option>
                             <option>4to Primaria</option>
                             <option>5to Primaria</option>
                             <option>6to Primaria</option>
@@ -241,7 +241,7 @@
                     
                 <div class="form-horizontal">
 
-		<label class="description" for="element_2">Hola de Salida: </label>
+		<label class="description" for="element_2">Hora de Entrada: </label>
 		<span>
 			<input id="element_2_1" name="element_2_1" class="element text " size="2" type="text" maxlength="2" value=""/> : 
 			<label>HH</label>
@@ -271,7 +271,7 @@
                     
                     <div class="form-horizontal">
 
-		<label class="description" for="element_2">Hola de Salida: </label>
+		<label class="description" for="element_2">Hora de Salida: </label>
 		<span>
 			<input id="element_2_1" name="element_2_1" class="element text " size="2" type="text" maxlength="2" value=""/> : 
 			<label>HH</label>
