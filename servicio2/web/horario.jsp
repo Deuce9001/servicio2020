@@ -118,8 +118,8 @@ ShowContent(d);
           <a class="btn btn-primary btn-lg" href="darDeAlta.jsp" >Dar de Alta »</a>
           <a class="btn btn-primary btn-lg" href="darDeBaja.jsp" >Dar de Baja »</a>
           <a class="btn btn-primary btn-lg" href="modificar.jsp" >Modificar »</a>
-          <a class="btn btn-primary btn-lg" href="modificar.jsp" >Horario »</a>
-          <a class="btn btn-primary btn-lg" href="modificar.jsp" >Historial Clinico »</a>
+          <a class="btn btn-primary btn-lg" href="horario.jsp" >Horario »</a>
+          <a class="btn btn-primary btn-lg" href="historialClinico.jsp" >Historial Clinico »</a>
 
         </p>
       </div>
@@ -136,7 +136,7 @@ ShowContent(d);
 
             <div class="col-lg-12" id="horario"  >
             <div class="page-header">
-                <h1 id="tables">Informacion General</h1>
+                <h1 id="tables">Horario de Alumnos</h1>
             </div>
 
             <div class="bs-component">
