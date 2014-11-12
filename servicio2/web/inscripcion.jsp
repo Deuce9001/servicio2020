@@ -45,7 +45,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Todos Unidos Ayudando A.C.</a>
+          <a class="navbar-brand" href="#">Todos Ayudando Unidos A.C.</a>
         </div>
           
           <div class="navbar-collapse collapse" id="navbar-main">
@@ -240,7 +240,7 @@
                   <div class="form-horizontal">
                       
       <div class="col-lg-10 col-lg-offset-2">
-        <button type="guardar" class="btn btn-primary">Guardar</button>
+        <input type="submit" name="submit" value="Guardar" class="btn btn-primary"></button>
         <a href="inicio.jsp" class="btn btn-info">Volver</a>
       </div>
                              

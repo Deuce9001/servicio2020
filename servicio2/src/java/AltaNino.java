@@ -33,7 +33,6 @@ public class AltaNino extends HttpServlet {
             throws ServletException, IOException {
 
         HttpSession session = request.getSession();
-        int id = Integer.parseInt(request.getParameter("id"));
         String nombre = request.getParameter("nombre");
         String apellidos = request.getParameter("apellidos");
         String nombreCompleto = nombre + " " + apellidos;
@@ -75,11 +74,11 @@ public class AltaNino extends HttpServlet {
                 if (st) {
                     request.setAttribute("res", session.getAttribute("nombre") + " registrado exitosamente!");
                     request.setAttribute("matricula", session.getAttribute("id"));
-                    RequestDispatcher rd = getServletContext().getRequestDispatcher("/altaInscripcion.jsp");
+                    RequestDispatcher rd = getServletContext().getRequestDispatcher("/inscripcion.jsp");
                     rd.include(request,response);
                 } else {
                     request.setAttribute("res", "Ingrese nuevamente los datos, ha habido un problema para realizar el registro");
-                    RequestDispatcher rd = getServletContext().getRequestDispatcher("/altaNinos.jsp"); //Pendiente formato de inscripcion.
+                    RequestDispatcher rd = getServletContext().getRequestDispatcher("/darDeAlta.jsp");
                     rd.include(request, response);
                 }
             }
