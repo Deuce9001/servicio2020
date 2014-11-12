@@ -270,7 +270,7 @@
                     
                 </div-->
                     
-                    <br>
+                    <!--br-->
                    
                     
                     <!--div class="form-horizontal">
@@ -299,7 +299,7 @@
 		                 
                     
                 </div-->
-                     <br>
+                     <!--br-->
                  
                   
                                     <div class="form-horizontal">
@@ -309,7 +309,7 @@
         <a href="inicio.jsp" class="btn btn-info">Volver</a>
       </div>
                              
-                      
+                                        <h1>${requestScope.res}</h1>   
                   </div>              
                     
                     
