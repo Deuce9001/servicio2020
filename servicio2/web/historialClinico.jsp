@@ -1,4 +1,10 @@
 <%-- 
+    Document   : listaDeNinos
+    Created on : Nov 11, 2014, 7:53:01 PM
+    Author     : Alejandra
+--%>
+
+<%-- 
     Document   : inicio
     Created on : Nov 8, 2014, 8:35:10 PM
     Author     : Alejandra
@@ -15,13 +21,20 @@
     <link rel="stylesheet" href="css/bootswatch.min.css">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <script type="text/javascript" src="js/view.js"></script>
+    <script type="text/javascript" src="js/calendar.js"></script>
     <title>
-        Ninos
+        Login
     </title>
 
   
 </head>
+
+
+
+
+
+
 
 <body >
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -83,9 +96,7 @@
       </div>
     </div>
         
-
-                  
-                  
-                  
+        
+        
     </body>
 </html>

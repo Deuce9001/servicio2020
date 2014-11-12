@@ -21,7 +21,8 @@
     <link rel="stylesheet" href="css/bootswatch.min.css">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <script type="text/javascript" src="js/view.js"></script>
+    <script type="text/javascript" src="js/calendar.js"></script>
     <title>
         Login
     </title>
@@ -31,6 +32,35 @@
 
 
 
+<script type="text/javascript" language="JavaScript"><!--
+function HideContent(d) {
+document.getElementById(d).style.display = "none";
+}
+function ShowContent(d) {
+document.getElementById(d).style.display = "block";
+}
+function ReverseDisplay(d) {
+if(document.getElementById(d).style.display == "none") { document.getElementById(d).style.display = "block"; }
+else { document.getElementById(d).style.display = "none"; }
+}
+//--></script>
+
+<script>
+function HideAllShowOne(d) {
+// Between the quotation marks, list the id values of each div.
+
+var IDvaluesOfEachDiv = "informacionGeneral informacionGeneral2";
+
+//-------------------------------------------------------------
+IDvaluesOfEachDiv = IDvaluesOfEachDiv.replace(/[,\s"']/g," ");
+IDvaluesOfEachDiv = IDvaluesOfEachDiv.replace(/^\s*/,"");
+IDvaluesOfEachDiv = IDvaluesOfEachDiv.replace(/\s*$/,"");
+IDvaluesOfEachDiv = IDvaluesOfEachDiv.replace(/  +/g," ");
+var IDlist = IDvaluesOfEachDiv.split(" ");
+for(var i=0; i<IDlist.length; i++) { HideContent(IDlist[i]); }
+ShowContent(d);
+}
+</script>
 
 
 
@@ -94,18 +124,19 @@
         </p>
       </div>
     </div>
-       
-              <!-- Lista de ninos
+        
+                      
+              <!-- horario
       ================================================== -->
         <div class="container">  
-        
+            <div name="informacionGeneral">
       <div class="bs-docs-section">
 
         <div class="row">
 
-          <div class="col-lg-12" id="listaDeNinos" >
+            <div class="col-lg-12" id="horario"  >
             <div class="page-header">
-                <h1 id="tables">Lista de Ni&ntildeos</h1>
+                <h1 id="tables">Informacion General</h1>
             </div>
 
             <div class="bs-component">
@@ -113,110 +144,39 @@
                 <thead>
                   <tr>
                     <th>#id</th>
-                    <th>Nombre</th>
-                    <th>Fecha de Nacimiento</th>
-                    <th>Sexo</th>
-                    <th>Direccion</th>
-                    <th>Telefono</th>
-                    <th>Grado Escolar</th>
-                    <th>Programa</th>
-                    <th>Foto</th>
-                    <th>Alergias</th>
+                    <th>Nombre</th> 
+                    <th>Matricula</th>
+                    
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>1</td>
+                    <td><a href="horario2.jsp" >Column content</a></td>
                     <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
+            
+                
                     
                   </tr>
                   <tr>
                     <td>2</td>
+                    <td><a href=href="horario2.jsp" >Column content</a></td>
                     <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
+               
                   </tr>
                   <tr class="info">
                     <td>3</td>
+                    <td><a href="horario2.jsp" >Column content</a></td>
                     <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
+                
                   </tr>
                   <tr class="success">
                     <td>4</td>
+                    <td><a href="horario2.jsp" >Column content</a></td>
                     <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
+               
                   </tr>
-                  <tr class="danger">
-                    <td>5</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                  </tr>
-                  <tr class="warning">
-                    <td>6</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                  </tr>
-                  <tr class="active">
-                    <td>7</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                  </tr>
+                  
                 </tbody>
               </table> 
             </div>
@@ -375,6 +335,9 @@
         </div>
       </div>        
       </div>
-      </div>
-                  </body>
+        </div>
+            
+
+-->        
+    </body>
 </html>
