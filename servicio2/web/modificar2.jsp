@@ -338,9 +338,10 @@
                         </div>                    
 
                         
+                                 
                     <div class="form-group">
                         
-                         <label class="col-lg-2 control-label">Programa:</label>
+                         <label class="col-lg-2 control-label">Escolaridad:</label>
                          
                     <div class="col-lg-10">
                      <select class="form-control" id="select">
@@ -369,6 +370,24 @@
                           <br>
                     </div>
                     </div>
+                    
+<div class="form-group">
+                        
+                         <label class="col-lg-2 control-label">Programa</label>
+                         
+                    <div class="col-lg-10">
+                     <select class="form-control" id="select">
+                         
+                         
+                            <option>Tiempo Completo</option>
+                            <option>Regularizacion</option>
+                            
+                                                         
+                            
+                          </select>
+                          <br>
+                    </div>
+                    </div> 
                     
                 <div class="form-horizontal">
 
