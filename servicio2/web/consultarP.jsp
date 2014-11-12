@@ -87,5 +87,61 @@
         </p>
       </div>
     </div>
-</body>
-</html>
+        
+
+              <!-- consultar
+      ================================================== -->
+        <div class="container">  
+      <div class="bs-docs-section">
+
+        <div class="row">
+
+            <div class="col-lg-12" id="modificarT"  >
+            <div class="page-header">
+                <h1 id="tables">Consultar Personal</h1>
+            </div>
+
+            <div class="bs-component">
+              <table class="table table-striped table-hover ">
+                <thead>
+                  <tr>
+                    <th>#id</th>
+                    <th>Personal</th> 
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td><a href="consultarP2.jsp" >Column content</a></td>
+            
+                
+                    
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td><a href="consultarP2.jsp" >Column content</a></td>
+               
+                  </tr>
+                  <tr class="info">
+                    <td>3</td>
+                    <td><a href="consultarP2.jsp" >Column content</a></td>
+                
+                  </tr>
+                  <tr class="success">
+                    <td>4</td>
+                    <td><a href="consultarP2.jsp" >Column content</a></td>
+               
+                  </tr>
+                  
+                </tbody>
+              </table> 
+            </div>
+                        
+                                   
+              <a href="inicio.jsp" class="btn btn-info">Volver</a>
+          </div>
+        </div>
+      </div>        
+      </div>
+        </div>  

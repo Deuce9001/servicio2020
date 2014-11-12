@@ -87,5 +87,78 @@
         </p>
       </div>
     </div>
-</body>
+        
+
+
+        <div class="container">
+      <!-- Dar de baja
+      ================================================== -->
+      <div id="inscripcion">
+      <div class="bs-docs-section">
+        <div class="row">
+            <div class="col-lg-12" id="darDeBaja" >
+            <div class="page-header">
+              <h1 id="forms">Dar de Baja</h1>
+            </div>
+          
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="well bs-component">
+              <form class="form-horizontal">
+                        
+                  <fieldset>
+                    
+                    <h3><legend>Dar de Baja a Personal</legend></h3>
+                  
+                    <div class="form-horizontal">
+                        
+                        
+    <div class="form-group">
+      <label for="select" class="col-lg-2 control-label">Alumno</label>
+      <div class="col-lg-10">
+        <select class="form-control" id="select">
+          <option>Personal1</option>
+          <option>Personal2</option>
+          <option>Personal3</option>
+          <option>Personal4</option>
+          <option>Personal5</option>
+        </select>
+        <br>
+      </div>
+    </div>
+                        
+                        
+    <div class="form-group">
+      <label for="textArea" class="col-lg-2 control-label">Razon de baja</label>
+      <div class="col-lg-10">
+        <textarea class="form-control" rows="3" id="textArea"></textarea>
+      </div>
+    </div>                        
+                        
+                                    
+                                    <div class="form-horizontal">
+                      
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="guardar" class="btn btn-primary">Guardar</button>
+        <a href="inicio.jsp" class="btn btn-info">Volver</a>
+      </div>
+                             
+                      
+                  </div>                  
+                        
+                    </div>
+                  </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+      </div>
+                
+      <!-- Termina
+      ================================================== -->          
+        
+    </body>
 </html>

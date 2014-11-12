@@ -137,37 +137,7 @@
 			<input id="element_1_2" name= "element_1_2" class="element text" maxlength="255" size="14" value=""/>
 		</span>
                     </div>
-                    <br>
-                <div class="form-horizontal"
-                         <h2>Fecha de Inscripcion:</h2>
-		<span>
-			<input id="element_3_1" name="element_3_1" class="element text" size="2" maxlength="2" value="" type="text"> /
-			<label for="element_3_1">MM</label>
-		</span>
-		<span>
-			<input id="element_3_2" name="element_3_2" class="element text" size="2" maxlength="2" value="" type="text"> /
-			<label for="element_3_2">DD</label>
-		</span>
-		<span>
-	 		<input id="element_3_3" name="element_3_3" class="element text" size="4" maxlength="4" value="" type="text">
-			<label for="element_3_3">YYYY</label>
-		</span>
-	
-		<span id="calendar_3">
-			<img id="cal_img_3" class="datepicker" src="images/calendar.gif" alt="Pick a date.">	
-		</span>
-		<script type="text/javascript">
-			Calendar.setup({
-			inputField	 : "element_3_3",
-			baseField    : "element_3",
-			displayArea  : "calendar_3",
-			button		 : "cal_img_3",
-			ifFormat	 : "%B %e, %Y",
-			onSelect	 : selectDate
-			});
-		</script>
-		 
-                    </div>
+                    
                     
                     <div class="form-horizontal">
                                       
