@@ -24,11 +24,18 @@
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
     >
     </script>
+  <center>
     <div class="jumbotron">
-      <img src="images/tau.jpg"
-      width="600">
+      <img src="images/2.png" width="400"  >
+      <br>
+      &nbsp;
+      &nbsp;
+      &nbsp;
       
+      <img src="images/1.png" width="300">
     </div>
+  </center>          
+
     <div class="row">
       <div class="col-md-4">
       </div>
