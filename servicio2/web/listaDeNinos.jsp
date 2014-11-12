@@ -1,4 +1,10 @@
 <%-- 
+    Document   : listaDeNinos
+    Created on : Nov 11, 2014, 7:53:01 PM
+    Author     : Alejandra
+--%>
+
+<%-- 
     Document   : inicio
     Created on : Nov 8, 2014, 8:35:10 PM
     Author     : Alejandra
@@ -17,11 +23,17 @@
     <meta name="author" content="">
 
     <title>
-        Ninos
+        Login
     </title>
 
   
 </head>
+
+
+
+
+
+
 
 <body >
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -80,22 +92,18 @@
         </p>
       </div>
     </div>
-        
-
-                        
-                        
-                  
-              <!-- Lista de llegadas
+       
+              <!-- Lista de ninos
       ================================================== -->
-            <div class="container">  
+        <div class="container">  
         
       <div class="bs-docs-section">
 
         <div class="row">
-          
-          <div class="col-lg-12" id="horario" >
+
+          <div class="col-lg-12" id="listaDeNinos" >
             <div class="page-header">
-                <h1 id="tables">Horario</h1>
+                <h1 id="tables">Lista de Ni&ntildeos</h1>
             </div>
 
             <div class="bs-component">
@@ -104,9 +112,14 @@
                   <tr>
                     <th>#id</th>
                     <th>Nombre</th>
-                    <th>Matricula</th>
-  
-                    
+                    <th>Fecha de Nacimiento</th>
+                    <th>Sexo</th>
+                    <th>Direccion</th>
+                    <th>Telefono</th>
+                    <th>Grado Escolar</th>
+                    <th>Programa</th>
+                    <th>Foto</th>
+                    <th>Alergias</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -114,32 +127,94 @@
                     <td>1</td>
                     <td>Column content</td>
                     <td>Column content</td>
-                  
-                
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
                     
                   </tr>
                   <tr>
                     <td>2</td>
                     <td>Column content</td>
                     <td>Column content</td>
-                
-               
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
                   </tr>
                   <tr class="info">
                     <td>3</td>
                     <td>Column content</td>
                     <td>Column content</td>
-                  
-                
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
                   </tr>
                   <tr class="success">
                     <td>4</td>
                     <td>Column content</td>
                     <td>Column content</td>
-                 
-               
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
                   </tr>
-                  
+                  <tr class="danger">
+                    <td>5</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                  </tr>
+                  <tr class="warning">
+                    <td>6</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                  </tr>
+                  <tr class="active">
+                    <td>7</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                  </tr>
                 </tbody>
               </table> 
             </div>
@@ -297,10 +372,7 @@
           </div>
         </div>
       </div>        
-      </div>                  
-                  
-                  
-                  
-                  
-    </body>
+      </div>
+      </div>
+                  </body>
 </html>

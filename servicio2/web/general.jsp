@@ -44,7 +44,7 @@ else { document.getElementById(d).style.display = "none"; }
 function HideAllShowOne(d) {
 // Between the quotation marks, list the id values of each div.
 
-var IDvaluesOfEachDiv = "llegada salida informacionGeneral informacionGeneral2 ";
+var IDvaluesOfEachDiv = "llegada salida informacionGeneral informacionGeneral2 horario";
 
 //-------------------------------------------------------------
 IDvaluesOfEachDiv = IDvaluesOfEachDiv.replace(/[,\s"']/g," ");
@@ -115,7 +115,9 @@ ShowContent(d);
           <a class="btn btn-primary btn-lg" href="javascript:HideAllShowOne('llegada')" >Llegadas »</a>
           <a class="btn btn-primary btn-lg" href="javascript:HideAllShowOne('salida')" >Salidas »</a>
           <a class="btn btn-primary btn-lg" href="javascript:HideAllShowOne('informacionGeneral')" >Informacion General »</a>
-          
+          <a class="btn btn-primary btn-lg" href="javascript:HideAllShowOne('horario')" >Horario »</a>
+          <a class="btn btn-primary btn-lg" href="javascript:HideAllShowOne('historialClinico')" >Historial Clinico »</a>
+                    
 
         </p>
       </div>
@@ -142,6 +144,7 @@ ShowContent(d);
                     <th>Nombre</th>
                     <th>Matricula</th>
                     <th>Hora</th>
+                    <th>Asistencia<th>
                     
                   </tr>
                 </thead>
@@ -151,6 +154,13 @@ ShowContent(d);
                     <td>Column content</td>
                     <td>Column content</td>
                     <td>Column content</td>
+                    <td>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" > 
+                        </label>                          
+                      </div>                        
+                    </td>
                 
                     
                   </tr>
@@ -159,6 +169,13 @@ ShowContent(d);
                     <td>Column content</td>
                     <td>Column content</td>
                     <td>Column content</td>
+                    <td>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" > 
+                        </label>                          
+                      </div>  
+                    </td>
                
                   </tr>
                   <tr class="info">
@@ -166,6 +183,13 @@ ShowContent(d);
                     <td>Column content</td>
                     <td>Column content</td>
                     <td>Column content</td>
+                    <td>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" > 
+                        </label>                          
+                      </div>   
+                    </td>
                 
                   </tr>
                   <tr class="success">
@@ -173,6 +197,13 @@ ShowContent(d);
                     <td>Column content</td>
                     <td>Column content</td>
                     <td>Column content</td>
+                    <td>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" > 
+                        </label>                          
+                      </div>  
+                    </td>
                
                   </tr>
                   
@@ -581,7 +612,6 @@ ShowContent(d);
                   <tr>
                     <th>#id</th>
                     <th>Nombre</th> 
-
                     <th>Matricula</th>
                     <th>Hora</th>
                     
@@ -593,6 +623,7 @@ ShowContent(d);
                     <td><a href="javascript:HideAllShowOne('informacionGeneral2')" >Column content</a></td>
                     <td>Column content</td>
                     <td>Column content</td>
+            
                 
                     
                   </tr>
