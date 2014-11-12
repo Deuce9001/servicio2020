@@ -30,12 +30,6 @@
   
 </head>
 
-
-
-
-
-
-
 <body >
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -45,7 +39,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Todos Unidos Ayudando A.C.</a>
+          <a class="navbar-brand" href="#">Todos Ayudando Unidos A.C.</a>
         </div>
           
           <div class="navbar-collapse collapse" id="navbar-main">
@@ -81,7 +75,7 @@
         <div class="jumbotron">
       <div class="container">
         <h1>
-          ${requestScope.res}Ni&ntildeos
+          ${requestScope.res}Ni&ntilde;os
         </h1>
         <p>
           <a class="btn btn-primary btn-lg" href="listaDeNinos.jsp" >Lista de Ninos »</a>
@@ -113,7 +107,7 @@
         <div class="row">
           <div class="col-lg-6">
             <div class="well bs-component">
-              <form class="form-horizontal">
+                <form class="form-horizontal" method="POST" action="AltaInscripcion">
                         
                   <fieldset>
                     
@@ -130,32 +124,31 @@
                   &nbsp;
                   &nbsp;
                   &nbsp;
-                    <input id="disabledInput" type="text" placeholder="Matricula" disabled="">
+                    <input type="text" name="id_nino">
                   &nbsp;
                   &nbsp;
                   &nbsp;
                   &nbsp;
                   &nbsp;
                   &nbsp;
-                    <a href="#" class="btn btn-primary btn-sm">Generar</a>
+                    <!--a href="#" class="btn btn-primary btn-sm">Generar</a-->
                     </div>
 
                   &nbsp;
                   &nbsp;
                   &nbsp;                    
-                    
                     <div class="form-horizontal"
                          <h2>Fecha de Inscripcion:</h2>
 		<span>
-			<input id="element_3_1" name="element_3_1" class="element text" size="2" maxlength="2" value="" type="text"> /
+			<input id="element_3_1" name="mes" class="element text" size="2" maxlength="2" type="text"> /
 			<label for="element_3_1">MM</label>
 		</span>
 		<span>
-			<input id="element_3_2" name="element_3_2" class="element text" size="2" maxlength="2" value="" type="text"> /
+			<input id="element_3_2" name="dia" class="element text" size="2" maxlength="2" type="text"> /
 			<label for="element_3_2">DD</label>
 		</span>
 		<span>
-	 		<input id="element_3_3" name="element_3_3" class="element text" size="4" maxlength="4" value="" type="text">
+	 		<input id="element_3_3" name="ano" class="element text" size="4" maxlength="4" type="text">
 			<label for="element_3_3">YYYY</label>
 		</span>
 	
@@ -186,43 +179,43 @@
 
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox"> Acta de Nacimiento
+                          <input type="checkbox" name="acta_nac" value="Entregada"> Acta de Nacimiento
                         </label>                          
                       </div>
                     
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox"> Cartilla de Vacunacion
+                          <input type="checkbox" name="cartilla" value="Entregada"> Cartilla de Vacunacion
                         </label>                          
                       </div>                 
                  
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox"> Aviso de Privacidad
+                          <input type="checkbox" name="aviso" value="Entregado"> Aviso de Privacidad
                         </label>                          
                       </div>      
                         
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox"> CURP
+                          <input type="checkbox" name="curp" value="Entregado"> CURP
                         </label>                          
                       </div>                        
                   
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox"> Reglamento
+                          <input type="checkbox" name="reglamento" value="Entregado"> Reglamento
                         </label>                          
                       </div>
                         
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox"> Expediente Médico
+                          <input type="checkbox" name="medico" value="entregado"> Expediente Médico
                         </label>                          
                       </div>
                         
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox"> Boleta de Calificaciones
+                          <input type="checkbox" name="boleta" value="Entregado"> Boleta de Calificaciones
                         </label>                          
                       </div>                        
                         
@@ -240,10 +233,9 @@
                   <div class="form-horizontal">
                       
       <div class="col-lg-10 col-lg-offset-2">
-        <button type="guardar" class="btn btn-primary">Guardar</button>
+        <input type="submit" class="btn btn-primary" name="submit" value="Guardar">
         <a href="inicio.jsp" class="btn btn-info">Volver</a>
       </div>
-                             
                       
                   </div>
                                 

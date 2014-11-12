@@ -30,9 +30,12 @@ public class AltaInscripcion extends HttpServlet {
             throws ServletException, IOException {
         
         HttpSession session = request.getSession();
-        int dia = Integer.parseInt(request.getParameter("dia"));
-        int mes = Integer.parseInt(request.getParameter("mes"));
-        int ano = Integer.parseInt(request.getParameter("ano"));
+        String d = request.getParameter("dia");
+        String m = request.getParameter("mes");
+        String a = request.getParameter("ano");
+        int dia = Integer.parseInt(d);
+        int mes = Integer.parseInt(m);
+        int ano = Integer.parseInt(a);
         Date fecha_ins = new Date(ano,mes,dia);
         String acta_nac = request.getParameter("acta_nac");
         String cartilla_vac = request.getParameter("cartilla");
@@ -41,7 +44,8 @@ public class AltaInscripcion extends HttpServlet {
         String reglamento = request.getParameter("reglamento");
         String ex_med = request.getParameter("medico");
         String boleta = request.getParameter("boleta");
-        int id_nino = Integer.parseInt(request.getParameter("id_nino"));
+        String id = request.getParameter("id_nino");
+        int id_nino = Integer.parseInt(id);
         String sql = "INSERT INTO Inscripcion (id_nino,fecha_insc,acta_nac,cartilla_vac,curp,av_privacidad,reglamento,ex_med,boleta_calif) VALUES (?,?,?,?,?,?,?,?,?);";
         boolean st = false;
         try {
