@@ -83,7 +83,7 @@ public class AltaNino extends HttpServlet {
                 }
             }
         } catch (ClassNotFoundException | SQLException ex) {
-        Logger.getLogger(AltaNino.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AltaNino.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

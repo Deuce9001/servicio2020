@@ -6,7 +6,11 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,16 +33,13 @@ public class ModificaNino extends HttpServlet {
             throws ServletException, IOException {
         
         HttpSession session = request.getSession();
-        String nombreCompletoReq = request.getParameter("nombreCompleto");
-        int id = Integer.parseInt(request.getParameter("id"));
-        String seleccion = request.getParameter("seleccion");
         String nombre = request.getParameter("nombre");
-        String apellido = request.getParameter("apellido");
-        String nombreCompletoRes = nombre + apellido;
+        String apellidos = request.getParameter("apellidos");
+        String nombreCompleto = nombre + apellidos;
         int dia = Integer.parseInt(request.getParameter("dia"));
         int mes = Integer.parseInt(request.getParameter("mes"));
         int ano = Integer.parseInt(request.getParameter("ano"));
-        Date fecha_nac = new Date(ano,mes,dia);
+        Date fecha_nac = new Date(ano, mes, dia);
         String sexo = request.getParameter("sexo");
         String direccion = request.getParameter("direccion");
         int tel = Integer.parseInt(request.getParameter("tel"));
@@ -46,29 +47,41 @@ public class ModificaNino extends HttpServlet {
         String programa = request.getParameter("programa");
         InputStream foto = new ByteArrayInputStream(request.getParameter("foto").getBytes(StandardCharsets.UTF_8));
         String alergias = request.getParameter("alergias");
-        
-        String sqlNombre = "UPDATE Nino SET nombre=? WHERE id=?;";
-        String sqlApellido = "UPDATE Nino SET nombre=? WHERE id=?";
-        String sqlSexo = "UPDATE Nino SET sexo=? WHERE id=?";
-        String sqlFechaNac = "UPDATE Nino SET fecha_nac=? WHERE id=?";
-        String sqlDireccion = "UPDATE Nino SET direccion=? WHERE id=?";
-        String sqlTel = "UPDATE Nino SET tel=? WHERE id=?";
-        String sqlGradoEscolar = "UPDATE Nino SET grado_escolar=? WHERE id=?";
-        String sqlPrograma = "UPDATE Nino SET programa=? WHERE id=?";
-        String sqlFoto = "UPDATE Nino SET foto=? WHERE id=?";
-        String sqlAlergias = "UPDATE Nino SET alergias=? WHERE id=?";
+        int id = Integer.parseInt(request.getParameter("id"));
+        boolean st = false;
+        String sql = "UPDATE Nino SET nombre=?,fecha_nac=?,sexo=?,direccion=?,tel=?,grado_escolar=?,programa=?,foto=?,alergias=? WHERE id=?;";
         
         try {
             Class.forName("con.mysql,jdbc.Driver");
             try (Connection con = DriverManager.getConnection("jdbc:mysql://servicio2020.caafufvdj2xl.us-west-2.rds.amazonaws.com/servicio2020", "servicio2020", "servicio2020")) {
-                if (session.getAttribute("seleccion").equals("nombre")) {
-                    try (PreparedStatement ps = con.prepareStatement(sqlNombre)) {
-                        request.setAttribute("res", "Ingrese el nombre: ");
+                try(PreparedStatement ps = con.prepareStatement(sql)) {
+                    ps.setString(1,nombreCompleto);
+                    ps.setDate(2, fecha_nac);
+                    ps.setString(3, sexo);
+                    ps.setString(4, direccion);
+                    ps.setInt(5, tel);
+                    ps.setString(6, grado_escolar);
+                    ps.setString(7, programa);
+                    ps.setBlob(8, foto);
+                    ps.setString(9, alergias);
+                    ps.setInt(10, id);
+                    ResultSet rs = ps.executeQuery();
+                    while (rs.next()) {
+                        st = true;
                     }
+                }
+                if (st) {
+                    request.setAttribute("res", "El alumno " + session.getAttribute("nombre") + " ha sido modificado exitosamente.");
+                    RequestDispatcher rd = getServletContext().getRequestDispatcher("ninos.jsp");
+                    rd.include(request, response);
+                } else {
+                    request.setAttribute("res", "Lo sentimos, hubo un problema, ingrese los datos nuevamente");
+                    RequestDispatcher rd = getServletContext().getRequestDispatcher("modificar.jsp");
+                    rd.include(request, response);
                 } 
             } 
-        } catch (ClassNotFoundException |SQLException ex) {
-            
-        }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(ModificaNino.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }
 }
