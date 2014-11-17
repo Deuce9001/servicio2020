@@ -41,6 +41,14 @@
         <servlet-name>ModificaInscripcion</servlet-name>
         <servlet-class>ModificaInscripcion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ModificaHorario</servlet-name>
+        <servlet-class>ModificaHorario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ModificaHistoriaClinica</servlet-name>
+        <servlet-class>ModificaHistoriaClinica</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -80,6 +88,14 @@
     <servlet-mapping>
         <servlet-name>ModificaInscripcion</servlet-name>
         <url-pattern>/ModificaInscripcion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ModificaHorario</servlet-name>
+        <url-pattern>/ModificaHorario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ModificaHistoriaClinica</servlet-name>
+        <url-pattern>/ModificaHistoriaClinica</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
