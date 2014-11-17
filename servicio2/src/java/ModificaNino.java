@@ -50,7 +50,7 @@ public class ModificaNino extends HttpServlet {
         String alergias = request.getParameter("alergias");
         int id = Integer.parseInt(request.getParameter("id"));
         boolean st = false;
-        String sql = "UPDATE Nino SET nombre=?,fecha_nac=?,sexo=?,direccion=?,tel=?,grado_escolar=?,programa=?,foto=?,alergias=?,estado=? WHERE id=?;";
+        String sql = "UPDATE Nino SET nombre=?,fecha_nac=?,sexo=?,direccion=?,tel=?,grado_escolar=?,programa=?,foto=?,alergias=?,estado=? WHERE id LIKE ?;";
         
         try {
             Class.forName("con.mysql,jdbc.Driver");
