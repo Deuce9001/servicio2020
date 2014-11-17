@@ -45,11 +45,12 @@ public class ModificaNino extends HttpServlet {
         int tel = Integer.parseInt(request.getParameter("tel"));
         String grado_escolar = request.getParameter("grado_escolar");
         String programa = request.getParameter("programa");
+        String estado = request.getParameter("estado");
         InputStream foto = new ByteArrayInputStream(request.getParameter("foto").getBytes(StandardCharsets.UTF_8));
         String alergias = request.getParameter("alergias");
         int id = Integer.parseInt(request.getParameter("id"));
         boolean st = false;
-        String sql = "UPDATE Nino SET nombre=?,fecha_nac=?,sexo=?,direccion=?,tel=?,grado_escolar=?,programa=?,foto=?,alergias=? WHERE id=?;";
+        String sql = "UPDATE Nino SET nombre=?,fecha_nac=?,sexo=?,direccion=?,tel=?,grado_escolar=?,programa=?,foto=?,alergias=?,estado=? WHERE id=?;";
         
         try {
             Class.forName("con.mysql,jdbc.Driver");
@@ -64,7 +65,8 @@ public class ModificaNino extends HttpServlet {
                     ps.setString(7, programa);
                     ps.setBlob(8, foto);
                     ps.setString(9, alergias);
-                    ps.setInt(10, id);
+                    ps.setString(10, estado);
+                    ps.setInt(11, id);
                     ResultSet rs = ps.executeQuery();
                     while (rs.next()) {
                         st = true;

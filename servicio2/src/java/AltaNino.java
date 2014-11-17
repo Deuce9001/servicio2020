@@ -46,8 +46,9 @@ public class AltaNino extends HttpServlet {
         String programa = request.getParameter("programa");
         InputStream foto = new ByteArrayInputStream(request.getParameter("foto").getBytes(StandardCharsets.UTF_8));
         String alergias = request.getParameter("alergias");
+        String estado = "activo";
         boolean st = false;
-        String sql = "INSERT INTO Nino (nombre,fecha_nac,sexo,direccion,tel,grado_escolar,programa,foto,alergias) VALUES (?,?,?,?,?,?,?,?,?);";
+        String sql = "INSERT INTO Nino (nombre,fecha_nac,sexo,direccion,tel,grado_escolar,programa,foto,alergias,estado) VALUES (?,?,?,?,?,?,?,?,?,?);";
         Date fecha_nac = new Date(ano,mes,dia);
         try {
             Class.forName("con.mysql.jdbc.Driver");
@@ -62,6 +63,7 @@ public class AltaNino extends HttpServlet {
                     ps.setString(7, programa);
                     ps.setBlob(8, foto);
                     ps.setString(9, alergias);
+                    ps.setString(10, estado);
                     ResultSet rs = ps.executeQuery();
                     while (rs.next()) {
                         st = true;
