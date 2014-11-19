@@ -13,15 +13,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author David
- */
 public class Login extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        RequestDispatcher disp = getServletContext().getRequestDispatcher("/index.jsp");
+        disp.include(request, response);        
     }
 
     @Override
@@ -47,24 +46,23 @@ public class Login extends HttpServlet {
                         session.setAttribute("permiso", (rs.getString("permiso").toUpperCase()));
                         System.out.println("Query Exitosa" + usuario + password);
                     }
-                    if (st) {
-                        request.setAttribute("res", "Bienvenido " + session.getAttribute("usuario"));
-                        if (session.getAttribute("permiso").equals("ADMINISTRADOR")) {
-                            RequestDispatcher rd = getServletContext().getRequestDispatcher("ninos.jsp");
-                            rd.include(request, response);
-                        } else {
-
-                        }
-                    } else {
-                        request.setAttribute("res", "Usuario o contrase&ntilde;a incorrecto(s)");
-                        RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.jsp");
-                        rd.include(request, response);
-                    }                  
                 }
+                if (st) {
+                    request.setAttribute("res", "Bienvenido " + session.getAttribute("usuario"));
+                    if (session.getAttribute("permiso").equals("ADMINISTRADOR")) {
+                        RequestDispatcher rd = getServletContext().getRequestDispatcher("/ninos.jsp");
+                        rd.include(request, response);
+                    } else {
+
+                    }
+                } else {
+                    request.setAttribute("res", "Usuario o contrase&ntilde;a incorrecto(s)");
+                    RequestDispatcher rd = getServletContext().getRequestDispatcher("/ninos.jsp");
+                    rd.include(request, response);
+                }  
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         } 
-              
     }
 }
