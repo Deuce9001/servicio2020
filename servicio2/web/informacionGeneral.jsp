@@ -1,5 +1,5 @@
 <%-- 
-    Document   : inicio
+    Document   : informacionGeneral
     Created on : Nov 8, 2014, 8:35:10 PM
     Author     : Alejandra
 --%>
@@ -68,7 +68,7 @@ ShowContent(d);
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Todos Unidos Ayudando A.C.</a>
+          <a class="navbar-brand" href="#">Todos Ayudando Unidos A.C.</a>
         </div>
           
           <div class="navbar-collapse collapse" id="navbar-main">

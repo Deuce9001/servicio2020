@@ -1,6 +1,6 @@
 
 <%-- 
-    Document   : inicio
+    Document   : consultarP
     Created on : Nov 8, 2014, 8:35:10 PM
     Author     : Alejandra
 --%>
@@ -21,15 +21,7 @@
     <title>
         Login
     </title>
-
-  
 </head>
-
-
-
-
-
-
 
 <body >
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -40,7 +32,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Todos Unidos Ayudando A.C.</a>
+          <a class="navbar-brand" href="#">Todos Ayuando Unidos A.C.</a>
         </div>
           
           <div class="navbar-collapse collapse" id="navbar-main">
@@ -107,38 +99,28 @@
                   <tr>
                     <th>#id</th>
                     <th>Personal</th> 
-                    
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>1</td>
                     <td><a href="consultarP2.jsp" >Column content</a></td>
-            
-                
-                    
                   </tr>
                   <tr>
                     <td>2</td>
                     <td><a href="consultarP2.jsp" >Column content</a></td>
-               
                   </tr>
                   <tr class="info">
                     <td>3</td>
                     <td><a href="consultarP2.jsp" >Column content</a></td>
-                
                   </tr>
                   <tr class="success">
                     <td>4</td>
                     <td><a href="consultarP2.jsp" >Column content</a></td>
-               
                   </tr>
-                  
                 </tbody>
               </table> 
             </div>
-                        
-                                   
               <a href="inicio.jsp" class="btn btn-info">Volver</a>
           </div>
         </div>

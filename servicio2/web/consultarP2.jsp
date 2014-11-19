@@ -1,6 +1,6 @@
 
 <%-- 
-    Document   : inicio
+    Document   : consultarP2
     Created on : Nov 8, 2014, 8:35:10 PM
     Author     : Alejandra
 --%>
@@ -25,12 +25,6 @@
   
 </head>
 
-
-
-
-
-
-
 <body >
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -40,7 +34,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Todos Unidos Ayudando A.C.</a>
+          <a class="navbar-brand" href="#">Todos Ayudando Unidos A.C.</a>
         </div>
           
           <div class="navbar-collapse collapse" id="navbar-main">
