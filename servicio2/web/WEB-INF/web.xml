@@ -49,6 +49,10 @@
         <servlet-name>ModificaHistoriaClinica</servlet-name>
         <servlet-class>ModificaHistoriaClinica</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ModificaPersonal</servlet-name>
+        <servlet-class>ModificaPersonal</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -96,6 +100,10 @@
     <servlet-mapping>
         <servlet-name>ModificaHistoriaClinica</servlet-name>
         <url-pattern>/ModificaHistoriaClinica</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ModificaPersonal</servlet-name>
+        <url-pattern>/ModificaPersonal</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
