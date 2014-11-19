@@ -29,7 +29,7 @@ public class Login extends HttpServlet {
             throws ServletException, IOException {
         
         HttpSession session = request.getSession();
-        String usuario = request.getParameter("usuario");
+        String usuario = request.getParameter("username");
         String password = request.getParameter("password");
         String sql = "SELECT * FROM Usuario WHERE usuario=? AND password=?;";
         boolean st = false;
@@ -38,33 +38,33 @@ public class Login extends HttpServlet {
             Class.forName("con.mysql.jdbc.Driver");
             try (Connection con = DriverManager.getConnection("jdbc:mysql://servicio2020.caafufvdj2xl.us-west-2.rds.amazonaws.com/servicio2020", "servicio2020", "servicio2020")) {
                 try (PreparedStatement ps = con.prepareStatement(sql)) {
-                    ps.setString(1,usuario);
-                    ps.setString(2,password);
+                    ps.setString(1, usuario);
+                    ps.setString(2, password);
                     ResultSet rs = ps.executeQuery();
                     while (rs.next()) {
                         st = true;
                         session.setAttribute("usuario", rs.getString("usuario"));
                         session.setAttribute("permiso", (rs.getString("permiso").toUpperCase()));
+                        System.out.println("Query Exitosa" + usuario + password);
                     }
-                } finally {
-                    con.close();
+                    if (st) {
+                        request.setAttribute("res", "Bienvenido " + session.getAttribute("usuario"));
+                        if (session.getAttribute("permiso").equals("ADMINISTRADOR")) {
+                            RequestDispatcher rd = getServletContext().getRequestDispatcher("ninos.jsp");
+                            rd.include(request, response);
+                        } else {
+
+                        }
+                    } else {
+                        request.setAttribute("res", "Usuario o contrase&ntilde;a incorrecto(s)");
+                        RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.jsp");
+                        rd.include(request, response);
+                    }                  
                 }
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         } 
-        if (st) {
-            request.setAttribute("res", "Bienvenido " + session.getAttribute("usuario"));
-            if (session.getAttribute("permiso").equals("ADMINISTRADOR")) {
-                RequestDispatcher rd = getServletContext().getRequestDispatcher("/ninos.jsp");
-                rd.include(request, response);
-            } else {
-                
-            }
-        } else {
-            request.setAttribute("res", "Usuario o contrase&ntilde;a incorrecto(s)");
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.jsp");
-            rd.include(request, response);
-        }                
+              
     }
 }

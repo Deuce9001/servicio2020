@@ -53,9 +53,7 @@
             </label>
             <input type="password" class="form-control" placeholder="contrase&ntilde;a" name="password">
           </div>
-          <button type="submit" class="btn btn-lg btn-primary pull-right btn-block">
-            Entrar
-          </button>
+          <input type="submit" class="btn btn-lg btn-primary pull-right btn-block" value="Entrar" />
           <div class="row">
           </div>
         </form>
