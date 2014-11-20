@@ -53,6 +53,14 @@
         <servlet-name>ModificaPersonal</servlet-name>
         <servlet-class>ModificaPersonal</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BajaNino</servlet-name>
+        <servlet-class>BajaNino</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BajaPersonal</servlet-name>
+        <servlet-class>BajaPersonal</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -104,6 +112,14 @@
     <servlet-mapping>
         <servlet-name>ModificaPersonal</servlet-name>
         <url-pattern>/ModificaPersonal</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BajaNino</servlet-name>
+        <url-pattern>/BajaNino</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BajaPersonal</servlet-name>
+        <url-pattern>/BajaPersonal</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
