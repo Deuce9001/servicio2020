@@ -116,7 +116,7 @@
                  <h2></h2>Nombre(s):
                                 &nbsp;
 		<span>
-			<input id="element_1_1" name= "element_1_1" class="element text" maxlength="255" size="8" value=""/>
+			<input id="element_1_1" class="element text" maxlength="255" size="8" name="nombre"/>
                         &nbsp;
                         &nbsp;
                         <h2></h2>Apellidos:
@@ -124,22 +124,22 @@
 		</span>
                                
 		<span>
-			<input id="element_1_2" name= "element_1_2" class="element text" maxlength="255" size="14" value=""/>
+			<input id="element_1_2" name= "apellidos" class="element text" maxlength="255" size="14" value=""/>
 		</span>
                     </div>
                     <br>
                 <div class="form-horizontal"
                          <h2>Fecha de Nacimiento:</h2>
 		<span>
-			<input id="element_3_1" name="element_3_1" class="element text" size="2" maxlength="2" value="" type="text"> /
+			<input id="element_3_1" name="mes" class="element text" size="2" maxlength="2" value="" type="text"> /
 			<label for="element_3_1">MM</label>
 		</span>
 		<span>
-			<input id="element_3_2" name="element_3_2" class="element text" size="2" maxlength="2" value="" type="text"> /
+			<input id="element_3_2" name="dia" class="element text" size="2" maxlength="2" value="" type="text"> /
 			<label for="element_3_2">DD</label>
 		</span>
 		<span>
-	 		<input id="element_3_3" name="element_3_3" class="element text" size="4" maxlength="4" value="" type="text">
+	 		<input id="element_3_3" name="ano" class="element text" size="4" maxlength="4" value="" type="text">
 			<label for="element_3_3">YYYY</label>
 		</span>
 	
@@ -165,12 +165,12 @@
                         <h2></h2>Sexo:
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox"> Masculino
+                          <input type="checkbox" name="sexo" value="Masculino"> Masculino
                         </label>                          
                       </div>                
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox"> Femenino
+                          <input type="checkbox" name="sexo" value="Femenino"> Femenino
                         </label>                          
                       </div> 
                     </div>
@@ -354,7 +354,8 @@
                                     <div class="form-horizontal">
                       
       <div class="col-lg-10 col-lg-offset-2">
-        <button type="guardar" class="btn btn-primary">Guardar</button>
+        <input type="submit" class="btn btn-primary" value="Guardar" />
+        <a href="ninosRelacionados.jsp" class="btn btn-info">Siguiente: Tutor&iacute;a de Ni&ntilde;os</a>
         <a href="inicio.jsp" class="btn btn-info">Volver</a>
       </div>
                              

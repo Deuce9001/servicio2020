@@ -17,10 +17,7 @@ public class Login extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-        RequestDispatcher disp = getServletContext().getRequestDispatcher("/index.jsp");
-        disp.include(request, response);        
+            throws ServletException, IOException {   
     }
 
     @Override
@@ -44,7 +41,6 @@ public class Login extends HttpServlet {
                         st = true;
                         session.setAttribute("usuario", rs.getString("usuario"));
                         session.setAttribute("permiso", (rs.getString("permiso").toUpperCase()));
-                        System.out.println("Query Exitosa" + usuario + password);
                     }
                 }
                 if (st) {

@@ -70,11 +70,9 @@ public class AltaEvento extends HttpServlet {
                         st = true;
                         session.setAttribute("id", session.getAttribute("id"));
                     }
-                } finally {
-                    con.close();
                 }
                 if (st) {
-                    request.setAttribute("res", "El registro del horario fue exitoso!");
+                    request.setAttribute("res", "El registro del horario del alumno " + session.getAttribute("nombre") + " fue exitoso!");
                     request.setAttribute("matricula", session.getAttribute("id"));
                     RequestDispatcher rd = getServletContext().getRequestDispatcher("/altaHistoriaClinica.jsp");
                     rd.include(request, response);

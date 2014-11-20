@@ -17,10 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author David
- */
 public class AltaNino extends HttpServlet {
 
     @Override
@@ -70,11 +66,9 @@ public class AltaNino extends HttpServlet {
                         session.setAttribute("nombre", session.getAttribute("nombre"));
                         session.setAttribute("id", session.getAttribute("id"));
                     }
-                } finally {
-                    con.close();
                 }
                 if (st) {
-                    request.setAttribute("res", session.getAttribute("nombre") + " registrado exitosamente!");
+                    request.setAttribute("res", "El alumno " + session.getAttribute("nombre") + " con matricula " + session.getAttribute("id") + "registrado exitosamente!");
                     request.setAttribute("matricula", session.getAttribute("id"));
                     RequestDispatcher rd = getServletContext().getRequestDispatcher("/inscripcion.jsp");
                     rd.include(request,response);

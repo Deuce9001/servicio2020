@@ -30,6 +30,8 @@ public class AltaTutor extends HttpServlet {
         
         HttpSession session = request.getSession();
         String nombre = request.getParameter("nombre");
+        String apellidos = request.getParameter("apellidos");
+        String nombreCompleto = nombre + apellidos;
         String direccion = request.getParameter("direccion");
         int tel = Integer.parseInt(request.getParameter("tel"));
         int cel = Integer.parseInt(request.getParameter("cel"));
@@ -46,7 +48,7 @@ public class AltaTutor extends HttpServlet {
             Class.forName("con.mysql.jdbc.Driver");
             try (Connection con = DriverManager.getConnection("jdbc:mysql://servicio2020.caafufvdj2xl.us-west-2.rds.amazonaws.com/servicio2020", "servicio2020", "servicio2020")) {
                 try (PreparedStatement ps = con.prepareStatement(sql)) {
-                    ps.setString(1, nombre);
+                    ps.setString(1, nombreCompleto);
                     ps.setString(2, direccion);
                     ps.setInt(3, tel);
                     ps.setInt(4, cel);

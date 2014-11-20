@@ -22,7 +22,7 @@
     </title>
 </head>
 
-<body >
+<body>
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -95,7 +95,7 @@
         <div class="row">
           <div class="col-lg-6">
             <div class="well bs-component">
-              <form class="form-horizontal">
+                <form class="form-horizontal" method="POST" action="./AltaNino">
                 <fieldset>
                     <legend>Dar de Alta a un Alumno</legend>
                         
@@ -119,7 +119,7 @@
 		</span>
                     </div>
                     <br>
-                <div class="form-horizontal"
+                <div class="form-horizontal" 
                          <h2>Fecha de Nacimiento: </h2>
 		<span>
 			<input id="element_3_1" name="mes" class="element text" size="2" maxlength="2" value="" type="text"> /
@@ -184,7 +184,7 @@
                        <div class="form-group">
                          <label for="textArea" class="col-lg-2 control-label">Direccion:</label>
                             <div class="col-lg-10">
-                       <input type="text" class="form-control" rows="3" id="textArea"/>
+                       <input type="text" class="form-control" name="direccion" />
                         </div>
                        </div>  
                         </div>   
@@ -195,7 +195,7 @@
                        <div class="form-group">
                          <label for="textArea" class="col-lg-2 control-label">Alergias:</label>
                             <div class="col-lg-10">
-                       <input type="text" name="alergias" class="form-control" rows="3" id="textArea" />
+                       <input type="text" name="alergias" class="form-control" />
                         </div>
                        </div>  
                         </div>                    
@@ -233,7 +233,7 @@
                     </div>
                          <label class="col-lg-2 control-label">Foto:</label>
                          <div class="col-lg-10">
-                             <input type="file"name="foto"/>
+                             <input type="file" name="foto"/>
                          </div>
                     </div>
                     
@@ -296,18 +296,17 @@
                      <!--br-->
                  
                   
-                                    <div class="form-horizontal">
-                      
-      <div class="col-lg-10 col-lg-offset-2">
-        <button type="guardar" class="btn btn-primary">Guardar</button>
-        <a href="inicio.jsp" class="btn btn-info">Volver</a>
-      </div>
-                             
-                                        <h1>${requestScope.res}</h1>   
-                  </div>              
+                <div class="form-horizontal">
+                <div class="col-lg-10 col-lg-offset-2">
+                  <input type="submit" class="btn btn-primary" value="Guardar" />
+                  <a href="inscripcion.jsp" class="btn btn-info">Siguiente: Registro Inscripcion</a></button>
+                  <a href="inicio.jsp" class="btn btn-info">Volver</a>
+                </div>
+                </form>    
+                <h1>${requestScope.res}</h1>   
+                </div>              
                     
-                    
-                    
+                </div>
 
           </div>
         </div>
