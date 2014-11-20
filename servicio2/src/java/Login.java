@@ -53,7 +53,7 @@ public class Login extends HttpServlet {
                     }
                 } else {
                     request.setAttribute("res", "Usuario o contrase&ntilde;a incorrecto(s)");
-                    RequestDispatcher rd = getServletContext().getRequestDispatcher("/ninos.jsp");
+                    RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.jsp");
                     rd.include(request, response);
                 }  
             }

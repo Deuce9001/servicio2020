@@ -53,7 +53,7 @@
             </label>
             <input type="password" class="form-control" placeholder="contrase&ntilde;a" name="password">
           </div>
-          <input type="submit" class="btn btn-lg btn-primary pull-right btn-block" value="Entrar" />
+          <input type="submit" class="btn btn-lg btn-primary pull-right btn-block" name="submit" value="Entrar" />
           <div class="row">
           </div>
         </form>
