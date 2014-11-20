@@ -39,7 +39,8 @@ public class AltaTutor extends HttpServlet {
         String lugar_nac = request.getParameter("lugar-nac");
         String escolaridad = request.getParameter("escolaridad");
         String correo_e = request.getParameter("correo_e");
-        String sql = "INSERT INTO Tutor (nombre,direccion,tel,cel,otro_cel,prentesco,edo_civil,lugar_nac,escolaridad,correo_e) VALUES (?,?,?,?,?,?,?,?,?,?);";
+        String estatus = "activo";
+        String sql = "INSERT INTO Tutor (nombre, direccion, tel, cel, otro_cel, prentesco, edo_civil, lugar_nac, escolaridad, correo_e, estatus) VALUES (?,?,?,?,?,?,?,?,?,?.?);";
         boolean st = false;
         try {
             Class.forName("con.mysql.jdbc.Driver");
@@ -55,6 +56,7 @@ public class AltaTutor extends HttpServlet {
                     ps.setString(8, lugar_nac);
                     ps.setString(9, escolaridad);
                     ps.setString(10, correo_e);
+                    ps.setString(11, estatus);
                     ResultSet rs = ps.executeQuery();
                     while (rs.next()) {
                         st = true;
