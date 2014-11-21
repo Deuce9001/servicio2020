@@ -1,6 +1,5 @@
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,13 +29,8 @@ public class AltaInscripcion extends HttpServlet {
             throws ServletException, IOException {
         
         HttpSession session = request.getSession();
-        String d = request.getParameter("dia");
-        String m = request.getParameter("mes");
-        String a = request.getParameter("ano");
-        int dia = Integer.parseInt(d);
-        int mes = Integer.parseInt(m);
-        int ano = Integer.parseInt(a);
-        Date fecha_ins = new Date(ano,mes,dia);
+        java.util.Date utilDate = new java.util.Date();
+        java.sql.Date fecha_ins = new java.sql.Date(utilDate.getTime());
         String acta_nac = request.getParameter("acta_nac");
         String cartilla_vac = request.getParameter("cartilla");
         String curp = request.getParameter("curp");
@@ -71,11 +65,11 @@ public class AltaInscripcion extends HttpServlet {
                 // Imprime si la ejecución de la query fue correcta, en caso de serlo, devuelve un string "res" diciento que la operacion fue exitosa.
                 if (st) {
                     request.setAttribute("res", "El registro de la inscripci&oacute;n fue exitoso!");
-                    RequestDispatcher rd = getServletContext().getRequestDispatcher("/altaHorario.jsp");
+                    RequestDispatcher rd = getServletContext().getRequestDispatcher("/inscripcion.jsp");
                     rd.include(request, response);
                 } else {
                     request.setAttribute("res", "Lo sentimos, hubo un problema al realizar el registro, introduzca los datos nuevamente");
-                    RequestDispatcher rd = getServletContext().getRequestDispatcher("/altaInscripcion.jsp");
+                    RequestDispatcher rd = getServletContext().getRequestDispatcher("/inscripcion.jsp");
                 }
             }
         } catch (ClassNotFoundException | SQLException ex) {
