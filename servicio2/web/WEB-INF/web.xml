@@ -61,6 +61,14 @@
         <servlet-name>BajaPersonal</servlet-name>
         <servlet-class>BajaPersonal</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BajaTutor</servlet-name>
+        <servlet-class>BajaTutor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ModificaTutor</servlet-name>
+        <servlet-class>ModificaTutor</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -120,6 +128,14 @@
     <servlet-mapping>
         <servlet-name>BajaPersonal</servlet-name>
         <url-pattern>/BajaPersonal</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BajaTutor</servlet-name>
+        <url-pattern>/BajaTutor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ModificaTutor</servlet-name>
+        <url-pattern>/ModificaTutor</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
