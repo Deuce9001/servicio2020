@@ -13,10 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author David
- */
 public class AltaInscripcion extends HttpServlet {
 
     @Override
@@ -59,10 +55,7 @@ public class AltaInscripcion extends HttpServlet {
                     while (rs.next()) {
                         st = true;
                     }
-                } finally {
-                    con.close();
                 }
-                // Imprime si la ejecución de la query fue correcta, en caso de serlo, devuelve un string "res" diciento que la operacion fue exitosa.
                 if (st) {
                     request.setAttribute("res", "El registro de la inscripci&oacute;n fue exitoso!");
                     RequestDispatcher rd = getServletContext().getRequestDispatcher("/inscripcion.jsp");
