@@ -36,11 +36,13 @@ public class AltaInscripcion extends HttpServlet {
         String boleta = request.getParameter("boleta");
         String id = request.getParameter("id_nino");
         int id_nino = Integer.parseInt(id);
-        String sql = "INSERT INTO Inscripcion (id_nino,fecha_insc,acta_nac,cartilla_vac,curp,av_privacidad,reglamento,ex_med,boleta_calif) VALUES (?,?,?,?,?,?,?,?,?);";
+        String sql = "INSERT INTO Inscripcion (id_nino, fecha_insc, acta_nac, cartilla_vac, curp, av_privacidad, reglamento, ex_med, boleta_calif) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
         boolean st = false;
         try {
             Class.forName("con.mysql.jdbc.Driver");
-            try (Connection con = DriverManager.getConnection("jdbc:mysql://servicio2020.caafufvdj2xl.us-west-2.rds.amazonaws.com/servicio2020", "servicio2020", "servicio2020")) {
+            try (Connection con = DriverManager.getConnection("jdbc:mysql://servicio2020.caafufvdj2xl.us-west-2.rds.amazonaws.com/servicio2020", 
+                    "servicio2020", "servicio2020")) {
                 try (PreparedStatement ps = con.prepareStatement(sql)) {
                     ps.setInt(1, id_nino);
                     ps.setDate(2, fecha_ins);
