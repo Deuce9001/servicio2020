@@ -69,6 +69,14 @@
         <servlet-name>ModificaTutor</servlet-name>
         <servlet-class>ModificaTutor</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BuscaNino</servlet-name>
+        <servlet-class>BuscaNinoPorNombre</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BuscaNinoPorId</servlet-name>
+        <servlet-class>BuscaNinoPorId</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -136,6 +144,14 @@
     <servlet-mapping>
         <servlet-name>ModificaTutor</servlet-name>
         <url-pattern>/ModificaTutor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BuscaNino</servlet-name>
+        <url-pattern>/BuscaNino</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BuscaNinoPorId</servlet-name>
+        <url-pattern>/BuscaNinoPorId</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
