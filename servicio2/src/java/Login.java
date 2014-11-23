@@ -53,10 +53,10 @@ public class Login extends HttpServlet {
         if (st) {
             request.setAttribute("res", "Bienvenido " + session.getAttribute("usuario"));
             if (session.getAttribute("permiso").equals("ADMINISTRADOR")) {
-                RequestDispatcher rd = getServletContext().getRequestDispatcher("ninos");
+                RequestDispatcher rd = getServletContext().getRequestDispatcher("/ninos.jsp");
                 rd.include(request, response);
             } else {
-                RequestDispatcher rd = getServletContext().getRequestDispatcher("ninos");
+                RequestDispatcher rd = getServletContext().getRequestDispatcher("/ninos.jsp");
                 rd.include(request, response);
             }
         } else {
