@@ -45,7 +45,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Todos Ayudando Unidos A.C.</a>
+          <a class="navbar-brand" href="#">Todos Unidos Ayudando A.C.</a>
         </div>
           
           <div class="navbar-collapse collapse" id="navbar-main">
@@ -123,7 +123,7 @@
                         
                         
                         
-<!--                        <h2></h2>Matricula:       
+                        <h2></h2>Matricula:       
                   &nbsp;
                   &nbsp;
                   &nbsp;
@@ -142,7 +142,7 @@
 
                   &nbsp;
                   &nbsp;
-                  &nbsp;    -->                
+                  &nbsp;                    
                     
                     <div class="form-horizontal"
                          <h2>Fecha de Inscripcion:</h2>
@@ -240,8 +240,7 @@
                   <div class="form-horizontal">
                       
       <div class="col-lg-10 col-lg-offset-2">
-        <input type="submit" name="submit" value="Guardar" class="btn btn-primary" />
-        <a href="horario.jsp" class="btn btn-info">Siguiente: Registro Horario</a>
+        <button type="guardar" class="btn btn-primary">Guardar</button>
         <a href="inicio.jsp" class="btn btn-info">Volver</a>
       </div>
                              

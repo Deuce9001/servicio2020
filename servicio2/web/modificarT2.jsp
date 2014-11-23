@@ -1,5 +1,5 @@
 <%-- 
-    Document   : modificarT2
+    Document   : listaDeNinos
     Created on : Nov 11, 2014, 7:53:01 PM
     Author     : Alejandra
 --%>
@@ -45,7 +45,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Todos Ayudando Unidos A.C.</a>
+          <a class="navbar-brand" href="#">Todos Unidos Ayudando A.C.</a>
         </div>
           
           <div class="navbar-collapse collapse" id="navbar-main">
@@ -361,7 +361,7 @@
                                     <div class="form-horizontal">
                       
       <div class="col-lg-10 col-lg-offset-2">
-        <button type="guardar" class="btn btn-primary">Guardar Cambios</button>
+        <button type="guardar" class="btn btn-primary">Guardar</button>
         <a href="inicio.jsp" class="btn btn-info">Volver</a>
       </div>
                              

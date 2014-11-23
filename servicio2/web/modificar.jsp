@@ -1,5 +1,11 @@
 <%-- 
-    Document   : modificar
+    Document   : listaDeNinos
+    Created on : Nov 11, 2014, 7:53:01 PM
+    Author     : Alejandra
+--%>
+
+<%-- 
+    Document   : inicio
     Created on : Nov 8, 2014, 8:35:10 PM
     Author     : Alejandra
 --%>
@@ -39,7 +45,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Todos Ayudando Unidos A.C.</a>
+          <a class="navbar-brand" href="#">Todos Unidos Ayudando A.C.</a>
         </div>
           
           <div class="navbar-collapse collapse" id="navbar-main">
@@ -83,8 +89,8 @@
           <a class="btn btn-primary btn-lg" href="darDeAlta.jsp" >Dar de Alta »</a>
           <a class="btn btn-primary btn-lg" href="darDeBaja.jsp" >Dar de Baja »</a>
           <a class="btn btn-primary btn-lg" href="modificar.jsp" >Modificar »</a>
-          <a class="btn btn-primary btn-lg" href="modificar.jsp" >Horario »</a>
-          <a class="btn btn-primary btn-lg" href="modificar.jsp" >Historial Clinico »</a>
+          <a class="btn btn-primary btn-lg" href="horario.jsp" >Horario »</a>
+          <a class="btn btn-primary btn-lg" href="historialClinico.jsp" >Historial Clinico »</a>
 
         </p>
       </div>

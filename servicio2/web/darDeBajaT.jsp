@@ -1,6 +1,12 @@
 <%-- 
-    Document   : darDeBajaT
+    Document   : listaDeNinos
     Created on : Nov 11, 2014, 7:53:01 PM
+    Author     : Alejandra
+--%>
+
+<%-- 
+    Document   : inicio
+    Created on : Nov 8, 2014, 8:35:10 PM
     Author     : Alejandra
 --%>
 
@@ -39,7 +45,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Todos Ayudando Unidos A.C.</a>
+          <a class="navbar-brand" href="#">Todos Unidos Ayudando A.C.</a>
         </div>
           
           <div class="navbar-collapse collapse" id="navbar-main">
@@ -112,7 +118,7 @@
                         
                         
     <div class="form-group">
-      <label for="select" class="col-lg-2 control-label">Tutor</label>
+      <label for="select" class="col-lg-2 control-label">Alumno</label>
       <div class="col-lg-10">
         <select class="form-control" id="select">
           <option>Tutor1</option>

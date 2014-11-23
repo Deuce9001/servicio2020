@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -129,7 +130,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Todos Ayudando Unidos A.C.</a>
+          <a class="navbar-brand" href="#">Todos Unidos Ayudando A.C.</a>
         </div>
           
           <div class="navbar-collapse collapse" id="navbar-main">
@@ -173,8 +174,8 @@
           <a class="btn btn-primary btn-lg" href="darDeAlta.jsp" >Dar de Alta »</a>
           <a class="btn btn-primary btn-lg" href="darDeBaja.jsp" >Dar de Baja »</a>
           <a class="btn btn-primary btn-lg" href="modificar.jsp" >Modificar »</a>
-          <a class="btn btn-primary btn-lg" href="modificar.jsp" >Horario »</a>
-          <a class="btn btn-primary btn-lg" href="modificar.jsp" >Historial Clinico »</a>
+          <a class="btn btn-primary btn-lg" href="horario.jsp" >Horario »</a>
+          <a class="btn btn-primary btn-lg" href="historialClinico.jsp" >Historial Clinico »</a>
 
         </p>
       </div>
