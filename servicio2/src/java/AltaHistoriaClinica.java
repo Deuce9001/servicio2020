@@ -36,7 +36,7 @@ public class AltaHistoriaClinica extends HttpServlet {
         String medicamentos = request.getParameter("medicamentos");
         String tipo_sanguineo = request.getParameter("tipo_sanguineo");
         int id_nino = Integer.parseInt(request.getParameter("id_nino"));
-        String sql = "INSERT INTO HistoriaClinica (id_nino,enfermedades,peso,estatura,medicamentos,tipo_sanguineo) VALUES (?,?,?,?,?,?);";
+        String sql = "INSERT INTO HistoriaClinica (id_nino, enfermedades, peso, estatura, medicamentos, tipo_sanguineo) VALUES (?,?,?,?,?,?);";
         boolean st = false;
         try {
             Class.forName("con.mysql.jdbc.Driver");
