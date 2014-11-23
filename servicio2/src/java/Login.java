@@ -46,24 +46,23 @@ public class Login extends HttpServlet {
                         session.setAttribute("permiso", (rs.getString("permiso").toUpperCase()));
                     }
                 }
-                if (st) {
-                    request.setAttribute("res", "Bienvenido " + session.getAttribute("usuario"));
-                    if (session.getAttribute("permiso").equals("ADMINISTRADOR")) {
-                        RequestDispatcher rd = getServletContext().getRequestDispatcher("ninos");
-                        rd.include(request, response);
-                    } else {
-                        RequestDispatcher rd = getServletContext().getRequestDispatcher("ninos");
-                        rd.include(request, response);
-                    }
-                } else {
-                    request.setAttribute("res", "Usuario o contrase&ntilde;a incorrecto(s)");
-                    RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.jsp");
-                    rd.include(request, response);
-                }  
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         } 
-        
+        if (st) {
+            request.setAttribute("res", "Bienvenido " + session.getAttribute("usuario"));
+            if (session.getAttribute("permiso").equals("ADMINISTRADOR")) {
+                RequestDispatcher rd = getServletContext().getRequestDispatcher("ninos");
+                rd.include(request, response);
+            } else {
+                RequestDispatcher rd = getServletContext().getRequestDispatcher("ninos");
+                rd.include(request, response);
+            }
+        } else {
+            request.setAttribute("res", "Usuario o contrase&ntilde;a incorrecto(s)");
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.jsp");
+            rd.include(request, response);
+        } 
     }
 }
