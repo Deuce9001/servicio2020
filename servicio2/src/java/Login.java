@@ -69,13 +69,13 @@ public class Login extends HttpServlet {
     public static String verifyLogin(String username, String password, Connection con)
     throws SQLException
     {
-        PreparedStatement stat = con.prepareStatement("select * from Usuario where username=?;");
+        PreparedStatement stat = con.prepareStatement("select * from Usuario where usuario=?;"); //Era PreparedStatement stat = con.prepareStatement("select * from Usuario where username=?;")
         stat.setString(1, username);
         ResultSet res = stat.executeQuery();
         if (!res.next())
             return null;
         
-        if (res.getString("username").equals(username) == false)
+        if (res.getString("usuario").equals(username) == false)
             return null;
         
         int salt = res.getInt("salt");
