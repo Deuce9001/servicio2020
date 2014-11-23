@@ -29,10 +29,13 @@ public class Login extends HttpServlet {
         String password = request.getParameter("password");
         String sql = "SELECT * FROM Usuario WHERE usuario=? AND password=?;";
         boolean st = false;
+        String url = getServletContext().getInitParameter("url");
+        String user = getServletContext().getInitParameter("user");
+        String pass = getServletContext().getInitParameter("pass");
         
         try {
             Class.forName("con.mysql.jdbc.Driver");
-            try (Connection con = DriverManager.getConnection("jdbc:mysql://servicio2020.caafufvdj2xl.us-west-2.rds.amazonaws.com:3306/servicio2020", "servicio2020", "servicio2020")) {
+            try (Connection con = DriverManager.getConnection(url, user, pass)) {
                 try (PreparedStatement ps = con.prepareStatement(sql)) {
                     ps.setString(1, username);
                     ps.setString(2, password);
@@ -53,7 +56,8 @@ public class Login extends HttpServlet {
                 RequestDispatcher rd = getServletContext().getRequestDispatcher("/ninos.jsp");
                 rd.include(request, response);
             } else {
-
+                RequestDispatcher rd = getServletContext().getRequestDispatcher("/inicioP.jsp");
+                rd.include(request, response);
             }
         } else {
             request.setAttribute("res", "Usuario o contrase&ntilde;a incorrecto(s)");
