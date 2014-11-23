@@ -1,4 +1,6 @@
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -18,25 +20,103 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {   
+        RequestDispatcher disp = getServletContext().getRequestDispatcher("/Login.jsp");
+        disp.include(request, response);        
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        HttpSession session = request.getSession();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        String sql = "SELECT * FROM Usuario WHERE usuario=? AND password=?;";
-        boolean st = false;
+        HttpSession session = request.getSession();
+        
         String url = getServletContext().getInitParameter("url");
         String user = getServletContext().getInitParameter("user");
         String pass = getServletContext().getInitParameter("pass");
         
+        
+        
         try {
-            Class.forName("con.mysql.jdbc.Driver");
-            try (Connection con = DriverManager.getConnection(url, user, pass)) {
-                try (PreparedStatement ps = con.prepareStatement(sql)) {
+                java.sql.Driver d=new com.mysql.jdbc.Driver();  
+                try (Connection con = DriverManager.getConnection(url, user, pass)) {
+                String permiso = Login.verifyLogin(username, password, con);
+                String jspUrl = null;
+                
+                if (permiso == null){
+                    jspUrl = "Login";
+                }else{
+                    session.setAttribute("username", username);
+                    session.setAttribute("permiso", permiso);
+                    //tipos de permisos... falta ese codigo
+                }
+                response.sendRedirect(jspUrl);
+            }
+        }
+        
+        
+        
+        
+        
+        
+        
+        catch (SQLException ex){
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public static String verifyLogin(String username, String password, Connection con)
+    throws SQLException
+    {
+        PreparedStatement stat = con.prepareStatement("select * from Usuario where username=?;");
+        stat.setString(1, username);
+        ResultSet res = stat.executeQuery();
+        if (!res.next())
+            return null;
+        
+        if (res.getString("username").equals(username) == false)
+            return null;
+        
+        int salt = res.getInt("salt");
+        
+        if (res.getString("password").equals(SHA256(password + salt)) == false)
+            return null;
+        
+        return res.getString("permiso");
+    }
+    
+ 
+    public static String SHA256(String value)
+    {
+        try
+        {
+            StringBuilder hexString = new StringBuilder(64);
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] hash = md.digest((value).getBytes());
+
+            for (int i = 0; i < hash.length; i++)
+            {
+                if ((0xFF & hash[i]) < 0x10)
+                {
+                    hexString.append("0").append(Integer.toHexString((0xFF & hash[i])));
+                }
+                else
+                {
+                    hexString.append(Integer.toHexString(0xFF & hash[i]));
+                }
+            }
+            return hexString.toString();
+        }
+        catch(NoSuchAlgorithmException e)
+        {
+            throw new RuntimeException(e); //Never happens
+        }
+    }    
+    
+}
+                
+/*                try (PreparedStatement ps = con.prepareStatement(sql)) {
                     ps.setString(1, username);
                     ps.setString(2, password);
                     ResultSet rs = ps.executeQuery();
@@ -65,4 +145,4 @@ public class Login extends HttpServlet {
             rd.include(request, response);
         } 
     }
-}
+} */
