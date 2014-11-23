@@ -45,13 +45,13 @@
             <label>
               Usuario
             </label>
-            <input type="text" class="form-control" placeholder="usuario" name="username">
+            <input type="text" class="form-control" placeholder="username" id="username" name="username">
           </div>
           <div class="form-group">
             <label>
               Contrase&ntildea
             </label>
-            <input type="password" class="form-control" placeholder="contrase&ntilde;a" name="password">
+            <input type="password" class="form-control" placeholder="contrase&ntilde;a" id="password" name="password">
           </div>
             <button type="submit" class="btn btn-lg btn-primary pull-right btn-block">Entrar</button>
           <div class="row">

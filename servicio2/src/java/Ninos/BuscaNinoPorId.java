@@ -1,3 +1,5 @@
+package Ninos;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,7 +19,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author David
  */
-public class ModificaPersonal extends HttpServlet {
+public class BuscaNinoPorId extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -29,33 +31,32 @@ public class ModificaPersonal extends HttpServlet {
             throws ServletException, IOException {
         
         HttpSession session = request.getSession();
-        String opcion = request.getParameter("opcion");
-        String nombre = request.getParameter("");
-        String id = request.getParameter("id");
+        int id = Integer.parseInt(request.getParameter("id"));
         boolean st = false;
-        String sql = "SELECT nombre,id,direccion,telefono FROM Personal WHERE nombre LIKE ?;";
+        String sql = "SELECT * FROM Nino WHERE id LIKE ?;";
         try {
-            Class.forName("con.mysql.jdbc.Diver");
-            try (Connection con = DriverManager.getConnection("jdbc:mysql://servicio2020.caafufvdj2xl.us-west-2.rds.amazonaws.com/servicio2020", "servicio2020", "servicio2020")) {
+            Class.forName("con.mysql.jdbc.Driver");
+            try (Connection con = DriverManager.getConnection("jdbc:mysql://servicio2020.caafufvdj2xl.us-west-2.rds.amazonaws.com/servicio2020", 
+                    "servicio2020", "servicio2020")) {
                 try (PreparedStatement ps = con.prepareStatement(sql)) {
-                    ps.setString(1, nombre);
+                    ps.setInt(1, id);
                     ResultSet rs = ps.executeQuery();
                     while (rs.next()) {
                         st = true;
                     }
                 }
                 if (st) {
-                    request.setAttribute("res", "Ingrese el id del personal que desee modificar: ");
-                    RequestDispatcher rd = getServletContext().getRequestDispatcher("modificarP.jsp");
+                    request.setAttribute("res", "El alumno con la matr&iacute;cula " + session.getAttribute("id") + " es: ");
+                    RequestDispatcher rd = getServletContext().getRequestDispatcher("BuscaNinoPorId.jsp");
                     rd.include(request, response);
                 } else {
-                    request.setAttribute("res", "No se ha encontrado el nombre del personal que desea modificar, ingrese nuevamente el nombre");
-                    RequestDispatcher rd = getServletContext().getRequestDispatcher("modificarP.jsp");
+                    request.setAttribute("res", "Lo sentimos, hubo un error, introduzca un id v&aacute;lido por favor.");
+                    RequestDispatcher rd = getServletContext().getRequestDispatcher("BuscaNinoPorId.jsp");
                     rd.include(request, response);
-                } 
+                }
             }
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(ModificaPersonal.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BuscaNinoPorId.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

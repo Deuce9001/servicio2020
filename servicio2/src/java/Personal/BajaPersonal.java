@@ -1,3 +1,5 @@
+package Personal;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class BajaNino extends HttpServlet {
+public class BajaPersonal extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -28,8 +30,7 @@ public class BajaNino extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         String estado = "inactivo";
         boolean st = false;
-        String sql = "UPDATE TABLE Nino SET estado=? WHERE id=?;";
-        
+        String sql = "UPDATE Personal SET estado=? WHERE id=?;";
         try {
             Class.forName("con.mysql.jdbc.Driver");
             try (Connection con = DriverManager.getConnection("jdbc:mysql://servicio2020.caafufvdj2xl.us-west-2.rds.amazonaws.com/servicio2020", "servicio2020", "servicio2020")) {
@@ -42,7 +43,7 @@ public class BajaNino extends HttpServlet {
                     }
                 }
                 if (st) {
-                    request.setAttribute("res", "El ni&ntlde;o con la matr&iacute;cula " + session.getAttribute("id") + " ha sido dado de baja exitosamente.");
+                    request.setAttribute("res", "El personal con la matr&iacute;cula " + session.getAttribute("id") + " ha sido dado de baja exitosamente.");
                     RequestDispatcher rd = getServletContext().getRequestDispatcher("ninos.jsp");
                     rd.include(request, response);
                 } else {
@@ -52,7 +53,7 @@ public class BajaNino extends HttpServlet {
                 }
             }
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(BajaNino.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BajaPersonal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

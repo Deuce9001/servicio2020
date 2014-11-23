@@ -1,81 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <display-name>Todos Ayudando Unidos S.C.</display-name>
+    <context-param>
+        <param-name>url</param-name>
+    </context-param>
     <servlet>
         <servlet-name>Login</servlet-name>
         <servlet-class>Login</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AltaNino</servlet-name>
-        <servlet-class>AltaNino</servlet-class>
+        <servlet-class>Ninos.AltaNino</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AltaInscripcion</servlet-name>
-        <servlet-class>AltaInscripcion</servlet-class>
+        <servlet-class>Ninos.AltaInscripcion</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AltaHorario</servlet-name>
-        <servlet-class>AltaHorario</servlet-class>
+        <servlet-class>Ninos.AltaHorario</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AltaHistoriaClinica</servlet-name>
-        <servlet-class>AltaHistoriaClinica</servlet-class>
+        <servlet-class>Ninos.AltaHistoriaClinica</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AltaTutor</servlet-name>
-        <servlet-class>AltaTutor</servlet-class>
+        <servlet-class>Tutores.AltaTutor</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AltaPersonal</servlet-name>
-        <servlet-class>AltaPersonal</servlet-class>
+        <servlet-class>Personal.AltaPersonal</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AltaEvento</servlet-name>
-        <servlet-class>AltaEvento</servlet-class>
+        <servlet-class>Eventos.AltaEvento</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ModificaNino</servlet-name>
-        <servlet-class>ModificaNino</servlet-class>
+        <servlet-class>Ninos.ModificaNino</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ModificaInscripcion</servlet-name>
-        <servlet-class>ModificaInscripcion</servlet-class>
+        <servlet-class>Ninos.ModificaInscripcion</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ModificaHorario</servlet-name>
-        <servlet-class>ModificaHorario</servlet-class>
+        <servlet-class>Ninos.ModificaHorario</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ModificaHistoriaClinica</servlet-name>
-        <servlet-class>ModificaHistoriaClinica</servlet-class>
+        <servlet-class>Ninos.ModificaHistoriaClinica</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ModificaPersonal</servlet-name>
-        <servlet-class>ModificaPersonal</servlet-class>
+        <servlet-class>Personal.ModificaPersonal</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>BajaNino</servlet-name>
-        <servlet-class>BajaNino</servlet-class>
+        <servlet-class>Ninos.BajaNino</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>BajaPersonal</servlet-name>
-        <servlet-class>BajaPersonal</servlet-class>
+        <servlet-class>Personal.BajaPersonal</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>BajaTutor</servlet-name>
-        <servlet-class>BajaTutor</servlet-class>
+        <servlet-class>Tutores.BajaTutor</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ModificaTutor</servlet-name>
-        <servlet-class>ModificaTutor</servlet-class>
+        <servlet-class>Tutores.ModificaTutor</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>BuscaNino</servlet-name>
-        <servlet-class>BuscaNinoPorNombre</servlet-class>
+        <servlet-class>Ninos.BuscaNinoPorNombre</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>BuscaNinoPorId</servlet-name>
-        <servlet-class>BuscaNinoPorId</servlet-class>
+        <servlet-class>Ninos.BuscaNinoPorId</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
