@@ -40,7 +40,7 @@
       <div class="col-md-4">
       </div>
       <div class="col-md-4">
-        <form method="POST" action="./Login">
+        <form method="post" action="./Login">
           <div class="form-group">
             <label>
               Usuario
@@ -53,7 +53,7 @@
             </label>
             <input type="password" class="form-control" placeholder="contrase&ntilde;a" name="password">
           </div>
-          <input type="submit" class="btn btn-lg btn-primary pull-right btn-block" name="submit" value="Entrar" />
+            <button type="submit" class="btn btn-lg btn-primary pull-right btn-block">Entrar</button>
           <div class="row">
           </div>
         </form>
@@ -65,7 +65,6 @@
     <div class="btn-group">
     </div>
     <div class="container">
-      <!-- Example row of columns -->
       <hr>
       <p>
         © TODOS AYUDANDO UNIDOS A.C. 2014
