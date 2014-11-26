@@ -45,7 +45,7 @@
             <label>
               Usuario
             </label>
-            <input type="text" class="form-control" placeholder="username" id="username" name="username">
+            <input type="text" class="form-control" placeholder="usuario" id="usuario" name="usuario">
           </div>
           <div class="form-group">
             <label>
