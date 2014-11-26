@@ -1,8 +1,4 @@
-<%-- 
-    Document   : listaDeNinos
-    Created on : Nov 11, 2014, 7:53:01 PM
-    Author     : Alejandra
---%>
+
 
 <%-- 
     Document   : inicio
