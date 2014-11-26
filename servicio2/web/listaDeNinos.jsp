@@ -111,13 +111,13 @@
               <table id="table" class="table table-hover">
                 <tr>
                     <th>
-                        Ninos
+                        ID
                     </th>
                     <th>
                         Nombre
                     </th>
                     <th>
-                        Direccion
+                        Grado Escolar
                     </th>
                     <th>
                         Telefono
@@ -132,8 +132,8 @@
                     <td></td>
                 </tr>
 
-                <c:forEach items="${ventas}" var="venta">
-                    <tr onclick="location.href ='Ventas_Modificar?username=${venta.username}'">
+                <c:forEach items="${ninos}" var="ninos">
+                    <tr onclick="location.href ='Ventas_Modificar?username=${ninos.id}'">
                         <td>
                             ${venta.username}
                         </td>
