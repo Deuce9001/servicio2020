@@ -24,7 +24,7 @@
     <script type="text/javascript" src="js/view.js"></script>
     <script type="text/javascript" src="js/calendar.js"></script>
     <title>
-        Login
+        Alta Ni&ntilde;os
     </title>
 
   
@@ -45,7 +45,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Todos Unidos Ayudando A.C.</a>
+          <a class="navbar-brand" href="#">Todos Ayudando Unidos A.C.</a>
         </div>
           
           <div class="navbar-collapse collapse" id="navbar-main">
@@ -81,7 +81,7 @@
         <div class="jumbotron">
       <div class="container">
         <h1>
-          ${requestScope.res}Ni&ntildeos
+          ${requestScope.res} Ni&ntildeos
         </h1>
         <p>
           <a class="btn btn-primary btn-lg" href="listaDeNinos.jsp" >Lista de Ninos »</a>
@@ -126,13 +126,12 @@
                  <h2></h2>Nombre(s):
                                 &nbsp;
 		<span>
-			<input id="element_1_1" name= "element_1_1" class="element text" maxlength="255" size="8" value=""/>
+                    <input id="element_1_1" name= "element_1_1" class="element text" maxlength="255" size="8" value=""/> 
+                </span>
                         &nbsp;
                         &nbsp;
-                        <h2></h2>Apellidos:
-                        &nbsp;
-		</span>
-                               
+                        <h2>Apellidos:</h2>
+                        &nbsp;                               
 		<span>
 			<input id="element_1_2" name= "element_1_2" class="element text" maxlength="255" size="14" value=""/>
 		</span>
@@ -302,7 +301,7 @@
                                     <div class="form-horizontal">
                       
       <div class="col-lg-10 col-lg-offset-2">
-        <button type="guardar" class="btn btn-primary">Guardar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
         <a href="inicio.jsp" class="btn btn-info">Volver</a>
       </div>
                              
@@ -319,5 +318,5 @@
  </div>  
                 
         
-    </body>
+</body>
 </html>
