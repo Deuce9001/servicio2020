@@ -36,7 +36,7 @@ public class AltaHorario extends HttpServlet {
         int horaE = Integer.parseInt(request.getParameter("hora_entrada"));
         int minutoE = Integer.parseInt(request.getParameter("minuto_entrada"));
         String meridianoE = request.getParameter("meridiano_entrada");
-        if (meridianoE.equals("pm")) {
+        if (meridianoE.equals("PM")) {
             horaE = horaE + 12;
         } else {
         }
@@ -44,7 +44,7 @@ public class AltaHorario extends HttpServlet {
         int horaS = Integer.parseInt(request.getParameter("hora_salida"));
         int minutoS = Integer.parseInt(request.getParameter("minuto_salida"));
         String meridianoS = request.getParameter("meridiano_entrada");
-        if (meridianoS.equals("pm")) {
+        if (meridianoS.equals("PM")) {
             horaS = horaS + 12;
         } else {
         }
