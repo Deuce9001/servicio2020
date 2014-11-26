@@ -1,8 +1,4 @@
-<%-- 
-    Document   : listaDeNinos
-    Created on : Nov 11, 2014, 7:53:01 PM
-    Author     : Alejandra
---%>
+
 
 <%-- 
     Document   : inicio
@@ -123,43 +119,87 @@
      
               
                         
-                 <h2></h2>Nombre(s):
+                         <label class="col-lg-2 control-label">Nombre(s):</label>
                                 &nbsp;
+                                &nbsp;
+                                
 		<span>
-                    <input id="element_1_1" name= "element_1_1" class="element text" maxlength="255" size="8" value=""/> 
+                    <input id="element_1_1" name= "nombre" class="element text" maxlength="255" size="14" value=""/> 
                 </span>
+                                <br>
+                                <br>
                         &nbsp;
                         &nbsp;
-                        <h2>Apellidos:</h2>
-                        &nbsp;                               
+                         <label class="col-lg-2 control-label">Apellidos:</label>
 		<span>
-			<input id="element_1_2" name= "element_1_2" class="element text" maxlength="255" size="14" value=""/>
+			<input id="element_1_2" name= "apellidos" class="element text" maxlength="255" size="14" value=""/>
 		</span>
                     </div>
                     
+                    <br>
+                    <br>
+            
                     
-                    <div class="form-horizontal">
-                                      
+
+                    <label>Fecha de Nacimiento:</label>
+                        &nbsp;
+                        &nbsp;
+		<span>
+			<input id="element_3_1" name="mes" class="element text" size="2" maxlength="2" value="" type="text"> /
+			<label for="element_3_1">MM</label>
+		</span>
+		<span>
+			<input id="element_3_2" name="dia" class="element text" size="2" maxlength="2" value="" type="text"> /
+			<label for="element_3_2">DD</label>
+		</span>
+		<span>
+	 		<input id="element_3_3" name="ano" class="element text" size="4" maxlength="4" value="" type="text">
+			<label for="element_3_3">YYYY</label>
+		</span>
+	
+		<span id="calendar_3">
+			<img id="cal_img_3" class="datepicker" src="images/calendar.gif" alt="Pick a date.">	
+		</span>
+		<script type="text/javascript">
+			Calendar.setup({
+			inputField	 : "element_3_3",
+			baseField    : "element_3",
+			displayArea  : "calendar_3",
+			button		 : "cal_img_3",
+			ifFormat	 : "%B %e, %Y",
+			onSelect	 : selectDate
+			});
+		</script>
+		 
+                
+                                        
+                    <br>
+                    <br>
+                    <div class="form-group">
                         
-                        <h2></h2>Sexo:
-                      <div class="checkbox">
-                        <label>
-                          <input type="checkbox"> Masculino
-                        </label>                          
-                      </div>                
-                      <div class="checkbox">
-                        <label>
-                          <input type="checkbox"> Femenino
-                        </label>                          
-                      </div> 
+                         <label class="col-lg-2 control-label">Sexo:</label>
+                         
+                    <div class="col-lg-10">
+                     <select class="form-control" id="select" name="sexo">
+                         
+                         
+                            <option value="femenino">Femenino</option>
+                            <option value="masculino">Masculino</option>
+                  
+                            
+                                                         
+                            
+                          </select>
+                          <br>
+                    </div>
                     </div>
                          
                          
                     <div class="form-horizontal">
                     
-                        <h2></h2>Telefono:
+                         <label class="col-lg-2 control-label">Telefono:</label>
                         &nbsp;
-			<input id="telefono" name= "Telefono" class="element text" maxlength="8" size="10" value=""/>
+			<input id="telefono" name= "telefono" class="element text" maxlength="8" size="10" />
                         
                     </div>
                          
@@ -172,7 +212,7 @@
                        <div class="form-group">
                          <label for="textArea" class="col-lg-2 control-label">Direccion:</label>
                             <div class="col-lg-10">
-                       <textarea class="form-control" rows="3" id="textArea"></textarea>
+                                <textarea class="form-control" rows="3" id="textArea" name="direccion"></textarea>
                         </div>
                        </div>  
                         </div>   
@@ -183,7 +223,7 @@
                        <div class="form-group">
                          <label for="textArea" class="col-lg-2 control-label">Alergias:</label>
                             <div class="col-lg-10">
-                       <textarea class="form-control" rows="3" id="textArea"></textarea>
+                                <textarea class="form-control" rows="3" id="textArea" name="alergias"></textarea>
                         </div>
                        </div>  
                         </div>                    
@@ -194,25 +234,25 @@
                          <label class="col-lg-2 control-label">Escolaridad:</label>
                          
                     <div class="col-lg-10">
-                     <select class="form-control" id="select">
+                        <select class="form-control" id="select" name="escolaridad">
                          
                          
-                            <option>1ro Maternal</option>
-                            <option>2do Maternal</option>
-                            <option>3ro Maternal</option>   
+                            <option value="1ro Maternal">1ro Maternal</option>
+                            <option value="2do Maternal">2do Maternal</option>
+                            <option value="3do Maternal">3ro Maternal</option>   
                             
-                            <option>1ro Preescolar</option>                            
+                            <option value="1ro Preescolar">1ro Preescolar</option>                            
                             
-                            <option>1ro Primaria</option>
-                            <option>2do Primaria</option>
-                            <option>3ro Primaria</option>
-                            <option>4to Primaria</option>
-                            <option>5to Primaria</option>
-                            <option>6to Primaria</option>
+                            <option value="1ro Primaria">1ro Primaria</option>
+                            <option value="2ro Primaria">2do Primaria</option>
+                            <option value="3ro Primaria">3ro Primaria</option>
+                            <option value="4ro Primaria">4to Primaria</option>
+                            <option value="5ro Primaria">5to Primaria</option>
+                            <option value="6ro Primaria">6to Primaria</option>
                             
-                            <option>1ro Secundaria</option>
-                            <option>2do Secundaria</option>
-                            <option>3ro Secundaria</option>
+                            <option value="1ro Secundaria">1ro Secundaria</option>
+                            <option value="2ro Secundaria">2do Secundaria</option>
+                            <option value="3ro Secundaria">3ro Secundaria</option>
                             
                                                          
                             
@@ -226,11 +266,11 @@
                          <label class="col-lg-2 control-label">Programa</label>
                          
                     <div class="col-lg-10">
-                     <select class="form-control" id="select">
+                     <select class="form-control" id="select" name="programa">
                          
                          
-                            <option>Tiempo Completo</option>
-                            <option>Regularizacion</option>
+                            <option value="Tiempo Completo">Tiempo Completo</option>
+                            <option value="Regularizacion">Regularizacion</option>
                             
                                                          
                             
@@ -238,63 +278,7 @@
                           <br>
                     </div>
                     </div>                    
-                    
-                <div class="form-horizontal">
-
-		<label class="description" for="element_2">Hola de Salida: </label>
-		<span>
-			<input id="element_2_1" name="element_2_1" class="element text " size="2" type="text" maxlength="2" value=""/> : 
-			<label>HH</label>
-		</span>
-		<span>
-			<input id="element_2_2" name="element_2_2" class="element text " size="2" type="text" maxlength="2" value=""/> : 
-			<label>MM</label>
-		</span>
-		<span>
-			<input id="element_2_3" name="element_2_3" class="element text " size="2" type="text" maxlength="2" value=""/>
-			<label>SS</label>
-		</span>
-                 &nbsp;
-		<span>
-			<select class="element select" style="width:4em" id="element_2_4" name="element_2_4">
-				<option value="AM" >AM</option>
-				<option value="PM" >PM</option>
-			</select>
-			<label>AM/PM</label>
-		</span> 
-		                 
-                    
-                </div>
-                    
-                    <br>
-                   
-                    
-                    <div class="form-horizontal">
-
-		<label class="description" for="element_2">Hola de Salida: </label>
-		<span>
-			<input id="element_2_1" name="element_2_1" class="element text " size="2" type="text" maxlength="2" value=""/> : 
-			<label>HH</label>
-		</span>
-		<span>
-			<input id="element_2_2" name="element_2_2" class="element text " size="2" type="text" maxlength="2" value=""/> : 
-			<label>MM</label>
-		</span>
-		<span>
-			<input id="element_2_3" name="element_2_3" class="element text " size="2" type="text" maxlength="2" value=""/>
-			<label>SS</label>
-		</span>
-                &nbsp;
-		<span>
-			<select class="element select" style="width:4em" id="element_2_4" name="element_2_4">
-				<option value="AM" >AM</option>
-				<option value="PM" >PM</option>
-			</select>
-			<label>AM/PM</label>
-		</span> 
-		                 
-                    
-                </div>
+ 
                      <br>
                  
                   
@@ -302,7 +286,8 @@
                       
       <div class="col-lg-10 col-lg-offset-2">
         <button type="submit" class="btn btn-primary">Guardar</button>
-        <a href="inicio.jsp" class="btn btn-info">Volver</a>
+        <a href="darDeAltaH.jsp" class="btn btn-success">Continuar</a>
+        
       </div>
                              
                       

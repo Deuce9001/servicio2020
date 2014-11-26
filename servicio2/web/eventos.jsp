@@ -66,8 +66,21 @@
         </div>
       </div>
     </div>
-       
-    
+        <div class="jumbotron">
+      <div class="container">
+        <h1>
+          ${requestScope.res}General
+        </h1>
+        <p>
+          <a class="btn btn-primary btn-lg" href="llegadas.jsp" >Llegadas »</a>
+          <a class="btn btn-primary btn-lg" href="salidas.jsp" >Salidas »</a>
+          <a class="btn btn-primary btn-lg" href="informacionGeneral.jsp" >Informacion General »</a>
+                   
+
+        </p>
+      </div>
+    </div>
+        
       <center>
     <div>
         
@@ -90,11 +103,7 @@
       
       <img src="images/1.png" width="300">
     </div>
-  </center>  
-        
+  </center>        
               
     </body>
-    
-    
-    
 </html>

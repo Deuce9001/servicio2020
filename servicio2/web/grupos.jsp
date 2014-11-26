@@ -66,8 +66,16 @@
         </div>
       </div>
     </div>
+        <div class="jumbotron">
+      <div class="container">
+        <h1>
+          ${requestScope.res}En construccion...
+        </h1>
        
-    
+      </div>
+    </div>
+        
+
       <center>
     <div>
         
@@ -90,11 +98,7 @@
       
       <img src="images/1.png" width="300">
     </div>
-  </center>  
-        
+  </center>        
               
     </body>
-    
-    
-    
 </html>
