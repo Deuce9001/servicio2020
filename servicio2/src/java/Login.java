@@ -20,7 +20,7 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {   
-        RequestDispatcher disp = getServletContext().getRequestDispatcher("/Login.jsp");
+        RequestDispatcher disp = getServletContext().getRequestDispatcher("/inicio.jsp");
         disp.include(request, response);        
     }
 
@@ -28,7 +28,7 @@ public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String username = request.getParameter("username");
+        String username = request.getParameter("usuario");
         String password = request.getParameter("password");
         HttpSession session = request.getSession();
         
@@ -47,7 +47,7 @@ public class Login extends HttpServlet {
                 if (permiso == null){
                     jspUrl = "Login";
                 }else{
-                    session.setAttribute("username", username);
+                    session.setAttribute("usuario", username);
                     session.setAttribute("permiso", permiso);
                     //tipos de permisos... falta ese codigo
                 }
