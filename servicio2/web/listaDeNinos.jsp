@@ -109,116 +109,47 @@
             </div>
 
             <div class="bs-component">
-              <table class="table table-striped table-hover ">
-                <thead>
-                  <tr>
-                    <th>#id</th>
-                    <th>Nombre</th>
-                    <th>Fecha de Nacimiento</th>
-                    <th>Sexo</th>
-                    <th>Direccion</th>
-                    <th>Telefono</th>
-                    <th>Grado Escolar</th>
-                    <th>Programa</th>
-                    <th>Foto</th>
-                    <th>Alergias</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                  </tr>
-                  <tr class="info">
-                    <td>3</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                  </tr>
-                  <tr class="success">
-                    <td>4</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                  </tr>
-                  <tr class="danger">
-                    <td>5</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                  </tr>
-                  <tr class="warning">
-                    <td>6</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                  </tr>
-                  <tr class="active">
-                    <td>7</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                  </tr>
-                </tbody>
-              </table> 
+              <table id="table" class="table table-hover">
+                <tr>
+                    <th>
+                        Username
+                    </th>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Direccion
+                    </th>
+                    <th>
+                        Telefono
+                    </th>
+                </tr>
+                <tr onclick="location.href = 'darDeAlta'" class="text-primary">
+                    <td>
+                        Registrar Personal de Ventas...
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <c:forEach items="${ventas}" var="venta">
+                    <tr onclick="location.href ='Ventas_Modificar?username=${venta.username}'">
+                        <td>
+                            ${venta.username}
+                        </td>
+                        <td>
+                            ${venta.nombre}
+                        </td>
+                        <td>
+                            ${venta.direccion}
+                        </td>
+                        <td>
+                            ${venta.telefono}
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
             </div>
                         
                                    
