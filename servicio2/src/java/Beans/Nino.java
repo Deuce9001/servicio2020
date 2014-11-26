@@ -42,6 +42,47 @@ public class Nino {
     public Date getFechaNac() {
         return fecha_nac;
     }
-    
+    public void setFechaNac(Date fecha) {
+        fecha_nac = fecha;
+    }
+    public String getSexo() {
+        return sexo;
+    }
+    public void setSexo(String s) {
+        sexo = s;
+    }
+    public String getDireccion() {
+        return direccion;
+    }
+    public void setDireccion(String dir) {
+        direccion = dir;
+    }
+    public int getTelefono() {
+        return telefono;
+    }
+    public void setTelefono(int tel) {
+        telefono = tel;
+    }
+    public String getGradoEscolar() {
+        return grado_escolar;
+    }
+    public void setGradoEscolar(String escolar) {
+        grado_escolar = escolar;
+    }
+    public String getPrograma() {
+        return programa;
+    }
+    public void setPrograma(String prog) {
+        programa = prog;
+    } 
+    public String getAlergias() {
+        return alergias;
+    }
+    public void setAlergias(String alerg) {
+        alergias = alerg;
+    }
+    public String getEstado() {
+        return estado;
+    }
     
 }

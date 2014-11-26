@@ -14,7 +14,6 @@
         <param-name>pass</param-name>
         <param-value>servicio2020</param-value>
     </context-param>
-
     <servlet>
         <servlet-name>Login</servlet-name>
         <servlet-class>Login</servlet-class>
@@ -91,6 +90,10 @@
         <servlet-name>BuscaNinoPorId</servlet-name>
         <servlet-class>Ninos.BuscaNinoPorId</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListaNinos</servlet-name>
+        <servlet-class>Ninos.ListaNinos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -158,6 +161,10 @@
     <servlet-mapping>
         <servlet-name>ModificaTutor</servlet-name>
         <url-pattern>/Tutores/ModificaTutor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListaNinos</servlet-name>
+        <url-pattern>/Ninos/ListaNinos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
