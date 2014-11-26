@@ -8,7 +8,6 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,6 +23,16 @@ public class AltaNino extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
+        HttpSession session = request.getSession();
+        if (session.getAttribute("usuario") == null || session.getAttribute("permiso").equals("Administrador") == false) {
+            response.sendRedirect("../index"); 
+            return;
+        }
+        RequestDispatcher disp = getServletContext().getRequestDispatcher("/Admin/Cliente_Alta.jsp");
+        disp.include(request, response);
     }
 
     @Override
@@ -62,26 +71,15 @@ public class AltaNino extends HttpServlet {
                     ps.setBlob(8, foto);
                     ps.setString(9, alergias);
                     ps.setString(10, estado);
-                    ResultSet rs = ps.executeQuery();
-                    while (rs.next()) {
-                        st = true;
-                        session.setAttribute("nombre", session.getAttribute("nombre"));
-                        session.setAttribute("id", session.getAttribute("id"));
-                    }
+                    ps.executeUpdate();
                 }
-                if (st) {
-                    request.setAttribute("res", "El alumno " + session.getAttribute("nombre") + " con matricula " + session.getAttribute("id") + "registrado exitosamente!");
-                    request.setAttribute("matricula", session.getAttribute("id"));
-                    RequestDispatcher rd = getServletContext().getRequestDispatcher("/inscripcion.jsp");
-                    rd.include(request,response);
-                } else {
-                    request.setAttribute("res", "Ingrese nuevamente los datos, ha habido un problema para realizar el registro");
-                    RequestDispatcher rd = getServletContext().getRequestDispatcher("/darDeAlta.jsp");
-                    rd.include(request, response);
-                }
+                request.setAttribute("res", "El alumno " + session.getAttribute("nombre") + " con matricula " + session.getAttribute("id") + "registrado exitosamente!");
+                doGet(request,response);
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(AltaNino.class.getName()).log(Level.SEVERE, null, ex);
+            request.setAttribute("res", "Ingrese nuevamente los datos, ha habido un problema para realizar el registro");
+            doGet(request, response);
         }
     }
 }
