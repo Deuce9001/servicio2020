@@ -115,34 +115,4 @@ public class Login extends HttpServlet {
     }    
     
 }
-                
-/*                try (PreparedStatement ps = con.prepareStatement(sql)) {
-                    ps.setString(1, username);
-                    ps.setString(2, password);
-                    ResultSet rs = ps.executeQuery();
-                    while (rs.next()) {
-                        st = true;
-                        session.setAttribute("usuario", rs.getString("usuario"));
-                        session.setAttribute("permiso", (rs.getString("permiso").toUpperCase()));
-                    }
-                }
-            }
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-        if (st) {
-            request.setAttribute("res", "Bienvenido " + session.getAttribute("usuario"));
-            if (session.getAttribute("permiso").equals("ADMINISTRADOR")) {
-                RequestDispatcher rd = getServletContext().getRequestDispatcher("ninos");
-                rd.include(request, response);
-            } else {
-                RequestDispatcher rd = getServletContext().getRequestDispatcher("ninos");
-                rd.include(request, response);
-            }
-        } else {
-            request.setAttribute("res", "Usuario o contrase&ntilde;a incorrecto(s)");
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.jsp");
-            rd.include(request, response);
-        } 
-    }
-} */
+            
