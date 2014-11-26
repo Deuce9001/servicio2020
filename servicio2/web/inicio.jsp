@@ -67,7 +67,34 @@
       </div>
     </div>
        
+    
+      <center>
+    <div>
+        
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>        
+        
+      <img src="images/2.png" width="400"  >
+      <br>
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      
+      <img src="images/1.png" width="300">
+    </div>
+  </center>  
         
               
     </body>
+    
+    
+    
 </html>

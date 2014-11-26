@@ -8,8 +8,8 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -24,6 +24,16 @@ public class AltaNino extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
+        HttpSession session = request.getSession();
+        if (session.getAttribute("usuario") == null || session.getAttribute("permiso").equals("Administrador") == false) {
+            response.sendRedirect("../index"); 
+            return;
+        }
+        RequestDispatcher disp = getServletContext().getRequestDispatcher("/Admin/Cliente_Alta.jsp");
+        disp.include(request, response);
     }
 
     @Override
@@ -39,13 +49,12 @@ public class AltaNino extends HttpServlet {
         int ano = Integer.parseInt(request.getParameter("ano"));
         String sexo = request.getParameter("sexo");
         String direccion = request.getParameter("direccion");
-        int tel = Integer.parseInt(request.getParameter("tel"));
+        int tel = Integer.parseInt(request.getParameter("telefono"));
         String grado_escolar = request.getParameter("grado_escolar");
         String programa = request.getParameter("programa");
         InputStream foto = new ByteArrayInputStream(request.getParameter("foto").getBytes(StandardCharsets.UTF_8));
         String alergias = request.getParameter("alergias");
         String estado = "activo";
-        boolean st = false;
         String sql = "INSERT INTO Nino (nombre,fecha_nac,sexo,direccion,tel,grado_escolar,programa,foto,alergias,estado) VALUES (?,?,?,?,?,?,?,?,?,?);";
         Date fecha_nac = new Date(ano,mes,dia);
         try {
@@ -62,26 +71,17 @@ public class AltaNino extends HttpServlet {
                     ps.setBlob(8, foto);
                     ps.setString(9, alergias);
                     ps.setString(10, estado);
-                    ResultSet rs = ps.executeQuery();
-                    while (rs.next()) {
-                        st = true;
-                        session.setAttribute("nombre", session.getAttribute("nombre"));
-                        session.setAttribute("id", session.getAttribute("id"));
-                    }
+                    ps.executeUpdate();
                 }
-                if (st) {
-                    request.setAttribute("res", "El alumno " + session.getAttribute("nombre") + " con matricula " + session.getAttribute("id") + "registrado exitosamente!");
-                    request.setAttribute("matricula", session.getAttribute("id"));
-                    RequestDispatcher rd = getServletContext().getRequestDispatcher("/inscripcion.jsp");
-                    rd.include(request,response);
-                } else {
-                    request.setAttribute("res", "Ingrese nuevamente los datos, ha habido un problema para realizar el registro");
-                    RequestDispatcher rd = getServletContext().getRequestDispatcher("/darDeAlta.jsp");
-                    rd.include(request, response);
-                }
+                int id = Statement.RETURN_GENERATED_KEYS;
+                session.setAttribute("matricula", id);
+                request.setAttribute("res", "El alumno " + nombre + " con matricula " + id + "registrado exitosamente!");
+                doGet(request,response);
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(AltaNino.class.getName()).log(Level.SEVERE, null, ex);
+            request.setAttribute("res", "Ingrese nuevamente los datos, ha habido un problema para realizar el registro");
+            doGet(request, response);
         }
     }
 }

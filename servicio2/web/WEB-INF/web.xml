@@ -97,75 +97,67 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AltaNino</servlet-name>
-        <url-pattern>/AltaNino</url-pattern>
+        <url-pattern>/Ninos/AltaNino</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AltaInscripcion</servlet-name>
-        <url-pattern>/AltaInscripcion</url-pattern>
+        <url-pattern>/Ninos/AltaInscripcion</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AltaHorario</servlet-name>
-        <url-pattern>/AltaHorario</url-pattern>
+        <url-pattern>/Ninos/AltaHorario</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AltaHistoriaClinica</servlet-name>
-        <url-pattern>/AltaHistoriaClinica</url-pattern>
+        <url-pattern>/Ninos/AltaHistoriaClinica</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AltaTutor</servlet-name>
-        <url-pattern>/AltaTutor</url-pattern>
+        <url-pattern>/Tutores/AltaTutor</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AltaPersonal</servlet-name>
-        <url-pattern>/AltaPersonal</url-pattern>
+        <url-pattern>/Personal/AltaPersonal</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AltaEvento</servlet-name>
-        <url-pattern>/AltaEvento</url-pattern>
+        <url-pattern>/Eventos/AltaEvento</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ModificaNino</servlet-name>
-        <url-pattern>/ModificaNino</url-pattern>
+        <url-pattern>/Ninos/ModificaNino</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ModificaInscripcion</servlet-name>
-        <url-pattern>/ModificaInscripcion</url-pattern>
+        <url-pattern>/Ninos/ModificaInscripcion</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ModificaHorario</servlet-name>
-        <url-pattern>/ModificaHorario</url-pattern>
+        <url-pattern>/Ninos/ModificaHorario</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ModificaHistoriaClinica</servlet-name>
-        <url-pattern>/ModificaHistoriaClinica</url-pattern>
+        <url-pattern>/Ninos/ModificaHistoriaClinica</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ModificaPersonal</servlet-name>
-        <url-pattern>/ModificaPersonal</url-pattern>
+        <url-pattern>/Personal/ModificaPersonal</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>BajaNino</servlet-name>
-        <url-pattern>/BajaNino</url-pattern>
+        <url-pattern>/Ninos/BajaNino</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>BajaPersonal</servlet-name>
-        <url-pattern>/BajaPersonal</url-pattern>
+        <url-pattern>/Personal/BajaPersonal</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>BajaTutor</servlet-name>
-        <url-pattern>/BajaTutor</url-pattern>
+        <url-pattern>/Tutores/BajaTutor</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ModificaTutor</servlet-name>
-        <url-pattern>/ModificaTutor</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>BuscaNino</servlet-name>
-        <url-pattern>/BuscaNino</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>BuscaNinoPorId</servlet-name>
-        <url-pattern>/BuscaNinoPorId</url-pattern>
+        <url-pattern>/Tutores/ModificaTutor</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
