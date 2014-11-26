@@ -81,7 +81,6 @@
         </h1>
         <p>
           <a class="btn btn-primary btn-lg" href="listaDeNinos.jsp" >Lista de Ninos »</a>
-          <a class="btn btn-primary btn-lg" href="inscripcion.jsp" >Inscripcion »</a>
           <a class="btn btn-primary btn-lg" href="darDeAlta.jsp" >Dar de Alta »</a>
           <a class="btn btn-primary btn-lg" href="darDeBaja.jsp" >Dar de Baja »</a>
           <a class="btn btn-primary btn-lg" href="modificar.jsp" >Modificar »</a>
@@ -217,16 +216,7 @@
                        </div>  
                         </div>   
                     
-                    
-                    
-                        <div class="form-horizontal">
-                       <div class="form-group">
-                         <label for="textArea" class="col-lg-2 control-label">Alergias:</label>
-                            <div class="col-lg-10">
-                                <textarea class="form-control" rows="3" id="textArea" name="alergias"></textarea>
-                        </div>
-                       </div>  
-                        </div>                    
+                                  
 
                         
                     <div class="form-group">

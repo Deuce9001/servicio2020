@@ -1,4 +1,11 @@
 
+
+<%-- 
+    Document   : inicio
+    Created on : Nov 8, 2014, 8:35:10 PM
+    Author     : Alejandra
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,7 +20,7 @@
     <script type="text/javascript" src="js/view.js"></script>
     <script type="text/javascript" src="js/calendar.js"></script>
     <title>
-        Alta Ni&ntilde;os
+        Login
     </title>
 
   
@@ -34,7 +41,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Todos Ayudando Unidos A.C.</a>
+          <a class="navbar-brand" href="#">Todos Unidos Ayudando A.C.</a>
         </div>
           
           <div class="navbar-collapse collapse" id="navbar-main">
@@ -70,7 +77,7 @@
         <div class="jumbotron">
       <div class="container">
         <h1>
-          ${requestScope.res} Ni&ntildeos
+          ${requestScope.res}Ni&ntildeos
         </h1>
         <p>
           <a class="btn btn-primary btn-lg" href="listaDeNinos.jsp" >Lista de Ninos »</a>
@@ -84,8 +91,8 @@
       </div>
     </div>
         
-   
-          
+        
+                  
             
             <!-- Dar de alta -->
                 <div class="container">
@@ -95,7 +102,7 @@
         <div class="row">
             <div class="col-lg-12" id="darDeAlta" >
             <div class="page-header">
-              <h1 id="forms">Dar de Alta</h1>
+              <h1 id="forms">Modificar</h1>
             </div>
       
 
@@ -104,7 +111,7 @@
             <div class="well bs-component">
                 <form class="form-horizontal" method="posr" action="AltaHorario">
                 <fieldset>
-                    <legend>Horario de Alumno</legend>
+                    <legend>Modificar a un Alumno</legend>
                         
                                     
                    
@@ -174,11 +181,11 @@
                                 <textarea class="form-control" rows="3" id="textArea" name="dias" default="Lunes, Martes, Miercoles, Jueves, Viernes">Lunes, Martes, Miercoles, Jueves, Viernes</textarea>
                         </div>
                        </div>  
-                        </div>                
-                    
+                        </div>    
+              
       <div class="col-lg-10 col-lg-offset-2">
         <button type="submit" class="btn btn-primary">Guardar</button>
-        <a href="inscripcion.jsp" class="btn btn-success">Continuar</a>
+        <a href="modificar4.jsp" class="btn btn-success">Continuar</a>
         
       </div>
                 </fieldset>
@@ -191,4 +198,4 @@
       </div>
                 </div>
 </body>
-</html>
+</html>                    
