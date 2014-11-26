@@ -118,7 +118,6 @@
         </h1>
         <p>
           <a class="btn btn-primary btn-lg" href="listaDeNinos.jsp" >Lista de Ninos »</a>
-          <a class="btn btn-primary btn-lg" href="inscripcion.jsp" >Inscripcion »</a>
           <a class="btn btn-primary btn-lg" href="darDeAlta.jsp" >Dar de Alta »</a>
           <a class="btn btn-primary btn-lg" href="darDeBaja.jsp" >Dar de Baja »</a>
           <a class="btn btn-primary btn-lg" href="modificar.jsp" >Modificar »</a>

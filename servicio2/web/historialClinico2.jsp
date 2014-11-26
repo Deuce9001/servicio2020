@@ -98,7 +98,7 @@
         <div class="row">
             <div class="col-lg-12" id="historialClinico3" >
             <div class="page-header">
-              <h1 id="forms">Historial Clinico del Alumno</h1>
+              <h1 id="forms">Dar de Alta</h1>
             </div>
           
 

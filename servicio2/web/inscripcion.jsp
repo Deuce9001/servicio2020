@@ -85,7 +85,6 @@
         </h1>
         <p>
           <a class="btn btn-primary btn-lg" href="listaDeNinos.jsp" >Lista de Ninos »</a>
-          <a class="btn btn-primary btn-lg" href="inscripcion.jsp" >Inscripcion »</a>
           <a class="btn btn-primary btn-lg" href="darDeAlta.jsp" >Dar de Alta »</a>
           <a class="btn btn-primary btn-lg" href="darDeBaja.jsp" >Dar de Baja »</a>
           <a class="btn btn-primary btn-lg" href="modificar.jsp" >Modificar »</a>
@@ -241,7 +240,7 @@
                       
       <div class="col-lg-10 col-lg-offset-2">
         <button type="guardar" class="btn btn-primary">Guardar</button>
-        <a href="inicio.jsp" class="btn btn-info">Volver</a>
+        <a href="historialClinico2.jsp" class="btn btn-success">Continuar</a>
       </div>
                              
                       
