@@ -120,7 +120,7 @@
                         Grado Escolar
                     </th>
                     <th>
-                        Telefono
+                        Sexo
                     </th>
                 </tr>
                 <tr onclick="location.href = 'darDeAlta'" class="text-primary">
