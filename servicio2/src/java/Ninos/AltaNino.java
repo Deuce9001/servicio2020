@@ -9,6 +9,7 @@ import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -48,13 +49,12 @@ public class AltaNino extends HttpServlet {
         int ano = Integer.parseInt(request.getParameter("ano"));
         String sexo = request.getParameter("sexo");
         String direccion = request.getParameter("direccion");
-        int tel = Integer.parseInt(request.getParameter("tel"));
+        int tel = Integer.parseInt(request.getParameter("telefono"));
         String grado_escolar = request.getParameter("grado_escolar");
         String programa = request.getParameter("programa");
         InputStream foto = new ByteArrayInputStream(request.getParameter("foto").getBytes(StandardCharsets.UTF_8));
         String alergias = request.getParameter("alergias");
         String estado = "activo";
-        boolean st = false;
         String sql = "INSERT INTO Nino (nombre,fecha_nac,sexo,direccion,tel,grado_escolar,programa,foto,alergias,estado) VALUES (?,?,?,?,?,?,?,?,?,?);";
         Date fecha_nac = new Date(ano,mes,dia);
         try {
@@ -73,7 +73,9 @@ public class AltaNino extends HttpServlet {
                     ps.setString(10, estado);
                     ps.executeUpdate();
                 }
-                request.setAttribute("res", "El alumno " + session.getAttribute("nombre") + " con matricula " + session.getAttribute("id") + "registrado exitosamente!");
+                int id = Statement.RETURN_GENERATED_KEYS;
+                session.setAttribute("matricula", id);
+                request.setAttribute("res", "El alumno " + nombre + " con matricula " + id + "registrado exitosamente!");
                 doGet(request,response);
             }
         } catch (ClassNotFoundException | SQLException ex) {
