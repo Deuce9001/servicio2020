@@ -111,7 +111,7 @@
               <table id="table" class="table table-hover">
                 <tr>
                     <th>
-                        Username
+                        Ninos
                     </th>
                     <th>
                         Nombre

@@ -7,6 +7,7 @@ import java.sql.Date;
  * @author David
  */
 public class Nino {
+    private int id;
     private String nombre;
     private Date fecha_nac;
     private String sexo;
@@ -20,7 +21,8 @@ public class Nino {
     public Nino() {
         
     }
-    public Nino(String nombre, Date fecha_nac, String sexo, String direccion, int telefono, String grado_escolar, String programa, String alergias, String estado) {
+    public Nino(int id, String nombre, Date fecha_nac, String sexo, String direccion, int telefono, String grado_escolar, String programa, String alergias, String estado) {
+        this.id = id;
         this.nombre = nombre;
         this.fecha_nac = fecha_nac;
         this.direccion = direccion;
@@ -33,6 +35,12 @@ public class Nino {
         
     }
     
+    public int getId() {
+        return id;
+    }
+    public void setId(int i) {
+        id = i;
+    }
     public String getNombre() {
         return nombre;
     }
