@@ -1,10 +1,5 @@
-
-
-<%-- 
-    Document   : inicio
-    Created on : Nov 8, 2014, 8:35:10 PM
-    Author     : Alejandra
---%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -32,7 +27,15 @@
 
 
 
-<body >
+<body>
+    <c:if test="${not empty message}">
+            <c:if test="${not empty error}">
+                <div class="alert alert-warning" role="alert">${message}</div>
+            </c:if>
+            <c:if test="${empty error}">
+                <div class="alert alert-success" role="alert">${message}</div>
+            </c:if>
+        </c:if>
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">

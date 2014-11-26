@@ -1,14 +1,5 @@
-<%-- 
-    Document   : listaDeNinos
-    Created on : Nov 11, 2014, 7:53:01 PM
-    Author     : Alejandra
---%>
-
-<%-- 
-    Document   : inicio
-    Created on : Nov 8, 2014, 8:35:10 PM
-    Author     : Alejandra
---%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -35,7 +26,7 @@
 
 
 
-<body >
+<body>
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -122,6 +113,18 @@
                     <th>
                         Sexo
                     </th>
+                    <th>
+                        Direcci&oacute;n
+                    </th>
+                    <th>
+                        Tel&eacute;fono
+                    </th>
+                    <th>
+                        Programa
+                    </th>
+                    <th>
+                        Alergias
+                    </th>
                 </tr>
                 <tr onclick="location.href = 'darDeAlta'" class="text-primary">
                     <td>
@@ -135,16 +138,28 @@
                 <c:forEach items="${ninos}" var="ninos">
                     <tr onclick="location.href ='Ventas_Modificar?username=${ninos.id}'">
                         <td>
-                            ${venta.username}
+                            ${ninos.id}
                         </td>
                         <td>
-                            ${venta.nombre}
+                            ${ninos.nombre}
                         </td>
                         <td>
-                            ${venta.direccion}
+                            ${ninos.grado_escolar}
                         </td>
                         <td>
-                            ${venta.telefono}
+                            ${ninos.sexo}
+                        </td>
+                        <td>
+                            ${ninos.direccion}
+                        </td>
+                        <td>
+                            ${ninos.tel}
+                        </td>
+                        <td>
+                            ${ninos.programa}
+                        </td>
+                        <td>
+                            ${ninos.alergias}
                         </td>
                     </tr>
                 </c:forEach>
@@ -158,6 +173,5 @@
         </div>
       </div>        
       </div>
-      </div>
-                  </body>
+   </body>
 </html>
