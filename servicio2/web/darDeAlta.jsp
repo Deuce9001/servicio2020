@@ -67,12 +67,12 @@
                 Ni&ntildeos
             </h1>
             <p>
-                <a class="btn btn-primary btn-md" href="listaDeNinos.jsp" >Lista de Ninos »</a>
-                <a class="btn btn-primary btn-md" href="darDeAlta.jsp" >Dar de Alta »</a>
-                <a class="btn btn-primary btn-md" href="darDeBaja.jsp" >Dar de Baja »</a>
-                <a class="btn btn-primary btn-md" href="modificar.jsp" >Modificar »</a>
-                <a class="btn btn-primary btn-md" href="horario.jsp" >Horario »</a>
-                <a class="btn btn-primary btn-md" href="historialClinico.jsp" >Historial Clinico »</a>
+                <a class="btn btn-primary btn-lg" href="listaDeNinos.jsp" >Lista de Ninos »</a>
+                <a class="btn btn-primary btn-lg" href="darDeAlta.jsp" >Dar de Alta »</a>
+                <a class="btn btn-primary btn-lg" href="darDeBaja.jsp" >Dar de Baja »</a>
+                <a class="btn btn-primary btn-lg" href="modificar.jsp" >Modificar »</a>
+                <a class="btn btn-primary btn-lg" href="horario.jsp" >Horario »</a>
+                <a class="btn btn-primary btn-lg" href="historialClinico.jsp" >Historial Clinico »</a>
             </p>
         </div>
     </div>
@@ -122,7 +122,7 @@
                                         &nbsp;
                                         &nbsp;
                                         <span>
-                                            input id="element_3_1" name="mes" class="element text" size="2" maxlength="2" type="text"> /
+                                            <input id="element_3_1" name="mes" class="element text" size="2" maxlength="2" type="text"> /
                                                 <label for="element_3_1">MM</label>
                                         </span>
                                         <span>
@@ -217,7 +217,7 @@
                                         </div>  
                                         <div class="form-horizontal">
                                             <div class="col-lg-10 col-lg-offset-8">
-                                                <button type="submit" class="btn btn-primary">Guardar y Siguiente</button>
+                                                <button type="submit" class="btn btn-primary" name="submit">Guardar y Siguiente</button>
                                                 <!--a href="darDeAltaH.jsp" class="btn btn-success">Continuar</a-->
                                             </div>
                                         </div> 

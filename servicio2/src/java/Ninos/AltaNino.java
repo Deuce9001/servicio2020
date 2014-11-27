@@ -32,7 +32,7 @@ public class AltaNino extends HttpServlet {
             response.sendRedirect("../index"); 
             return;
         }
-        RequestDispatcher disp = getServletContext().getRequestDispatcher("darDeAlta.jsp");
+        RequestDispatcher disp = getServletContext().getRequestDispatcher("/darDeAlta.jsp");
         disp.include(request, response);
     }
 
