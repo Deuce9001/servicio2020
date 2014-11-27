@@ -106,7 +106,7 @@
         <div class="row">
           <div class="col-lg-6">
             <div class="well bs-component">
-                <form class="form-horizontal" method="post" action="/Ninos/AltaNino">
+                <form class="form-horizontal" method="post" action="AltaNino">
                     <legend>Dar de Alta a un Alumno</legend>
                         
                                     
