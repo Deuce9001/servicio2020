@@ -129,7 +129,7 @@
                 </tr>
 
                 <c:forEach items="${ninos}" var="nino">
-                    <tr onclick="location.href ='Ventas_Modificar?username=${nino.id}'">
+                    <tr>
                         <td>
                             ${nino.id}
                         </td>
