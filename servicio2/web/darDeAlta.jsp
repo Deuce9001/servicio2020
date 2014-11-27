@@ -21,19 +21,13 @@
   
 </head>
 
-
-
-
-
-
-
 <body>
-    <c:if test="${not empty message}">
+    <c:if test="${not empty res}">
             <c:if test="${not empty error}">
-                <div class="alert alert-warning" role="alert">${message}</div>
+                <div class="alert alert-warning" role="alert">${res}</div>
             </c:if>
             <c:if test="${empty error}">
-                <div class="alert alert-success" role="alert">${message}</div>
+                <div class="alert alert-success" role="alert">${res}</div>
             </c:if>
         </c:if>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -256,7 +250,7 @@
                     
 <div class="form-group">
                         
-                         <label class="col-lg-2 control-label">Programa</label>
+                         <label class="col-lg-2 control-label">Programa:</label>
                          
                     <div class="col-lg-10">
                      <select class="form-control" id="select" name="programa">
@@ -273,7 +267,15 @@
                     </div>                    
  
                      <br>
-                 
+                     
+                 <div class="form-horizontal">
+                       <div class="form-group">
+                         <label for="textArea" class="col-lg-2 control-label">Fotograf&iacute;a:</label>
+                            <div class="col-lg-10">
+                                <input type="file" name="foto" />
+                        </div>
+                       </div>  
+                </div>  
                   
                                     <div class="form-horizontal">
                       

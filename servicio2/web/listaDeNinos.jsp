@@ -17,14 +17,7 @@
         Login
     </title>
 
-  
 </head>
-
-
-
-
-
-
 
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -97,8 +90,16 @@
             <div class="page-header">
                 <h1 id="tables">Lista de Ni&ntildeos</h1>
             </div>
-
-            <div class="bs-component">
+            <form class="form-inline" role="form">
+                <div class="form-group">
+                    <label class="sr-only" for="buscar">Buscar ni&ntilde;os por nombre</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
+                            <input type="search" class="form-control" id="buscar" name="buscar" placeholder="Buscar ni&ntilde;os por nombre" value="${buscar}">
+                    </div>
+                </div>
+            </form><br/>      
+                    <div class="bs-component">
               <table id="table" class="table table-hover">
                 <tr>
                     <th>
@@ -126,47 +127,37 @@
                         Alergias
                     </th>
                 </tr>
-                <tr onclick="location.href = 'darDeAlta'" class="text-primary">
-                    <td>
-                        Registrar Personal de Ventas...
-                    </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
 
-                <c:forEach items="${ninos}" var="ninos">
-                    <tr onclick="location.href ='Ventas_Modificar?username=${ninos.id}'">
+                <c:forEach items="${ninos}" var="nino">
+                    <tr onclick="location.href ='Ventas_Modificar?username=${nino.id}'">
                         <td>
-                            ${ninos.id}
+                            ${nino.id}
                         </td>
                         <td>
-                            ${ninos.nombre}
+                            ${nino.nombre}
                         </td>
                         <td>
-                            ${ninos.grado_escolar}
+                            ${nino.grado_escolar}
                         </td>
                         <td>
-                            ${ninos.sexo}
+                            ${nino.sexo}
                         </td>
                         <td>
-                            ${ninos.direccion}
+                            ${nino.direccion}
                         </td>
                         <td>
-                            ${ninos.tel}
+                            ${nino.tel}
                         </td>
                         <td>
-                            ${ninos.programa}
+                            ${nino.programa}
                         </td>
                         <td>
-                            ${ninos.alergias}
+                            ${nino.alergias}
                         </td>
                     </tr>
                 </c:forEach>
             </table>
             </div>
-                        
-                                   
                                    
               <a href="inicio.jsp" class="btn btn-info">Volver</a>
           </div>

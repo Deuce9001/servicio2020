@@ -54,7 +54,6 @@ public class AltaNino extends HttpServlet {
         String programa = request.getParameter("programa");
         InputStream foto = new ByteArrayInputStream(request.getParameter("foto").getBytes(StandardCharsets.UTF_8));
         String alergias = request.getParameter("alergias");
-        String estado = "activo";
         String sql = "INSERT INTO Nino (nombre,fecha_nac,sexo,direccion,tel,grado_escolar,programa,foto,alergias,estado) VALUES (?,?,?,?,?,?,?,?,?,?);";
         Date fecha_nac = new Date(ano,mes,dia);
         try {
@@ -70,7 +69,7 @@ public class AltaNino extends HttpServlet {
                     ps.setString(7, programa);
                     ps.setBlob(8, foto);
                     ps.setString(9, alergias);
-                    ps.setString(10, estado);
+                    ps.setString(10, "activo");
                     ps.executeUpdate();
                 }
                 int id = Statement.RETURN_GENERATED_KEYS;
@@ -80,6 +79,7 @@ public class AltaNino extends HttpServlet {
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(AltaNino.class.getName()).log(Level.SEVERE, null, ex);
+            request.setAttribute("error", "true");
             request.setAttribute("res", "Ingrese nuevamente los datos, ha habido un problema para realizar el registro");
             doGet(request, response);
         }
