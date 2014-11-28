@@ -14,7 +14,7 @@
     <meta name="author" content="">
 
     <title>
-        Login
+        Lista Ni&ntilde;os
     </title>
 
 </head>
@@ -88,15 +88,15 @@
                     <div class="page-header">
                         <h1 id="tables">Lista de Ni&ntilde;os</h1>
                     </div>
-                    <form class="form-inline" role="form" method="get" action="listaNinos">
+                    <form class="form-inline" role="form">
                         <div class="form-group">
-                            <label class="sr-only" for="buscar">Buscar ni&ntilde;os por nombre</label>
                             <div class="input-group">
                                 <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
                                 <input type="search" class="form-control" id="buscar" name="buscar" placeholder="Buscar ni&ntilde;os por nombre" value="${buscar}">
                             </div>
                         </div>
-                    <br/><br/>    
+                    </form>
+                    <br/>   
                     <div class="bs-component">
                         <table id="table" class="table table-hover">
                             <tr>
@@ -162,7 +162,6 @@
                         </table>
                     </div>
                     <a href="inicio.jsp" class="btn btn-info">Volver</a>
-                    </form>
                 </div>
             </div>
         </div>        

@@ -79,9 +79,9 @@
         <br/>
         <br/>
         <br/>
+        <p>Bienvenido ${requestScope.username}!</p>
         <br/>
         <br/>        
-        
       <img src="images/2.png" width="400"  >
       <br>
       &nbsp;

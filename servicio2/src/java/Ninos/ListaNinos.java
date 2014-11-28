@@ -77,7 +77,7 @@ public class ListaNinos extends HttpServlet {
             Logger.getLogger(ListaNinos.class.getName()).log(Level.SEVERE, null, ex);
         }
         request.setAttribute("ninos", ninos);
-        RequestDispatcher disp = getServletContext().getRequestDispatcher("/listaNinos.jsp");
+        RequestDispatcher disp = getServletContext().getRequestDispatcher("/listaDeNinos.jsp");
         disp.include(request, response);
     }
 

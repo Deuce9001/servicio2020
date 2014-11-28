@@ -28,10 +28,10 @@ public class AltaNino extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         HttpSession session = request.getSession();
-        if (session.getAttribute("username") == null || session.getAttribute("permiso").equals("Administrador") == false) {
-            response.sendRedirect("../index"); 
+        /*if (session.getAttribute("username") == null || session.getAttribute("permiso").equals("Administrador") == false) {
+            response.sendRedirect("./index.jsp"); 
             return;
-        }
+        }*/
         RequestDispatcher disp = getServletContext().getRequestDispatcher("/darDeAlta.jsp");
         disp.include(request, response);
     }
@@ -64,7 +64,7 @@ public class AltaNino extends HttpServlet {
         String alergias = request.getParameter("alergias");
         
         String sql = "INSERT INTO Nino "
-                + "(nombre,fecha_nac,sexo,direccion,tel,grado_escolar,programa,foto,alergias,estado) "
+                + "(nombre, fecha_nac, sexo, direccion, tel, grado_escolar, programa, foto, alergias, estado) "
                 + "VALUES (?,?,?,?,?,?,?,?,?,?);";
         
         Date fecha_nac = new Date(ano,mes,dia);
@@ -87,7 +87,7 @@ public class AltaNino extends HttpServlet {
                     int id = (int) Statement.RETURN_GENERATED_KEYS;
                     session.setAttribute("matricula", id);
                 }
-                request.setAttribute("res", "El alumno " + nombre + " con matricula " + session.getAttribute("matricula") + "registrado exitosamente!");
+                request.setAttribute("res", "El alumno " + nombre + " con matricula " + session.getAttribute("matricula") + " registrado exitosamente!");
                 doGet(request,response);
             }
         } catch (ClassNotFoundException | SQLException ex) {

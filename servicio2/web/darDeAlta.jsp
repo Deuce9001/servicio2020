@@ -97,7 +97,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="well bs-component">
-                                <form class="form-horizontal" method="post" action="Ninos/AltaNino">
+                                <form class="form-horizontal" method="post" action="AltaNino">
                                     <fieldset>
                                         <legend>Dar de Alta a un Alumno</legend>
                                         <div class="form-horizontal">
@@ -160,7 +160,7 @@
                                             </div>
                                         </div>
                                         <div class="form-horizontal">
-                                            <label class="col-lg-2 control-label">Telefono:</label>&nbsp;
+                                            <label class="col-lg-2 control-label">Tel&eacute;fono:</label>&nbsp;
                                             <input id="telefono" name="telefono" class="element text" maxlength="10" size="10" />
                                         </div>
                                         <br>
