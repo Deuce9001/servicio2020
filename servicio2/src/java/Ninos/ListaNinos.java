@@ -32,7 +32,7 @@ public class ListaNinos extends HttpServlet {
 
         HttpSession session = request.getSession();
         if (session.getAttribute("usuario") == null || session.getAttribute("permiso").equals("Administrador") == false) {
-            response.sendRedirect("../index"); 
+            response.sendRedirect("./index"); 
             return;
         }
         

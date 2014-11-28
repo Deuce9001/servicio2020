@@ -27,6 +27,16 @@ public class AltaEvento extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
+        HttpSession session = request.getSession();
+        if (session.getAttribute("username") == null || session.getAttribute("permiso").equals("Administrador") == false) {
+            response.sendRedirect("./index.jsp"); 
+            return;
+        }
+        RequestDispatcher disp = getServletContext().getRequestDispatcher("/darDeAlta.jsp");
+        disp.include(request, response);
     }
 
     @Override

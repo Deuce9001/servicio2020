@@ -1,10 +1,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
-      <head>
+    <head>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>                
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,11 +12,9 @@
     <link rel="stylesheet" href="css/bootswatch.min.css">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>
         Lista Ni&ntilde;os
     </title>
-
 </head>
 
 <body>
@@ -88,11 +86,11 @@
                     <div class="page-header">
                         <h1 id="tables">Lista de Ni&ntilde;os</h1>
                     </div>
-                    <form class="form-inline" role="form">
+                    <form class="form-inline" role="form" method="get" action="ListaNinos">
                         <div class="form-group">
                             <div class="input-group">
                                 <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
-                                <input type="search" class="form-control" id="buscar" name="buscar" placeholder="Buscar ni&ntilde;os por nombre" value="${buscar}">
+                                <input type="search" class="form-control" id="buscar" name="buscar" placeholder="Buscar ni&ntilde;os por nombre" value="${buscar}" />
                             </div>
                         </div>
                     </form>
