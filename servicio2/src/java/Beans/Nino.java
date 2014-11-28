@@ -16,12 +16,11 @@ public class Nino {
     private String grado_escolar;
     private String programa;
     private String alergias;
-    private String estado;
     
     public Nino() {
         
     }
-    public Nino(int id, String nombre, Date fecha_nac, String sexo, String direccion, int telefono, String grado_escolar, String programa, String alergias, String estado) {
+    public Nino(int id, String nombre, Date fecha_nac, String sexo, String direccion, int telefono, String grado_escolar, String programa, String alergias) {
         this.id = id;
         this.nombre = nombre;
         this.fecha_nac = fecha_nac;
@@ -31,7 +30,6 @@ public class Nino {
         this.grado_escolar = grado_escolar;
         this.programa = programa;
         this.alergias = alergias;
-        this.estado = estado;
         
     }
     
@@ -88,9 +86,6 @@ public class Nino {
     }
     public void setAlergias(String alerg) {
         alergias = alerg;
-    }
-    public String getEstado() {
-        return estado;
     }
     
 }

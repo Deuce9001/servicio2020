@@ -49,9 +49,9 @@ public class ListaNinos extends HttpServlet {
                 String sql;
                 if ((buscar = request.getParameter("buscar")) != null) {
                     request.setAttribute("buscar", buscar);
-                    sql = "SELECT id, nombre, grado_escolar, sexo, direccion, tel, programa, alergias FROM Nino WHERE nombre LIKE ? AND estado='activo';";
+                    sql = "SELECT id, nombre, fecha_nac, grado_escolar, sexo, direccion, tel, programa, alergias FROM Nino WHERE nombre LIKE ? AND estado='activo';";
                 } else {
-                    sql = "SELECT id, nombre, grado_escolar, sexo, direccion, tel, programa, alergias FROM Nino WHERE estado='activo';";
+                    sql = "SELECT id, nombre, fecha_nac, grado_escolar, sexo, direccion, tel, programa, alergias FROM Nino WHERE estado='activo';";
                 }
                 try (PreparedStatement ps = con.prepareStatement(sql)) {
                     if (buscar != null) {
@@ -62,6 +62,7 @@ public class ListaNinos extends HttpServlet {
                         Nino nino = new Nino();
                         nino.setId(rs.getInt("id"));
                         nino.setNombre(rs.getString("nombre"));
+                        nino.setFechaNac(rs.getDate("fecha_nac"));
                         nino.setGradoEscolar(rs.getString("grado_escolar"));
                         nino.setSexo(rs.getString("sexo"));
                         nino.setDireccion(rs.getString("direccion"));

@@ -97,7 +97,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="well bs-component">
-                                <form class="form-horizontal" method="post" action="AltaNino">
+                                <form class="form-horizontal" method="post" action="Ninos/AltaNino">
                                     <fieldset>
                                         <legend>Dar de Alta a un Alumno</legend>
                                         <div class="form-horizontal">
