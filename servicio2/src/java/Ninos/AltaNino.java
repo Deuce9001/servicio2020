@@ -1,9 +1,13 @@
 package Ninos;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Writer;
 import java.nio.charset.StandardCharsets;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -60,7 +64,8 @@ public class AltaNino extends HttpServlet {
         int tel = Integer.parseInt(request.getParameter("telefono"));
         String grado_escolar = request.getParameter("grado_escolar");
         String programa = request.getParameter("programa");
-        InputStream foto = new ByteArrayInputStream(request.getParameter("foto").getBytes(StandardCharsets.UTF_8));
+        File imagen = new File(request.getParameter("foto"));
+        FileInputStream img = new FileInputStream(imagen);
         String alergias = request.getParameter("alergias");
         
         String sql = "INSERT INTO Nino "
@@ -80,7 +85,7 @@ public class AltaNino extends HttpServlet {
                     ps.setInt(5, tel);
                     ps.setString(6, grado_escolar);
                     ps.setString(7, programa);
-                    ps.setBlob(8, foto);
+                    ps.setBinaryStream(8, img, (int) imagen.length());
                     ps.setString(9, alergias);
                     ps.setString(10, "activo");
                     ps.executeUpdate();

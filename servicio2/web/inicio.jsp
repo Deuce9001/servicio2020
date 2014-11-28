@@ -3,8 +3,9 @@
     Created on : Nov 8, 2014, 8:35:10 PM
     Author     : Alejandra
 --%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page session="true" %>
 <!DOCTYPE html>
 <html>
       <head>
@@ -33,7 +34,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Todos Unidos Ayudando A.C.</a>
+          <a class="navbar-brand" href="inicio.jsp">Todos Unidos Ayudando A.C.</a>
         </div>
           
           <div class="navbar-collapse collapse" id="navbar-main">
@@ -79,7 +80,7 @@
         <br/>
         <br/>
         <br/>
-        <p>Bienvenido ${requestScope.username}!</p>
+        <c:out value="${sessionScope.username}" />
         <br/>
         <br/>        
       <img src="images/2.png" width="400"  >
