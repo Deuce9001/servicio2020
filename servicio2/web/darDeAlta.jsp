@@ -211,7 +211,7 @@
                                             <div class="form-group">
                                                 <label for="textArea" class="col-lg-2 control-label">Fotograf&iacute;a:</label>
                                                 <div class="col-lg-10">
-                                                    <input type="file" name="foto" />
+                                                    <input type="file" name="foto" onchange="check_file()" />
                                                 </div>
                                             </div>  
                                         </div>  
@@ -230,6 +230,20 @@
             </div>  
         </div> 
     </div> 
+    <script>
+        function check_file(){
+            str=document.getElementById('foto').value.toUpperCase();
+            suffix=".JPG";
+            suffix2=".JPEG";
+            suffix3=".PNG";
+            if(str.indexOf(suffix, str.length - suffix.length) == -1||
+                str.indexOf(suffix2, str.length - suffix2.length) == -1 ||
+                str.indexOf(suffix3, str.length - suffix3.length) == -1){
+            alert('File type not allowed,\nAllowed file: *.jpg,*.jpeg');
+                document.getElementById('fileToUpload').value='';
+            }
+        }
+    </script>
 </body>
 
 </html>

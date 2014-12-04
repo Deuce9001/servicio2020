@@ -8,10 +8,12 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.stage.FileChooser;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -60,20 +62,21 @@ public class AltaNino extends HttpServlet {
         int tel = Integer.parseInt(request.getParameter("telefono"));
         String grado_escolar = request.getParameter("grado_escolar");
         String programa = request.getParameter("programa");
+        FileChooser.ExtensionFilter jpg = new FileChooser.ExtensionFilter
         File imagen = new File(request.getParameter("foto"));
         InputStream img = new FileInputStream(imagen);
         String alergias = request.getParameter("alergias");
         
         String sql = "INSERT INTO Nino "
                 + "(nombre, fecha_nac, sexo, direccion, tel, grado_escolar, programa, foto, alergias, estado) "
-                + "VALUES (?,?,?,?,?,?,?,?,?, ?);";
+                + "VALUES (?,?,?,?,?,?,?,?,?,?);";
         
         Date fecha_nac = new Date(ano,mes,dia);
         
         try {
             Class.forName("con.mysql.jdbc.Driver");
             try (Connection con = DriverManager.getConnection(url,user,pass)) {
-                try (PreparedStatement ps = con.prepareStatement(sql)) {
+                try (PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                     ps.setString(1, nombreCompleto);
                     ps.setDate(2, fecha_nac);
                     ps.setString(3, sexo);
@@ -82,11 +85,11 @@ public class AltaNino extends HttpServlet {
                     ps.setString(6, grado_escolar);
                     ps.setString(7, programa);
                     ps.setBlob(8, img);
-                    ps.setString(8, alergias);
-                    ps.setString(9, "activo");
+                    ps.setString(9, alergias);
+                    ps.setString(10, "activo");
                     ps.executeUpdate();
-                    int id = (int) Statement.RETURN_GENERATED_KEYS;
-                    session.setAttribute("matricula", id);
+                    ResultSet rs = ps.getGeneratedKeys();
+                    session.setAttribute("matricula", rs);
                 }
                 request.setAttribute("res", "El alumno " + nombre + " con matricula " + session.getAttribute("matricula") + " registrado exitosamente!");
                 doGet(request,response);
