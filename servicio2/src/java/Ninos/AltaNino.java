@@ -13,7 +13,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.stage.FileChooser;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -62,10 +61,14 @@ public class AltaNino extends HttpServlet {
         int tel = Integer.parseInt(request.getParameter("telefono"));
         String grado_escolar = request.getParameter("grado_escolar");
         String programa = request.getParameter("programa");
-        FileChooser.ExtensionFilter jpg = new FileChooser.ExtensionFilter
-        File imagen = new File(request.getParameter("foto"));
-        InputStream img = new FileInputStream(imagen);
-        String alergias = request.getParameter("alergias");
+        
+        //Image
+        String path = "C:/Users/David/OneDrive/Imágenes/";
+        String file = request.getParameter("foto");
+        String filepath = path + file;
+        InputStream img = new FileInputStream(new File(filepath));
+        
+        String alergias = request.getParameter("alergiass");
         
         String sql = "INSERT INTO Nino "
                 + "(nombre, fecha_nac, sexo, direccion, tel, grado_escolar, programa, foto, alergias, estado) "
@@ -89,7 +92,9 @@ public class AltaNino extends HttpServlet {
                     ps.setString(10, "activo");
                     ps.executeUpdate();
                     ResultSet rs = ps.getGeneratedKeys();
-                    session.setAttribute("matricula", rs);
+                    while(rs.next()) {
+                        session.setAttribute("matricula", rs);
+                    }
                 }
                 request.setAttribute("res", "El alumno " + nombre + " con matricula " + session.getAttribute("matricula") + " registrado exitosamente!");
                 doGet(request,response);

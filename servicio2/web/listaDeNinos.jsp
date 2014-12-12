@@ -1,4 +1,4 @@
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -6,25 +6,6 @@
 <html>
     <head>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script>
-        function mostrarNinos(buscar)
-            if (buscar=="") {
-                document.getElementById("txtHint").innerHTML="";
-            }
-            if(window.XMLHttpRequest) {
-                xmlhttp = new XMLHttpRequest();
-            } else {
-                xmlhttp = new ActiveXObject(Microsoft.XMLHTTP);
-            }
-            xmlhttp.onreadystatechange = function() {
-                if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
-                }
-            }
-            xmlhttp.open("GET", "getuser.php?q =" + buscar, true);
-            xmlhttp.send();
-        }
-    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.css" media="screen">
@@ -154,25 +135,16 @@
                                         ${nino.nombre}
                                     </td>
                                     <td>
-                                        ${nino.fecha_nac}
+                                        ${nino.edad}
                                     </td>
                                     <td>
-                                        ${nino.grado_escolar}
-                                    </td>
-                                    <td>
-                                        ${nino.sexo}
-                                    </td>
-                                    <td>
-                                        ${nino.direccion}
+                                        ${nino.alergias}
                                     </td>
                                     <td>
                                         ${nino.tel}
                                     </td>
                                     <td>
                                         ${nino.programa}
-                                    </td>
-                                    <td>
-                                        ${nino.alergias}
                                     </td>
                                 </tr>
                             </c:forEach>

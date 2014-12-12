@@ -63,6 +63,7 @@ public class ListaNinos extends HttpServlet {
                         nino.setId(rs.getInt("id"));
                         nino.setNombre(rs.getString("nombre"));
                         nino.setFechaNac(rs.getDate("fecha_nac"));
+                        nino.setEdad(rs.getDate("fecha_nac"));
                         nino.setGradoEscolar(rs.getString("grado_escolar"));
                         nino.setSexo(rs.getString("sexo"));
                         nino.setDireccion(rs.getString("direccion"));
