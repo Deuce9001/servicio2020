@@ -206,7 +206,17 @@
                                                 </select>
                                                 <br>
                                             </div>
-                                        </div>                   
+                                        </div> 
+                                        <div class="form-horizontal">
+                                            <div class="form-group">
+                                                <label for="textArea" class="col-lg-2 control-label">Alérgias:</label>
+                                                <div class="col-lg-10">
+                                                    <textarea class="form-control" rows="3" id="textArea" name="alergias" placeholder="Sin alérgias"></textarea>
+                                                </div>
+                                            </div>  
+                                        </div>
+                                        <br>
+                                        <p>*La fotografía debe estar en formato jpg, jpeg o png, de otra forma no se podrá realizar el resgistro</p>
                                         <div class="form-horizontal">
                                             <div class="form-group">
                                                 <label for="textArea" class="col-lg-2 control-label">Fotograf&iacute;a:</label>
@@ -218,7 +228,7 @@
                                         <div class="form-horizontal">
                                             <div class="col-lg-10 col-lg-offset-8">
                                                 <button type="submit" class="btn btn-primary" name="submit">Guardar y Siguiente</button>
-                                                <!--a href="darDeAltaH.jsp" class="btn btn-success">Continuar</a-->
+                                                <a href="darDeAltaH.jsp" class="btn btn-success">Continuar</a>
                                             </div>
                                         </div> 
                                     </fieldset>

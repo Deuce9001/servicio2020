@@ -38,6 +38,7 @@ public class AltaNino extends HttpServlet {
     }
 
     @Override
+    @Deprecated
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
@@ -68,7 +69,7 @@ public class AltaNino extends HttpServlet {
         String filepath = path + file;
         InputStream img = new FileInputStream(new File(filepath));
         
-        String alergias = request.getParameter("alergiass");
+        String alergias = request.getParameter("alergias");
         
         String sql = "INSERT INTO Nino "
                 + "(nombre, fecha_nac, sexo, direccion, tel, grado_escolar, programa, foto, alergias, estado) "

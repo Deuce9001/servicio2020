@@ -24,31 +24,50 @@ public class AltaPersonal extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
+        HttpSession session = request.getSession();
+        /*if (session.getAttribute("username") == null || session.getAttribute("permiso").equals("Administrador") == false) {
+            response.sendRedirect("./index.jsp"); 
+            return;
+        }*/
+        RequestDispatcher disp = getServletContext().getRequestDispatcher("/darDeAltaP.jsp");
+        disp.include(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+                
+        String url = getServletContext().getInitParameter("url");
+        String user = getServletContext().getInitParameter("user");
+        String pass = getServletContext().getInitParameter("pass");
+        
         HttpSession session = request.getSession();
-        String nombre = request.getParameter("nom");
+        
+        String nom = request.getParameter("nom");
         String apellido = request.getParameter("apellido");
-        String nombreCompleto = nombre + apellido;
+        String nombre = nom + " " + apellido;
         String direccion = request.getParameter("direccion");
-        int tel = Integer.parseInt("tel");
+        int tel = Integer.parseInt(request.getParameter("tel"));
         int cel = Integer.parseInt(request.getParameter("cel"));
         String posicion = request.getParameter("posicion");
         String curriculum = request.getParameter("curriculum");
         String actividades = request.getParameter("actividades");
-        String estatus = request.getParameter("estatus");
+        String estatus = "activo";
         String tipo = request.getParameter("tipo");
-        String sql = "INSERT INTO Personal (nombre,direccion,tel,cel,posicion,curriculum,actividades,estatus,tipo ) VALUES (?,?,?,?,?,?,?,?,?);";
-        boolean st = false;
+        String sql = "INSERT INTO Personal (nombre, direccion, tel, cel, posicion, curriculum, actividades, estatus, tipo) "
+                + "VALUES (?,?,?,?,?,?,?,?,?);";
+
         try {
             Class.forName("con.mysql.jdbc.Driver");
-            try (Connection con = DriverManager.getConnection("jdbc:mysql://servicio2020.caafufvdj2xl.us-west-2.rds.amazonaws.com/servicio2020", "servicio2020", "servicio2020")) {
+            try (Connection con = DriverManager.getConnection(url, user, pass)) {
                 try (PreparedStatement ps = con.prepareStatement(sql)) {
-                    ps.setString(1, nombreCompleto);
+                    ps.setString(1, nombre);
                     ps.setString(2, direccion);
                     ps.setInt(3, tel);
                     ps.setInt(4, cel);
@@ -57,26 +76,20 @@ public class AltaPersonal extends HttpServlet {
                     ps.setString(7, actividades);
                     ps.setString(8, estatus);
                     ps.setString(9, tipo);
-                    ResultSet rs = ps.executeQuery();
+                    ps.executeUpdate();
+                    ResultSet rs = ps.getGeneratedKeys();
                     while (rs.next()) {
-                        st = true;
-                        session.setAttribute("nombre", session.getAttribute("nombre"));
-                        session.setAttribute("id", session.getAttribute("id"));
+                        request.setAttribute("matricula", rs);
                     }
                 }
-                if (st) {
-                    session.setAttribute("res", session.getAttribute(nombre) + " agregado exitosamente");
-                    session.setAttribute("matricula", session.getAttribute("id"));
-                    RequestDispatcher rd = getServletContext().getRequestDispatcher("/personal.jsp");
-                    rd.include(request, response);
-                } else {
-                    session.setAttribute("res", "Lo sentimos, hubo un error en el sistema, ingrese los datos de nuevo");
-                    RequestDispatcher rd = getServletContext().getRequestDispatcher("/altaPersonal.jsp");
-                    rd.include(request, response);
-                }
+                request.setAttribute("res", "El personal " + nombre + " con matricula " + request.getAttribute("matricula") + " ha sido registrado exitosamente!");
+                doGet(request,response);
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(AltaPersonal.class.getName()).log(Level.SEVERE, null, ex);
+            request.setAttribute("error", "true");
+            request.setAttribute("res", "Ingrese nuevamente los datos, ha habido un problema para realizar el registro");
+            doGet(request, response);
         }
         
     }
