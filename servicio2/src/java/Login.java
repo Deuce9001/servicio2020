@@ -1,6 +1,4 @@
 import java.io.IOException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -19,15 +17,75 @@ public class Login extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {   
-        RequestDispatcher disp = getServletContext().getRequestDispatcher("/inicio.jsp");
+            throws ServletException, IOException {
+        
+        RequestDispatcher disp = getServletContext().getRequestDispatcher("/index.jsp");
         disp.include(request, response);        
+        
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        String pass = getServletContext().getInitParameter("pass");
+        String user = getServletContext().getInitParameter("user");
+        String url = getServletContext().getInitParameter("url");
+        
+        HttpSession session = request.getSession();
+        
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String permiso = null;
+        String jspUrl = null;
+       
+        String sql = "SELECT * FROM usuario WHERE usuario=? AND password=?;";
+        
+        try{ Class.forName("con.mysql.jdbc.Driver");
+            try(Connection con = DriverManager.getConnection(url,user,pass)) {
+                try(PreparedStatement ps = con.prepareStatement(sql)){
+                    ps.setString(1,username);
+                    ps.setString(2,password);
+                    ResultSet rs = ps.executeQuery();
+                    if(!rs.next())
+                        permiso = null;
+                    if(rs.getString("username").equals("username")==false)
+                        permiso = null;
+                    if(rs.getString("password").equals("password")==false)
+                        permiso = null;
+                    permiso = rs.getString("permiso");
+                    
+                    if(permiso==null){
+                        jspUrl = "index";
+                    } else {
+                        session.setAttribute("username", username);
+                        session.setAttribute("permiso", permiso);
+                        jspUrl = "inicio";
+                    }
+                    
+                    response.sendRedirect(jspUrl);
+                    doGet(request, response);
+                    
+                    RequestDispatcher disp = getServletContext().getRequestDispatcher("/inicio.jsp");
+                    disp.include(request, response); 
+                    
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            request.setAttribute("error", "true");
+            request.setAttribute("res", "Error");
+            doGet(request, response);        
+        }
+    }
+        
+        
+        
+        
+        
+        /*
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         HttpSession session = request.getSession();
@@ -101,7 +159,7 @@ public class Login extends HttpServlet {
         {
             throw new RuntimeException(e); //Never happens
         }
-    }    
+    }    */
     
 }
             

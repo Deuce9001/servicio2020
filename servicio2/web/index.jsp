@@ -42,11 +42,11 @@
                 <form method="post" action="Login">
                     <div class="form-group">
                         <label>Usuario</label>
-                        <input type="text" class="form-control" placeholder="usuario" id="usuario" name="username" />
+                        <input type="text" class="form-control" id="usuario" name="username" />
                     </div>
                     <div class="form-group">
                         <label>Contrase&ntildea</label>
-                        <input type="password" class="form-control" placeholder="contrase&ntilde;a" id="password" name="password" />
+                        <input type="password" class="form-control" id="password" name="password" />
                     </div>
                     <button type="submit" class="btn btn-lg btn-primary pull-right btn-block">Entrar</button>
                     <div class="row"></div>

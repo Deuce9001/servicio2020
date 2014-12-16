@@ -20,9 +20,7 @@ public class AltaUsuarios extends HttpServlet {
         
         request .setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        
-        HttpSession session = request.getSession();
-        
+                
         RequestDispatcher disp = getServletContext().getRequestDispatcher("/AltaUsuarios.jsp");
         disp.include(request, response);
     }
@@ -40,18 +38,21 @@ public class AltaUsuarios extends HttpServlet {
         String user = getServletContext().getInitParameter("user");
         String pass = getServletContext().getInitParameter("pass");
         
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        
         try{ Class.forName("con.mysql.jdbc.Driver");
             try (Connection con = DriverManager.getConnection(url,user,pass))
             {
-                try (PreparedStatement p = con.prepareStatement("insert into Usuario (usuario, password, permiso) values (?, ?, ?);")) {
-                    p.setString(1, request.getParameter("username"));
-                    p.setString(5, request.getParameter("password"));
-                    p.setString(6, request.getParameter("permiso"));
+                try (PreparedStatement p = con.prepareStatement("insert into usuario (usuario, password, permiso) values (?, ?, ?);")) {
+                    p.setString(1,username);
+                    p.setString(2,password);
+                    p.setString(3,"Administrador");
                     p.executeUpdate();
 
                     request.setAttribute("message", "Alta de usuario exitosa ");
                     session.setAttribute("username", request.getParameter("username"));
-                    RequestDispatcher disp = getServletContext().getRequestDispatcher("/AltaUsuarios.jsp");
+                    RequestDispatcher disp = getServletContext().getRequestDispatcher("/index.jsp");
                     disp.include(request, response);
                 }
             }
