@@ -36,33 +36,26 @@ public class Login extends HttpServlet {
         String user = getServletContext().getInitParameter("user");
         String pass = getServletContext().getInitParameter("pass");
         
-        
-        
         try {
-                java.sql.Driver d=new com.mysql.jdbc.Driver();  
-                try (Connection con = DriverManager.getConnection(url, user, pass)) {
+            java.sql.Driver d = new com.mysql.jdbc.Driver();  
+            try (Connection con = DriverManager.getConnection(url, user, pass)) {
                 String permiso = Login.verifyLogin(username, password, con);
                 String jspUrl = null;
-                
                 if (permiso == null){
                     jspUrl = "Login";
                 }else{
                     session.setAttribute("username", username);
                     session.setAttribute("permiso", permiso);
-                    //tipos de permisos... falta ese codigo
                 }
                 response.sendRedirect(jspUrl);
+                doGet(request, response);
             }
         }
-        
-        
-        
-        
-        
-        
-        
         catch (SQLException ex){
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            request.setAttribute("error", "true");
+            request.setAttribute("res", "Username o contraseña incorrectos, intente de nuevo");
+            doGet(request, response);
         }
     }
     
@@ -74,15 +67,11 @@ public class Login extends HttpServlet {
         ResultSet res = stat.executeQuery();
         if (!res.next())
             return null;
-        
         if (res.getString("usuario").equals(username) == false)
             return null;
-        
         int salt = res.getInt("salt");
-        
         if (res.getString("password").equals(SHA256(password + salt)) == false)
             return null;
-        
         return res.getString("permiso");
     }
     

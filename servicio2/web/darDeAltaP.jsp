@@ -176,7 +176,7 @@
                                         <br>
                                         <div class="form-horizontal">
                                             <div class="col-lg-10 col-lg-offset-2">
-                                                <button type="submit" name="enviar" class="btn btn-primary">Guardar</button>
+                                                <button type="submit" class="btn btn-primary">Guardar</button>
                                                 <a href="inicio.jsp" class="btn btn-danger">Cancelar</a>
                                             </div>
                                         </div>  

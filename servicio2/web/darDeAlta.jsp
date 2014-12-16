@@ -55,7 +55,13 @@
                     </li>
                     <li>
                         <a href="grupos.jsp">Grupos</a>
-                    </li>                      
+                    </li> 
+                    <li>
+                        ${sessionScope.username}
+                    </li>
+                    <li>
+                         <a href="logout.jsp">Logout</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -105,7 +111,7 @@
                                             &nbsp;
                                             &nbsp;
                                             <span>
-                                                <input id="element_1_1" name= "nombre" class="element text" maxlength="255" size="14"/> 
+                                                <input type="text" id="element_1_1" name="nombre" class="element text" maxlength="255" size="14"/> 
                                             </span>
                                             <br>
                                             <br>
@@ -113,7 +119,7 @@
                                             &nbsp;
                                             <label class="col-lg-2 control-label">Apellidos:</label>
                                             <span>
-                                                <input id="element_1_2" name= "apellidos" class="element text" maxlength="255" size="14" />
+                                                <input type="text" id="element_1_2" name="apellidos" class="element text" maxlength="255" size="14" />
                                             </span>
                                         </div>
                                         <br>
@@ -122,15 +128,15 @@
                                         &nbsp;
                                         &nbsp;
                                         <span>
-                                            <input id="element_3_1" name="mes" class="element text" size="2" maxlength="2" type="text"> /
+                                            <input type="text" id="element_3_1" name="mes" class="element text" size="2" maxlength="2" type="text"> /
                                                 <label for="element_3_1">MM</label>
                                         </span>
                                         <span>
-                                            <input id="element_3_2" name="dia" class="element text" size="2" maxlength="2" type="text"> /
+                                            <input type="text" id="element_3_2" name="dia" class="element text" size="2" maxlength="2" type="text"> /
                                                 <label for="element_3_2">DD</label>
                                         </span>
                                         <span>
-                                            <input id="element_3_3" name="ano" class="element text" size="4" maxlength="4" type="text">
+                                            <input type="text" id="element_3_3" name="anio" class="element text" size="4" maxlength="4" type="text">
                                             <label for="element_3_3">YYYY</label>
                                         </span>
                                         <span id="calendar_3">
@@ -161,12 +167,12 @@
                                         </div>
                                         <div class="form-horizontal">
                                             <label class="col-lg-2 control-label">Tel&eacute;fono:</label>&nbsp;
-                                            <input id="telefono" name="telefono" class="element text" maxlength="10" size="10" />
+                                            <input type="text" id="telefono" name="telefono" class="element text" maxlength="10" size="10" />
                                         </div>
                                         <br>
                                         <div class="form-horizontal">
                                             <div class="form-group">
-                                                <label for="textArea" class="col-lg-2 control-label">Direccion:</label>
+                                                <label for="textArea" class="col-lg-2 control-label">Dirección:</label>
                                                 <div class="col-lg-10">
                                                     <textarea class="form-control" rows="3" id="textArea" name="direccion"></textarea>
                                                 </div>
@@ -202,7 +208,7 @@
                                                 <select class="form-control" id="select" name="programa">
                                                     <option value="">Selecciona..</option>
                                                     <option value="Tiempo Completo">Tiempo Completo</option>
-                                                    <option value="Regularizacion">Regularizacion</option>
+                                                    <option value="Regularizacion">Regularización</option>
                                                 </select>
                                                 <br>
                                             </div>
@@ -225,9 +231,11 @@
                                                 </div>
                                             </div>  
                                         </div>  
+                                        <p>La direccion de la imagen es: ${requestScope.filepath}</p>
+                                        <br>
                                         <div class="form-horizontal">
-                                            <div class="col-lg-10 col-lg-offset-8">
-                                                <button type="submit" class="btn btn-primary" name="submit">Guardar y Siguiente</button>
+                                            <div class="col-lg-10">
+                                                <button type="submit" class="btn btn-primary" name="submit">Guardar</button>
                                                 <a href="darDeAltaH.jsp" class="btn btn-success">Continuar</a>
                                             </div>
                                         </div> 

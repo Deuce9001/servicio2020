@@ -15,10 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author David
- */
 public class AltaPersonal extends HttpServlet {
 
     @Override
@@ -60,6 +56,7 @@ public class AltaPersonal extends HttpServlet {
         String actividades = request.getParameter("actividades");
         String estatus = "activo";
         String tipo = request.getParameter("tipo");
+        
         String sql = "INSERT INTO Personal (nombre, direccion, tel, cel, posicion, curriculum, actividades, estatus, tipo) "
                 + "VALUES (?,?,?,?,?,?,?,?,?);";
 

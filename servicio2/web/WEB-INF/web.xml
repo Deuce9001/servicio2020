@@ -93,6 +93,10 @@
         <servlet-name>ListaNinos</servlet-name>
         <servlet-class>Ninos.ListaNinos</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AltaUsuarios</servlet-name>
+        <servlet-class>AltaUsuarios</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -164,6 +168,10 @@
     <servlet-mapping>
         <servlet-name>ListaNinos</servlet-name>
         <url-pattern>/Ninos/ListaNinos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AltaUsuarios</servlet-name>
+        <url-pattern>/AltaUsuarios</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

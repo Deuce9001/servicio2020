@@ -5,12 +5,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -38,7 +36,6 @@ public class AltaNino extends HttpServlet {
     }
 
     @Override
-    @Deprecated
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
@@ -54,19 +51,22 @@ public class AltaNino extends HttpServlet {
         String nombre = request.getParameter("nombre");
         String apellidos = request.getParameter("apellidos");
         String nombreCompleto = nombre + " " + apellidos;
-        int dia = Integer.parseInt(request.getParameter("dia"));
-        int mes = Integer.parseInt(request.getParameter("mes"));
-        int ano = Integer.parseInt(request.getParameter("ano"));
+        String dia = request.getParameter("dia");
+        String mes = request.getParameter("mes");
+        String anio = request.getParameter("anio");
+        String fecha_nac = anio + "-" + mes + "-" + dia;
         String sexo = request.getParameter("sexo");
         String direccion = request.getParameter("direccion");
         int tel = Integer.parseInt(request.getParameter("telefono"));
-        String grado_escolar = request.getParameter("grado_escolar");
+        String grado_escolar = request.getParameter("escolaridad");
         String programa = request.getParameter("programa");
+        String estado = "activo";
         
         //Image
-        String path = "C:/Users/David/OneDrive/Imágenes/";
+        String path = "C:\\Users\\David\\OneDrive\\Imágenes\\";
         String file = request.getParameter("foto");
         String filepath = path + file;
+        request.setAttribute("filepath", filepath);
         InputStream img = new FileInputStream(new File(filepath));
         
         String alergias = request.getParameter("alergias");
@@ -74,15 +74,13 @@ public class AltaNino extends HttpServlet {
         String sql = "INSERT INTO Nino "
                 + "(nombre, fecha_nac, sexo, direccion, tel, grado_escolar, programa, foto, alergias, estado) "
                 + "VALUES (?,?,?,?,?,?,?,?,?,?);";
-        
-        Date fecha_nac = new Date(ano,mes,dia);
-        
+                
         try {
             Class.forName("con.mysql.jdbc.Driver");
             try (Connection con = DriverManager.getConnection(url,user,pass)) {
-                try (PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+                try (PreparedStatement ps = con.prepareStatement(sql)) {
                     ps.setString(1, nombreCompleto);
-                    ps.setDate(2, fecha_nac);
+                    ps.setString(2, fecha_nac);
                     ps.setString(3, sexo);
                     ps.setString(4, direccion);
                     ps.setInt(5, tel);
@@ -90,7 +88,7 @@ public class AltaNino extends HttpServlet {
                     ps.setString(7, programa);
                     ps.setBlob(8, img);
                     ps.setString(9, alergias);
-                    ps.setString(10, "activo");
+                    ps.setString(10, estado);
                     ps.executeUpdate();
                     ResultSet rs = ps.getGeneratedKeys();
                     while(rs.next()) {
