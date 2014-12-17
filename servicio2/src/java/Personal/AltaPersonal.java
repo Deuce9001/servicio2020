@@ -24,10 +24,10 @@ public class AltaPersonal extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         HttpSession session = request.getSession();
-        /*if (session.getAttribute("username") == null || session.getAttribute("permiso").equals("Administrador") == false) {
+        if (session.getAttribute("username") == null || session.getAttribute("permiso").equals("Administrador") == false) {
             response.sendRedirect("./index.jsp"); 
             return;
-        }*/
+        }
         RequestDispatcher disp = getServletContext().getRequestDispatcher("/darDeAltaP.jsp");
         disp.include(request, response);
     }
@@ -61,7 +61,7 @@ public class AltaPersonal extends HttpServlet {
                 + "VALUES (?,?,?,?,?,?,?,?,?);";
 
         try {
-            Class.forName("con.mysql.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             try (Connection con = DriverManager.getConnection(url, user, pass)) {
                 try (PreparedStatement ps = con.prepareStatement(sql)) {
                     ps.setString(1, nombre);
@@ -75,9 +75,9 @@ public class AltaPersonal extends HttpServlet {
                     ps.setString(9, tipo);
                     ps.executeUpdate();
                     ResultSet rs = ps.getGeneratedKeys();
-                    while (rs.next()) {
-                        request.setAttribute("matricula", rs);
-                    }
+                    rs.next();
+                    int matricula = rs.getInt(1);
+                    request.setAttribute("matricula", matricula);
                 }
                 request.setAttribute("res", "El personal " + nombre + " con matricula " + request.getAttribute("matricula") + " ha sido registrado exitosamente!");
                 doGet(request,response);
@@ -85,7 +85,7 @@ public class AltaPersonal extends HttpServlet {
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(AltaPersonal.class.getName()).log(Level.SEVERE, null, ex);
             request.setAttribute("error", "true");
-            request.setAttribute("res", "Ingrese nuevamente los datos, ha habido un problema para realizar el registro");
+            request.setAttribute("res", "Ingrese nuevamente los datos, ha habido un problema para realizar el registro. Error: " + ex.getMessage());
             doGet(request, response);
         }
         

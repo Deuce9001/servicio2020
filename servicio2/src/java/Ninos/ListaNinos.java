@@ -32,7 +32,7 @@ public class ListaNinos extends HttpServlet {
 
         HttpSession session = request.getSession();
         if (session.getAttribute("usuario") == null || session.getAttribute("permiso").equals("Administrador") == false) {
-            response.sendRedirect("./index"); 
+            response.sendRedirect("./index.jsp"); 
             return;
         }
         
@@ -43,7 +43,7 @@ public class ListaNinos extends HttpServlet {
         List<Nino> ninos = new ArrayList<>();
         
         try {
-            Class.forName("con.mysql.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             try (Connection con = DriverManager.getConnection(url, user, pass)) {
                 String buscar;
                 String sql;
@@ -62,14 +62,11 @@ public class ListaNinos extends HttpServlet {
                         Nino nino = new Nino();
                         nino.setId(rs.getInt("id"));
                         nino.setNombre(rs.getString("nombre"));
-                        nino.setFechaNac(rs.getDate("fecha_nac"));
                         nino.setEdad(rs.getDate("fecha_nac"));
-                        nino.setGradoEscolar(rs.getString("grado_escolar"));
-                        nino.setSexo(rs.getString("sexo"));
+                        nino.setAlergias(rs.getString("alergias"));
                         nino.setDireccion(rs.getString("direccion"));
                         nino.setTelefono(rs.getInt("tel"));
                         nino.setPrograma(rs.getString("programa"));
-                        nino.setAlergias(rs.getString("alergias"));
                         ninos.add(nino);
                     }
                 }

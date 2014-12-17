@@ -4,9 +4,9 @@
     Author     : Alejandra
 --%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page session="true" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 
 <!DOCTYPE html>
 <html>
@@ -63,7 +63,7 @@
                         <a href="grupos.jsp">Grupos</a>
                     </li>
                     <li>
-                        ${username}
+                        <a>${username}</a>
                     </li>
                     <li>
                         <a href="logout.jsp">Logout</a>
@@ -84,8 +84,7 @@
         <br/>
         <br/>
         <br/>
-        <c:out value="${sessionScope.username}" />
-        Bienvenid@ ${sessionScope.username}
+        <h1>Bienvenid@ ${sessionScope.username}</h1>
         <br/>
         <br/>        
       <img src="images/2.png" width="400"  >

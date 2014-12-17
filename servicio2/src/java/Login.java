@@ -4,8 +4,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,30 +16,37 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
+        HttpSession session = request.getSession();
         
         RequestDispatcher disp = getServletContext().getRequestDispatcher("/index.jsp");
         disp.include(request, response);        
-        
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
+        HttpSession session = request.getSession();
+        
         String pass = getServletContext().getInitParameter("pass");
         String user = getServletContext().getInitParameter("user");
         String url = getServletContext().getInitParameter("url");
-        
-        HttpSession session = request.getSession();
-        
+                
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        
         String permiso = null;
         String jspUrl = null;
        
         String sql = "SELECT * FROM usuario WHERE usuario=? AND password=?;";
         
-        try{ Class.forName("con.mysql.jdbc.Driver");
+        try{ Class.forName("com.mysql.jdbc.Driver");
             try(Connection con = DriverManager.getConnection(url,user,pass)) {
                 try(PreparedStatement ps = con.prepareStatement(sql)){
                     ps.setString(1,username);
@@ -49,34 +54,28 @@ public class Login extends HttpServlet {
                     ResultSet rs = ps.executeQuery();
                     if(!rs.next())
                         permiso = null;
-                    if(rs.getString("username").equals("username")==false)
+                    if(rs.getString("usuario").equals("username")==false)
                         permiso = null;
                     if(rs.getString("password").equals("password")==false)
                         permiso = null;
                     permiso = rs.getString("permiso");
                     
                     if(permiso==null){
-                        jspUrl = "index";
+                        jspUrl = "/index.jsp";
                     } else {
-                        session.setAttribute("username", username);
-                        session.setAttribute("permiso", permiso);
-                        jspUrl = "inicio";
+                        session.setAttribute("username", rs.getString("usuario"));
+                        session.setAttribute("permiso", rs.getString("permiso"));
+                        jspUrl = "/inicio.jsp";
                     }
-                    
-                    response.sendRedirect(jspUrl);
-                    doGet(request, response);
-                    
-                    RequestDispatcher disp = getServletContext().getRequestDispatcher("/inicio.jsp");
+                                        
+                    RequestDispatcher disp = getServletContext().getRequestDispatcher(jspUrl);
                     disp.include(request, response); 
                     
                 }
-            } catch (SQLException ex) {
-                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException | SQLException  ex) {
             request.setAttribute("error", "true");
-            request.setAttribute("res", "Error");
+            request.setAttribute("res", "Error: " + ex.getMessage());
             doGet(request, response);        
         }
     }

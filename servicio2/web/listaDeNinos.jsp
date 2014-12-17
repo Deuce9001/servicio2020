@@ -105,13 +105,10 @@
                                     Nombre
                                 </th>
                                 <th>
-                                    Fecha de Nacimiento
+                                    Edad
                                 </th>
                                 <th>
-                                    Grado Escolar
-                                </th>
-                                <th>
-                                    Sexo
+                                    Alergias
                                 </th>
                                 <th>
                                     Direcci&oacute;n
@@ -121,9 +118,6 @@
                                 </th>
                                 <th>
                                     Programa
-                                </th>
-                                <th>
-                                    Alergias
                                 </th>
                             </tr>
                             <c:forEach items="${ninos}" var="nino">
@@ -139,6 +133,9 @@
                                     </td>
                                     <td>
                                         ${nino.alergias}
+                                    </td>
+                                    <td>
+                                        ${nino.direccion}
                                     </td>
                                     <td>
                                         ${nino.tel}

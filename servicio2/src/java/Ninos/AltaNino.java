@@ -9,6 +9,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -27,10 +28,10 @@ public class AltaNino extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         HttpSession session = request.getSession();
-        /*if (session.getAttribute("username") == null || session.getAttribute("permiso").equals("Administrador") == false) {
+        if (session.getAttribute("username") == null || session.getAttribute("permiso").equals("Administrador") == false) {
             response.sendRedirect("./index.jsp"); 
             return;
-        }*/
+        }
         RequestDispatcher disp = getServletContext().getRequestDispatcher("/darDeAlta.jsp");
         disp.include(request, response);
     }
@@ -74,11 +75,12 @@ public class AltaNino extends HttpServlet {
         String sql = "INSERT INTO Nino "
                 + "(nombre, fecha_nac, sexo, direccion, tel, grado_escolar, programa, foto, alergias, estado) "
                 + "VALUES (?,?,?,?,?,?,?,?,?,?);";
-                
+        String sqlQuery = "SELECT * FROM Nino WHERE nombre=? AND fecha_nac=?;";
+                        
         try {
-            Class.forName("con.mysql.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             try (Connection con = DriverManager.getConnection(url,user,pass)) {
-                try (PreparedStatement ps = con.prepareStatement(sql)) {
+                try (PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                     ps.setString(1, nombreCompleto);
                     ps.setString(2, fecha_nac);
                     ps.setString(3, sexo);
@@ -91,17 +93,18 @@ public class AltaNino extends HttpServlet {
                     ps.setString(10, estado);
                     ps.executeUpdate();
                     ResultSet rs = ps.getGeneratedKeys();
-                    while(rs.next()) {
-                        session.setAttribute("matricula", rs);
-                    }
+                    rs.next();
+                    int matricula = rs.getInt(1);
+                    session.setAttribute("matricula", matricula);
+                    
                 }
-                request.setAttribute("res", "El alumno " + nombre + " con matricula " + session.getAttribute("matricula") + " registrado exitosamente!");
+                request.setAttribute("res", "El alumn@ " + nombre + " con matr&iacute;cula " + session.getAttribute("matricula") + " registrado exitosamente!");
                 doGet(request,response);
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(AltaNino.class.getName()).log(Level.SEVERE, null, ex);
             request.setAttribute("error", "true");
-            request.setAttribute("res", "Ingrese nuevamente los datos, ha habido un problema para realizar el registro");
+            request.setAttribute("res", "Ingrese nuevamente los datos, ha habido un problema para realizar el registro. Error: "+ex.getMessage());
             doGet(request, response);
         }
     }

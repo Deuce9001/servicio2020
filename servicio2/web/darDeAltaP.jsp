@@ -97,7 +97,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="well bs-component">
-                                <form class="form-horizontal" method="post" action="AltaPersonal">
+                                <form method="post" action="AltaPersonal" class="form-horizontal">
                                     <fieldset>
                                         <legend>Dar de Alta Personal</legend>
                                         <div class="form-horizontal">

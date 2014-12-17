@@ -57,10 +57,10 @@
                         <a href="grupos.jsp">Grupos</a>
                     </li> 
                     <li>
-                        ${sessionScope.username}
+                        <a>${username}</a>
                     </li>
                     <li>
-                         <a href="logout.jsp">Logout</a>
+                        <a href="logout.jsp">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -111,7 +111,7 @@
                                             &nbsp;
                                             &nbsp;
                                             <span>
-                                                <input type="text" id="element_1_1" name="nombre" class="element text" maxlength="255" size="14"/> 
+                                                <input type="text" id="element_1_1" name="nombre" class="element text" maxlength="255" size="14" required="required"/> 
                                             </span>
                                             <br>
                                             <br>
@@ -119,7 +119,7 @@
                                             &nbsp;
                                             <label class="col-lg-2 control-label">Apellidos:</label>
                                             <span>
-                                                <input type="text" id="element_1_2" name="apellidos" class="element text" maxlength="255" size="14" />
+                                                <input type="text" id="element_1_2" name="apellidos" class="element text" maxlength="255" size="14" required="required"/>
                                             </span>
                                         </div>
                                         <br>
