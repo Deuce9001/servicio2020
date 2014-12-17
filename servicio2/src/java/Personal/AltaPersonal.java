@@ -25,6 +25,7 @@ public class AltaPersonal extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         HttpSession session = request.getSession();
+    
         if (session.getAttribute("username") == null || session.getAttribute("permiso").equals("Administrador") == false) {
             response.sendRedirect("./index.jsp"); 
             return;

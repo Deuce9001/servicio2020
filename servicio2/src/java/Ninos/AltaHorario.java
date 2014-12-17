@@ -1,4 +1,4 @@
-    package Ninos;
+package Ninos;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -6,7 +6,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Time;
-import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -25,58 +24,70 @@ public class AltaHorario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
+        HttpSession session = request.getSession();
+    
+        if (session.getAttribute("username") == null || session.getAttribute("permiso").equals("Administrador") == false) {
+            response.sendRedirect("./index.jsp"); 
+            return;
+        }
+        RequestDispatcher disp = getServletContext().getRequestDispatcher("/darDeAltaH.jsp");
+        disp.include(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+                
+        String url = getServletContext().getInitParameter("url");
+        String user = getServletContext().getInitParameter("user");
+        String pass = getServletContext().getInitParameter("pass");
+        
         HttpSession session = request.getSession();
+        
         String dias = request.getParameter("dias");
-        int horaE = Integer.parseInt(request.getParameter("hora_entrada"));
-        int minutoE = Integer.parseInt(request.getParameter("minuto_entrada"));
-        String meridianoE = request.getParameter("meridiano_entrada");
+        int horaE = Integer.parseInt(request.getParameter("horaE"));
+        int minutoE = Integer.parseInt(request.getParameter("minutoE"));
+        String meridianoE = request.getParameter("tiempoE");
         if (meridianoE.equals("pm")) {
             horaE = horaE + 12;
         } else {
         }
         Time h_ent = new Time(horaE, minutoE, 00);
-        int horaS = Integer.parseInt(request.getParameter("hora_salida"));
-        int minutoS = Integer.parseInt(request.getParameter("minuto_salida"));
-        String meridianoS = request.getParameter("meridiano_entrada");
+        int horaS = Integer.parseInt(request.getParameter("horaS"));
+        int minutoS = Integer.parseInt(request.getParameter("minutoS"));
+        String meridianoS = request.getParameter("tiempoS");
         if (meridianoS.equals("pm")) {
             horaS = horaS + 12;
         } else {
         }
         Time h_sal = new Time(horaS, minutoS, 00);
-        int id_nino = Integer.parseInt(request.getParameter("id_nino"));
-        String sql = "INSERT INTO Horario (dias,h_ent,h_sal,id_nino) VALUES (?,?,?,?);";
-        boolean st = false;
+        int id_nino = (int)session.getAttribute("matricula");
+        String sql = "INSERT INTO Horario (dias,h_ent,h_salida,id_nino) VALUES (?,?,?,?);";
+        
         try {
-            Class.forName("con.mysql.jdbc.Driver");
-            try (Connection con = DriverManager.getConnection("jdbc:mysql://servicio2020.caafufvdj2xl.us-west-2.rds.amazonaws.com/servicio2020", "servicio2020", "servicio2020")) {
+            Class.forName("com.mysql.jdbc.Driver");
+            try (Connection con = DriverManager.getConnection(url,user,pass)) {
                 try (PreparedStatement ps = con.prepareStatement(sql)) {
                     ps.setString(1, dias);
                     ps.setTime(2, h_ent);
                     ps.setTime(3, h_sal);
                     ps.setInt(4, id_nino);
-                    ResultSet rs = ps.executeQuery();
-                    while (rs.next()) {
-                        st = true;
-                    }
+                    ps.executeUpdate();
                 }
-                if (st) {
-                    request.setAttribute("res", "El registro del horario fue exitoso!");
-                    RequestDispatcher rd = getServletContext().getRequestDispatcher("/altaHistoriaClinica.jsp");
-                    rd.include(request, response);
-                } else {
-                    request.setAttribute("res", "Lo sentimos, hubo un problema en registro, introduzca los datos nuevamente.");
-                    RequestDispatcher rd = getServletContext().getRequestDispatcher("/altaHorario.jsp");
-                    rd.include(request, response);
-                }
+                request.setAttribute("res", "El registro del horario fue exitoso!");
+                doGet(request, response);
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(AltaHorario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            request.setAttribute("error", "true");
+            request.setAttribute("res", "Lo sentimos, hubo un problema en registro, introduzca los datos nuevamente. Error: " + ex.getMessage());
+            doGet(request, response);
+        } 
     }
 }

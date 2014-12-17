@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,13 +19,33 @@ public class AltaInscripcion extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
+        HttpSession session = request.getSession();
+    
+        if (session.getAttribute("username") == null || session.getAttribute("permiso").equals("Administrador") == false) {
+            response.sendRedirect("./index.jsp"); 
+            return;
+        }
+        RequestDispatcher disp = getServletContext().getRequestDispatcher("/inscripcion.jsp");
+        disp.include(request, response);
+        
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+                
+        String url = getServletContext().getInitParameter("url");
+        String user = getServletContext().getInitParameter("user");
+        String pass = getServletContext().getInitParameter("pass");
+        
         HttpSession session = request.getSession();
+        
         String acta_nac = request.getParameter("acta_nac");
         String cartilla_vac = request.getParameter("cartilla");
         String curp = request.getParameter("curp");
@@ -34,17 +53,16 @@ public class AltaInscripcion extends HttpServlet {
         String reglamento = request.getParameter("reglamento");
         String ex_med = request.getParameter("medico");
         String boleta = request.getParameter("boleta");
-        String id = request.getParameter("id_nino");
-        int id_nino = Integer.parseInt(id);
+        int id = (int) session.getAttribute("matricula");
+        
         String sql = "INSERT INTO Inscripcion (id_nino, fecha_insc, acta_nac, cartilla_vac, curp, av_privacidad, reglamento, ex_med, boleta_calif) "
                 + "VALUES (?, NOW(), ?, ?, ?, ?, ?, ?, ?);";
-        boolean st = false;
+        
         try {
-            Class.forName("con.mysql.jdbc.Driver");
-            try (Connection con = DriverManager.getConnection("jdbc:mysql://servicio2020.caafufvdj2xl.us-west-2.rds.amazonaws.com/servicio2020", 
-                    "servicio2020", "servicio2020")) {
+            Class.forName("com.mysql.jdbc.Driver");
+            try (Connection con = DriverManager.getConnection(url,user,pass)) {
                 try (PreparedStatement ps = con.prepareStatement(sql)) {
-                    ps.setInt(1, id_nino);
+                    ps.setInt(1, id);
                     ps.setString(2, acta_nac);
                     ps.setString(3, cartilla_vac);
                     ps.setString(4, curp);
@@ -61,7 +79,7 @@ public class AltaInscripcion extends HttpServlet {
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(AltaInscripcion.class.getName()).log(Level.SEVERE, null, ex);
             request.setAttribute("error", "true");
-            request.setAttribute("res", "Lo sentimos, hubo un problema al realizar el registro, introduzca los datos nuevamente");
+            request.setAttribute("res", "Lo sentimos, hubo un problema al realizar el registro, introduzca los datos nuevamente. Error: " + ex.getMessage());
             doGet(request, response);
         }
     }

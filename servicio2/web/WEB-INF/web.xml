@@ -106,24 +106,8 @@
         <url-pattern>/AltaNino</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AltaInscripcion</servlet-name>
-        <url-pattern>/Ninos/AltaInscripcion</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AltaHorario</servlet-name>
-        <url-pattern>/Ninos/AltaHorario</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AltaHistoriaClinica</servlet-name>
-        <url-pattern>/Ninos/AltaHistoriaClinica</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>AltaTutor</servlet-name>
         <url-pattern>/Tutores/AltaTutor</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AltaPersonal</servlet-name>
-        <url-pattern>/Personal/AltaPersonal</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AltaEvento</servlet-name>
@@ -166,12 +150,28 @@
         <url-pattern>/Tutores/ModificaTutor</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ListaNinos</servlet-name>
-        <url-pattern>/Ninos/ListaNinos</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>AltaUsuarios</servlet-name>
         <url-pattern>/AltaUsuarios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AltaPersonal</servlet-name>
+        <url-pattern>/AltaPersonal</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListaNinos</servlet-name>
+        <url-pattern>/ListaNinos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AltaHorario</servlet-name>
+        <url-pattern>/AltaHorario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AltaInscripcion</servlet-name>
+        <url-pattern>/AltaInscripcion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AltaHistoriaClinica</servlet-name>
+        <url-pattern>/AltaHistoriaClinica</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

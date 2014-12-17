@@ -105,7 +105,7 @@
                             <div class="well bs-component">
                                 <form class="form-horizontal" method="post" action="AltaNino">
                                     <fieldset>
-                                        <legend>Dar de Alta a un Alumno</legend>
+                                        <legend>Datos del Alumno</legend>
                                         <div class="form-horizontal">
                                             <label class="col-lg-2 control-label">Nombre(s):</label>
                                             &nbsp;
@@ -234,8 +234,17 @@
                                         <br>
                                         <div class="form-horizontal">
                                             <div class="col-lg-10">
-                                                <button type="submit" class="btn btn-primary" name="submit">Guardar</button>
-                                                <a href="darDeAltaH.jsp" class="btn btn-success">Continuar</a>
+                                                <c:if test="${not empty res}">
+                                                    <c:if test="${not empty error}">
+                                                        <button type="submit" class="btn btn-primary" name="submit">Guardar</button>
+                                                    </c:if>
+                                                    <c:if test="${empty error}">
+                                                        <a href="darDeAltaH.jsp" class="btn btn-success">Continuar</a>
+                                                    </c:if>
+                                                </c:if>
+                                                <c:if test="${empty res}">
+                                                    <button type="submit" class="btn btn-primary" name="submit">Guardar</button>
+                                                </c:if>
                                             </div>
                                         </div> 
                                     </fieldset>
