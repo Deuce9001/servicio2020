@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -63,7 +64,7 @@ public class AltaPersonal extends HttpServlet {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             try (Connection con = DriverManager.getConnection(url, user, pass)) {
-                try (PreparedStatement ps = con.prepareStatement(sql)) {
+                try (PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS)) {
                     ps.setString(1, nombre);
                     ps.setString(2, direccion);
                     ps.setInt(3, tel);

@@ -144,7 +144,7 @@
                                         <div class="form-horizontal">
                                             <label class="col-lg-2 control-label">Posici&oacute;n:</label>
                                             &nbsp;
-                                            <input id="posicion" name="posicion" class="element text" maxlength="8" size="30" value=""/>
+                                            <input id="posicion" name="posicion" class="element text" maxlength="255" size="30" value=""/>
                                         </div>                  
                                         <br><br>
                                         <div class="form-group">

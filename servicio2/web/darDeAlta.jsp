@@ -231,7 +231,6 @@
                                                 </div>
                                             </div>  
                                         </div>  
-                                        <p>La direccion de la imagen es: ${requestScope.filepath}</p>
                                         <br>
                                         <div class="form-horizontal">
                                             <div class="col-lg-10">

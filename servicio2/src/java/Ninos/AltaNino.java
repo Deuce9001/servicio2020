@@ -75,7 +75,6 @@ public class AltaNino extends HttpServlet {
         String sql = "INSERT INTO Nino "
                 + "(nombre, fecha_nac, sexo, direccion, tel, grado_escolar, programa, foto, alergias, estado) "
                 + "VALUES (?,?,?,?,?,?,?,?,?,?);";
-        String sqlQuery = "SELECT * FROM Nino WHERE nombre=? AND fecha_nac=?;";
                         
         try {
             Class.forName("com.mysql.jdbc.Driver");
