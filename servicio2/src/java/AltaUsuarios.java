@@ -18,7 +18,7 @@ public class AltaUsuarios extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        request .setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
                 
         RequestDispatcher disp = getServletContext().getRequestDispatcher("/AltaUsuarios.jsp");
@@ -29,7 +29,7 @@ public class AltaUsuarios extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        request .setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         
         HttpSession session = request.getSession();
@@ -41,7 +41,7 @@ public class AltaUsuarios extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         
-        try{ Class.forName("con.mysql.jdbc.Driver");
+        try{ Class.forName("com.mysql.jdbc.Driver");
             try (Connection con = DriverManager.getConnection(url,user,pass))
             {
                 try (PreparedStatement p = con.prepareStatement("insert into usuario (usuario, password, permiso) values (?, ?, ?);")) {
@@ -61,7 +61,7 @@ public class AltaUsuarios extends HttpServlet {
         {
             Logger.getLogger(AltaUsuarios.class.getName()).log(Level.SEVERE, null, ex);
             request.setAttribute("error", "true");
-            request.setAttribute("res", "Error");
+            request.setAttribute("res", "Error: " + ex.getMessage());
             doGet(request, response);
         }
     }

@@ -42,10 +42,10 @@
                 <form method="post" action="Login">
                     <div class="form-group">
                         <label>Usuario</label>
-                        <input type="text" class="form-control" id="usuario" name="username" />
+                        <input type="text" class="form-control" id="username" name="username" />
                     </div>
                     <div class="form-group">
-                        <label>Contrase&ntildea</label>
+                        <label>Contrase&ntilde;a</label>
                         <input type="password" class="form-control" id="password" name="password" />
                     </div>
                     <button type="submit" class="btn btn-lg btn-primary pull-right btn-block">Entrar</button>

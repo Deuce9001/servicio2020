@@ -3,7 +3,7 @@
     <display-name>Todos Ayudando Unidos S.C.</display-name>
     <context-param>
         <param-name>url</param-name>
-        <param-value>jdbc:mysql://localhost:8080/servicio2020</param-value>
+        <param-value>jdbc:mysql://localhost/servicio2020</param-value>
     </context-param>
     <context-param>
         <param-name>user</param-name>
