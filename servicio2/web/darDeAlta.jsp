@@ -217,20 +217,20 @@
                                             <div class="form-group">
                                                 <label for="textArea" class="col-lg-2 control-label">Alérgias:</label>
                                                 <div class="col-lg-10">
-                                                    <textarea class="form-control" rows="3" id="textArea" name="alergias" placeholder="Sin alérgias"></textarea>
+                                                    <textarea class="form-control" rows="3" id="alergias" name="alergias" placeholder="Sin alérgias"></textarea>
                                                 </div>
                                             </div>  
                                         </div>
                                         <br>
                                         <p>*La fotografía debe estar en formato jpg, jpeg o png, de otra forma no se podrá realizar el resgistro</p>
                                         <div class="form-horizontal">
-                                            <div class="form-group">
-                                                <label for="textArea" class="col-lg-2 control-label">Fotograf&iacute;a:</label>
-                                                <div class="col-lg-10">
-                                                    <input type="file" name="foto" onchange="check_file()" />
-                                                </div>
-                                            </div>  
-                                        </div>  
+                                            <label class="col-lg-2 control-label">Fotograf&iacute;a:</label>
+                                            <div class="col-lg-10">
+                                                <input type="file" name="foto" id="foto" onchange="check_file()" class="element file" />
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <br>
                                         <br>
                                         <div class="form-horizontal">
                                             <div class="col-lg-10">

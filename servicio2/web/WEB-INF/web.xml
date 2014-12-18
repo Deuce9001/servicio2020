@@ -106,10 +106,6 @@
         <url-pattern>/AltaNino</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AltaTutor</servlet-name>
-        <url-pattern>/Tutores/AltaTutor</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>AltaEvento</servlet-name>
         <url-pattern>/Eventos/AltaEvento</url-pattern>
     </servlet-mapping>
@@ -132,18 +128,6 @@
     <servlet-mapping>
         <servlet-name>ModificaPersonal</servlet-name>
         <url-pattern>/Personal/ModificaPersonal</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>BajaNino</servlet-name>
-        <url-pattern>/Ninos/BajaNino</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>BajaPersonal</servlet-name>
-        <url-pattern>/Personal/BajaPersonal</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>BajaTutor</servlet-name>
-        <url-pattern>/Tutores/BajaTutor</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ModificaTutor</servlet-name>
@@ -172,6 +156,22 @@
     <servlet-mapping>
         <servlet-name>AltaHistoriaClinica</servlet-name>
         <url-pattern>/AltaHistoriaClinica</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AltaTutor</servlet-name>
+        <url-pattern>/AltaTutor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BajaNino</servlet-name>
+        <url-pattern>/BajaNino</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BajaPersonal</servlet-name>
+        <url-pattern>/BajaPersonal</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BajaTutor</servlet-name>
+        <url-pattern>/BajaTutor</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
