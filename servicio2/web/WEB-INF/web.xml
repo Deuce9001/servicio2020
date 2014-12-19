@@ -110,10 +110,6 @@
         <url-pattern>/Eventos/AltaEvento</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ModificaNino</servlet-name>
-        <url-pattern>/Ninos/ModificaNino</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ModificaInscripcion</servlet-name>
         <url-pattern>/Ninos/ModificaInscripcion</url-pattern>
     </servlet-mapping>
@@ -172,6 +168,10 @@
     <servlet-mapping>
         <servlet-name>BajaTutor</servlet-name>
         <url-pattern>/BajaTutor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ModificaNino</servlet-name>
+        <url-pattern>/ModificaNino</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -83,17 +83,17 @@
         <div class="bs-docs-section">
             <div class="row">
                 <div class="col-lg-12" id="listaDeNinos" >
+                    <form>
                     <div class="page-header">
                         <h1 id="tables">Lista de Ni&ntilde;os</h1>
                     </div>
-                    <form class="form-inline" role="form" method="get" action="ListaNinos">
+                        <form class="form-inline" role="form" method="get" action="ListaNinos">
                         <div class="form-group">
                             <div class="input-group">
                                 <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
                                 <input type="search" class="form-control" id="buscar" name="buscar" placeholder="Buscar ni&ntilde;os por nombre" value="${buscar}" />
                             </div>
                         </div>
-                    </form>
                     <br/>   
                     <div class="bs-component">
                         <table id="table" class="table table-hover">
@@ -147,10 +147,11 @@
                             </c:forEach>
                         </table>
                     </div>
+                        </form>
                     <a href="inicio.jsp" class="btn btn-info">Volver</a>
                 </div>
             </div>
-        </div>        
+        </div>       
     </div>
 </body>
 </html>

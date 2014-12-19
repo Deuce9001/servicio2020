@@ -13,29 +13,16 @@ public class Nino {
     public int edad;
     private String nombre;
     private Date fecha_nac;
+    private String fn;
+    private String dia;
+    private String mes;
+    private String anio;
     private String sexo;
     private String direccion;
     private int telefono;
     private String grado_escolar;
     private String programa;
     private String alergias;
-    
-    public Nino() {
-        
-    }
-    public Nino(int id, int edad, String nombre, Date fecha_nac, String sexo, String direccion, int telefono, String grado_escolar, String programa, String alergias) {
-        this.id = id;
-        this.edad = edad;
-        this.nombre = nombre;
-        this.fecha_nac = fecha_nac;
-        this.direccion = direccion;
-        this.sexo = sexo;
-        this.telefono = telefono;
-        this.grado_escolar = grado_escolar;
-        this.programa = programa;
-        this.alergias = alergias;
-        
-    }
     
     public int getId() {
         return id;
@@ -106,6 +93,51 @@ public class Nino {
     }
     public void setFechaNac(Date fecha) {
         fecha_nac = fecha;
+    }
+    
+    public String getFN() {
+        return fn;
+    }
+    public void setFN(String fn){
+        this.fn = fn;
+    }
+    
+    public String getDia() {
+        return dia;
+    }
+    public void setDia(String fecha_nac){
+        char fecha[];
+        fecha = fecha_nac.toCharArray();
+        char[] dias = new char[2];
+        dias[0] = fecha[8];
+        dias[1] = fecha[9];
+        dia = new String(dias);
+    }
+    
+    public String getMes() {
+        return mes;
+    }
+    public void setMes(String fecha_nac) {
+        char fecha[];
+        fecha = fecha_nac.toCharArray();
+        char[] meses = new char[2];
+        meses[0] = fecha[5];
+        meses[1] = fecha[6];
+        mes = new String(meses);
+    }
+    
+    public String getAnio() {
+        return anio;
+    }
+    public void setAnio(String fecha_nac) {
+        char fecha[];
+        fecha = fecha_nac.toCharArray();
+        char[] anios = new char[4];
+        anios[0] = fecha[0];
+        anios[1] = fecha[1];
+        anios[2] = fecha[2];
+        anios[3] = fecha[3];
+        anio = new String(anios);
     }
     
     public String getSexo() {
