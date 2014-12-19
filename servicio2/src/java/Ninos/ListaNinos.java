@@ -18,10 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author David
- */
 public class ListaNinos extends HttpServlet {
 
     @Override
@@ -75,6 +71,9 @@ public class ListaNinos extends HttpServlet {
             }
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(ListaNinos.class.getName()).log(Level.SEVERE, null, ex);
+            request.setAttribute("error","true");
+            request.setAttribute("res", "Ha habido un error en la búsqueda. Error: " + ex.getMessage());
+            doGet(request, response);
         }
         request.setAttribute("ninos", ninos);
         RequestDispatcher disp = getServletContext().getRequestDispatcher("/listaDeNinos.jsp");

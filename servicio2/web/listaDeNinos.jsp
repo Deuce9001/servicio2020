@@ -90,7 +90,7 @@
                         <form class="form-inline" role="form" method="get" action="ListaNinos">
                         <div class="form-group">
                             <div class="input-group">
-                                <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
+                                <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;&nbsp;Buscar</div>
                                 <input type="search" class="form-control" id="buscar" name="buscar" placeholder="Buscar ni&ntilde;os por nombre" value="${buscar}" />
                             </div>
                         </div>
