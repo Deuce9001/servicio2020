@@ -104,7 +104,7 @@
                                                 <div class="form-group">
                                                     <label for="input" class="col-lg-5 control-label">Contraseña nueva: </label>
                                                     <div class="col-lg-5">
-                                                        <input class="form-control" type="password" name="password" />
+                                                        <input class="form-control" type="password" name="con1" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -112,7 +112,7 @@
                                                 <div class="form-group">
                                                     <label for="input" class="col-lg-5 control-label">Escriba la contraseña nueva de nuevo: </label>
                                                     <div class="col-lg-5">
-                                                        <input class="form-control" type="password" name="password" />
+                                                        <input class="form-control" type="password" name="con2" />
                                                     </div>
                                                 </div>
                                             </div>

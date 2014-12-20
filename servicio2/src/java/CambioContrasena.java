@@ -72,7 +72,7 @@ public class CambioContrasena extends HttpServlet {
             }
         } else {
             request.setAttribute("error","true");
-            request.setAttribute("res", "Las contrse&ntilde;as no coinciden.");
+            request.setAttribute("res", "Las contrse&ntilde;as no coinciden o es demasiado corta, debe ser mayor a 8 caracteres.");
             doGet(request, response);
         } 
     }
