@@ -63,20 +63,10 @@
                         <a href="grupos.jsp">Grupos</a>
                     </li>
                     <li>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li id="fat-menu" class="dropdown">
-                                <button id="dLabel" type="button" data-target="#" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                                    ${username}
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dLabel">
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="perfil.jsp">Perfil</a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="perfiModificar">Modificar</a></li>
-                                    <li role="presentation" class="divider"></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="logout.jsp">Logout</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+                        <a href="perfil.jsp">${username}</a>
+                    </li>
+                    <li>
+                        <a href="logout.jsp">Logout</a>
                     </li>
                 </ul>
             </div>

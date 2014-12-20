@@ -97,6 +97,14 @@
         <servlet-name>AltaUsuarios</servlet-name>
         <servlet-class>AltaUsuarios</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PerfilUsuario</servlet-name>
+        <servlet-class>PerfilUsuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CambioContrasena</servlet-name>
+        <servlet-class>CambioContrasena</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -172,6 +180,14 @@
     <servlet-mapping>
         <servlet-name>ModificaNino</servlet-name>
         <url-pattern>/ModificaNino</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PerfilUsuario</servlet-name>
+        <url-pattern>/PerfilUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CambioContrasena</servlet-name>
+        <url-pattern>/CambioContrasena</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
