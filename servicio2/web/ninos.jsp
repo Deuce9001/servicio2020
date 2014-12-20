@@ -15,12 +15,9 @@
     <link rel="stylesheet" href="css/bootswatch.min.css">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>
         Ninos
     </title>
-
-  
 </head>
 
 <body >
@@ -60,7 +57,14 @@
             </li>
             <li>
                 <a href="grupos.jsp">Grupos</a>
-            </li>                      
+            </li>
+            <li>
+                <a href="perfil.jsp">Perfil: ${username}</a>
+            </li>
+            
+            <li>
+                <a href="logout.jsp">Logout</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -84,8 +88,6 @@
         
       <center>
     <div>
-        
-    
         <br/>
         <br/>
         <br/>
