@@ -63,7 +63,7 @@
                         <a href="grupos.jsp">Grupos</a>
                     </li>
                     <li>
-                        <a href="perfil.jsp">${username}</a>
+                        <a href="perfil.jsp" class="glyphicon-user">&nbsp;${username}</a>
                     </li>
                     <li>
                         <a href="logout.jsp">Logout</a>
@@ -75,7 +75,6 @@
     
     <center>
     <div>
-        
         <br/>
         <br/>
         <br/>
@@ -87,7 +86,11 @@
         <form method="post" action="Logout">
         <h3>¿Esta segur@ que desea salir?</h3>
         <br/>
-        <button type="submit" name="submit" class="btn btn-primary btn-lg">Salir</button>
+        <div class="form-horizontal">
+            <button type="submit" name="submit" class="btn btn-primary btn-lg">&nbsp;Sí&nbsp;</button>
+            <a href="inicio.jsp" class="btn btn-primary btn-lg">No
+            </a>
+        </div>
         </form>
         <br/>
         <br/>        

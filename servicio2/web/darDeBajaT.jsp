@@ -56,28 +56,27 @@
                             <a href="grupos.jsp">Grupos</a>
                         </li>                   
                         <li>
-                            <a>${username}</a>
+                            <a href="perfil.jsp" class="glyphicon-user">&nbsp;${username}</a>
                         </li>
                         <li>
                             <a href="logout.jsp">Logout</a>
-                        </li>
-                    </ul>
+                        </li> 
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
             <div class="jumbotron">
-          <div class="container">
-            <h1>
-              Tutores
-            </h1>
-            <p>
-              <a class="btn btn-primary btn-lg" href="darDeAltaT.jsp" >Dar de Alta »</a>
-              <a class="btn btn-primary btn-lg" href="darDeBajaT.jsp" >Dar de Baja »</a>
-              <a class="btn btn-primary btn-lg" href="modificarT.jsp" >Modificar »</a>
-              <a class="btn btn-primary btn-lg" href="consultarT.jsp" >Consultar »</a>
-
-            </p>
-          </div>
+            <div class="container">
+                <h1>
+                    Tutores
+                </h1>
+                <p>
+                    <a class="btn btn-primary btn-lg" href="darDeAltaT.jsp" >Dar de Alta »</a>
+                    <a class="btn btn-primary btn-lg" href="darDeBajaT.jsp" >Dar de Baja »</a>
+                    <a class="btn btn-primary btn-lg" href="modificarT.jsp" >Modificar »</a>
+                    <a class="btn btn-primary btn-lg" href="consultarT.jsp" >Consultar »</a>
+                </p>
+            </div>
         </div>
 
         <div class="container">

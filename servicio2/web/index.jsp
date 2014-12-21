@@ -40,14 +40,18 @@
             </div>
             <div class="col-md-4">
                 <form method="post" action="Login">
-                    <div class="form-group">
-                        <label>Usuario</label>
-                        <input type="text" class="form-control" id="username" name="username" />
+                    
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon glyphicon-user">&nbsp;Usuario:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <input type="text" class="form-control" name="username">
                     </div>
-                    <div class="form-group">
-                        <label>Contrase&ntilde;a</label>
-                        <input type="password" class="form-control" id="password" name="password" />
+                    <br>
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon">@ Contraseña:</span>
+                        <input type="password" class="form-control" name="password">
                     </div>
+                    <br>
+                    
                     <button type="submit" class="btn btn-lg btn-primary pull-right btn-block">Entrar</button>
                     <div class="row"></div>
                 </form>
@@ -65,6 +69,7 @@
         <div class="btn-group"></div>
         <br>
         <br>
+        
         <div class="container">
             <footer>© TODOS AYUDANDO UNIDOS A.C. 2014</footer>
         </div>

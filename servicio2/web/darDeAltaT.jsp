@@ -61,7 +61,7 @@
                         <a href="grupos.jsp">Grupos</a>
                     </li>
                     <li>
-                        <a>${username}</a>
+                        <a href="perfil.jsp" class="glyphicon-user">&nbsp;${username}</a>
                     </li>
                     <li>
                         <a href="logout.jsp">Logout</a>
