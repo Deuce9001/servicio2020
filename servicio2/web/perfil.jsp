@@ -104,6 +104,14 @@
                                                     <p class="form-control-static">${permiso}</p>
                                                 </div>
                                             </div>
+                                                <br>
+                                                <br>
+                                                <div class="form-horizontal">
+                                                <label class="col-lg-4 control-label">Nombre de usuario: </label>
+                                                <div class="col-lg-7">
+                                                    <p class="form-control-static">${username}</p>
+                                                </div>
+                                            </div>
                                             <br>
                                             <br>
                                             <br>
@@ -112,7 +120,7 @@
                                                 <label class="col-lg-2 control-label">Contraseña:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <span><input class="element text" type="password" name="password" /></span>
                                                 <span>
-                                                    <button class="btn btn-primary" type="submit" name="enviar" value="Enviar">Enviar</button>
+                                                    <button class="btn btn-primary" type="submit" name="enviar" value="Enviar">Obtener</button>
                                                 </span>
                                             </div>
                                                 <br>

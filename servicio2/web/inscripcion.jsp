@@ -56,7 +56,7 @@
                         <a href="grupos.jsp">Grupos</a>
                     </li>  
                     <li>
-                        <a>${username}</a>
+                        <a href="perfil.jsp" class="glyphicon-user">&nbsp;${username}</a>
                     </li>
                     <li>
                         <a href="logout.jsp">Logout</a>
@@ -93,13 +93,13 @@
               <h1 id="forms">Dar de Alta</h1>
             </div>
                 <c:if test="${not empty res}">
-                            <c:if test="${not empty error}">
-                                <div class="alert alert-warning" role="alert">${res}</div>
-                            </c:if>
-                            <c:if test="${empty error}">
-                                <div class="alert alert-success" role="alert">${res}</div>
-                            </c:if>
-                        </c:if>
+                    <c:if test="${not empty error}">
+                        <div class="alert alert-warning" role="alert">${res}</div>
+                    </c:if>
+                    <c:if test="${empty error}">
+                        <div class="alert alert-success" role="alert">${res}</div>
+                    </c:if>
+                </c:if>
         <div class="row">
           <div class="col-lg-6">
             <div class="well bs-component">

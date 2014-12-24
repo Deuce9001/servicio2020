@@ -71,10 +71,11 @@ public class AltaNino extends HttpServlet {
         InputStream img = new FileInputStream(new File(filepath));
         
         String alergias = request.getParameter("alergias");
+        int id_grupo = Integer.parseInt(request.getParameter("id_grupo"));
         
         String sql = "INSERT INTO Nino "
-                + "(nombre, fecha_nac, sexo, direccion, tel, grado_escolar, programa, foto, alergias, estado) "
-                + "VALUES (?,?,?,?,?,?,?,?,?,?);";
+                + "(nombre, fecha_nac, sexo, direccion, tel, grado_escolar, programa, foto, alergias, estado, id_grupo) "
+                + "VALUES (?,?,?,?,?,?,?,?,?,?,?);";
                         
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -90,12 +91,12 @@ public class AltaNino extends HttpServlet {
                     ps.setBlob(8, img);
                     ps.setString(9, alergias);
                     ps.setString(10, estado);
+                    ps.setInt(11, id_grupo);
                     ps.executeUpdate();
                     ResultSet rs = ps.getGeneratedKeys();
                     rs.next();
                     int matricula = rs.getInt(1);
                     session.setAttribute("matricula", matricula);
-                    
                 }
                 request.setAttribute("res", "El alumn@ " + nombre + " con matr&iacute;cula " + session.getAttribute("matricula") + " registrado exitosamente!");
                 doGet(request,response);

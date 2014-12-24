@@ -233,6 +233,18 @@
                                         <br>
                                         <br>
                                         <div class="form-horizontal">
+                                            <label>Asignación del grupo al que pertenece</label>
+                                        </div>
+                                        <div class="form-horizontal">
+                                            <label class="col-lg-5 control-label">Matrícula del Grupo: </label>
+                                            <span class="col-lg-7">
+                                            <input type="text" class="element text" name="id_grupo" size="7" maxlength="7"/>
+                                            </span>
+                                        </div>  
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <div class="form-horizontal">
                                             <div class="col-lg-10">
                                                 <c:if test="${not empty res}">
                                                     <c:if test="${not empty error}">

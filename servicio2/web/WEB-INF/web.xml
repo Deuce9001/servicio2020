@@ -109,6 +109,14 @@
         <servlet-name>Logout</servlet-name>
         <servlet-class>Logout</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AltaGrupo</servlet-name>
+        <servlet-class>Grupos.AltaGrupo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BajaGrupo</servlet-name>
+        <servlet-class>Grupos.BajaGrupo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -196,6 +204,14 @@
     <servlet-mapping>
         <servlet-name>Logout</servlet-name>
         <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AltaGrupo</servlet-name>
+        <url-pattern>/AltaGrupo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BajaGrupo</servlet-name>
+        <url-pattern>/BajaGrupo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
