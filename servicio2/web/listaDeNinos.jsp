@@ -69,7 +69,7 @@
     <div class="jumbotron">
         <div class="container">
             <h1>
-                Ni&ntildeos
+                Niños
             </h1>
             <p>
                 <a class="btn btn-primary btn-lg" href="listaDeNinos.jsp" >Lista de Ninos »</a>
@@ -91,7 +91,7 @@
                 <div class="col-lg-12" id="listaDeNinos" >
                     <form>
                     <div class="page-header">
-                        <h1 id="tables">Lista de Ni&ntilde;os</h1>
+                        <h1 id="tables">Lista de Niñoss</h1>
                     </div>
                         <form class="form-inline" role="form" method="get" action="ListaNinos">
                         <div class="form-group">
@@ -125,6 +125,9 @@
                                 <th>
                                     Programa
                                 </th>
+                                <th>
+                                    Foto
+                                </th>
                             </tr>
                             <c:forEach items="${ninos}" var="nino">
                                 <tr>
@@ -149,10 +152,21 @@
                                     <td>
                                         ${nino.programa}
                                     </td>
+                                    <td>
+                                        ${nino.foto}
+                                    </td>
                                 </tr>
                             </c:forEach>
                         </table>
                     </div>
+                    <c:if test="${not empty res}">
+                    <c:if test="${not empty error}">
+                        <div class="alert alert-warning" role="alert">${res}</div>
+                    </c:if>
+                    <c:if test="${empty error}">
+                        <div class="alert alert-success" role="alert">${res}</div>
+                    </c:if>
+                </c:if>
                         </form>
                     <a href="inicio.jsp" class="btn btn-info">Volver</a>
                 </div>

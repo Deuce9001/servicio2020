@@ -45,10 +45,10 @@ public class ListaNinos extends HttpServlet {
                 String sql;
                 if ((buscar = request.getParameter("buscar")) != null) {
                     request.setAttribute("buscar", buscar);
-                    sql = "SELECT id, nombre, fecha_nac, direccion, tel, programa, alergias "
+                    sql = "SELECT id, nombre, fecha_nac, direccion, tel, programa, alergias, foto "
                             + "FROM Nino WHERE nombre LIKE ? AND estado='activo';";
                 } else {
-                    sql = "SELECT id, nombre, fecha_nac, direccion, tel, programa, alergias "
+                    sql = "SELECT id, nombre, fecha_nac, direccion, tel, programa, alergias, foto "
                             + "FROM Nino WHERE estado='activo';";
                 }
                 try (PreparedStatement ps = con.prepareStatement(sql)) {
