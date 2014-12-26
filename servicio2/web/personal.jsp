@@ -25,12 +25,6 @@
   
 </head>
 
-
-
-
-
-
-
 <body >
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -68,7 +62,13 @@
             </li>
             <li>
                 <a href="grupos.jsp">Grupos</a>
-            </li>                      
+            </li>
+            <li>
+                <a href="perfil.jsp" class="glyphicon-user">&nbsp;${username}</a>
+            </li>
+            <li>
+                <a href="logout.jsp">Logout</a>
+            </li>
           </ul>
         </div>
       </div>

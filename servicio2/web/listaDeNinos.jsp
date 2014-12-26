@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>
-        Lista Ni&ntilde;os
+        Lista de Niños
     </title>
 </head>
 
@@ -91,9 +91,9 @@
                 <div class="col-lg-12" id="listaDeNinos" >
                     <form>
                     <div class="page-header">
-                        <h1 id="tables">Lista de Niñoss</h1>
+                        <h1 id="tables">Lista de Niños</h1>
                     </div>
-                        <form class="form-inline" role="form" method="get" action="ListaNinos">
+                        <form class="form-horizontal" method="get" action="ListaNinos">
                         <div class="form-group">
                             <div class="input-group">
                                 <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;&nbsp;Buscar</div>
@@ -160,15 +160,15 @@
                         </table>
                     </div>
                     <c:if test="${not empty res}">
-                    <c:if test="${not empty error}">
-                        <div class="alert alert-warning" role="alert">${res}</div>
+                        <c:if test="${not empty error}">
+                            <div class="alert alert-warning" role="alert">${res}</div>
+                        </c:if>
+                        <c:if test="${empty error}">
+                            <div class="alert alert-success" role="alert">${res}</div>
+                        </c:if>
                     </c:if>
-                    <c:if test="${empty error}">
-                        <div class="alert alert-success" role="alert">${res}</div>
-                    </c:if>
-                </c:if>
                         </form>
-                    <a href="inicio.jsp" class="btn btn-info">Volver</a>
+                    <a href="ninos.jsp" class="btn btn-info">Salir</a>
                 </div>
             </div>
         </div>       

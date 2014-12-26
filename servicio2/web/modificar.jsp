@@ -20,7 +20,7 @@
         <script type="text/javascript" src="js/view.js"></script>
         <script type="text/javascript" src="js/calendar.js"></script>
         <title>
-            Modificación de Ni&ntilde;os
+            Modificación de Niños
         </title>
     </head>
 
@@ -62,7 +62,7 @@
                         <a href="grupos.jsp">Grupos</a>
                     </li>
                     <li>
-                        <a class=""><span class="glyphicon glyphicon-user"></span>${username}</a>
+                        <a href="perfil.jsp" class="glyphicon-user">&nbsp;${username}</a>
                     </li>
                     <li>
                         <a href="logout.jsp">Logout</a>
@@ -75,7 +75,7 @@
     <div class="jumbotron">
         <div class="container">
             <h1>
-                Ni&ntildeos
+                Niños
             </h1>
             <p>
                 <a class="btn btn-primary btn-lg" href="listaDeNinos.jsp" >Lista de Ninos »</a>
@@ -107,7 +107,7 @@
                 <div class="row">
                         <div class="col-lg-6">
                             <div class="well bs-component">
-                                <form class="form-horizontal" method="get" action="ModificaNino">
+                                <form class="form-horizontal" method="post" action="ModificaNino">
                                     <fieldset>
                                         <legend>Datos del Alumno</legend>
                                         <p>Introduzca la matrícula del alumno que desee modificar, para consultar los alumnos activos ingrese a la seccion de lista</p>
@@ -223,12 +223,13 @@
                                                         <button type="submit" class="btn btn-primary" name="submit">Guardar</button>
                                                     </c:if>
                                                     <c:if test="${empty error}">
-                                                        <a href="modificar2.jsp" class="btn btn-success">Continuar</a>
-                                                        <a href="darDeAltaH.jsp" class="btn btn-success">Finalizar</a>
+                                                        <a href="darDeAltaH.jsp" class="btn btn-primary">Finalizar</a>
+                                                        <a href="modificar4.jsp" class="btn btn-success">Continuar</a>
                                                     </c:if>
                                                 </c:if>
                                                 <c:if test="${empty res}">
                                                     <button type="submit" class="btn btn-primary" name="submit">Guardar</button>
+                                                    <a href="ninos.jsp" class="btn btn-danger">Cancelar</a>
                                                 </c:if>
                                             </div>
                                         </div> 

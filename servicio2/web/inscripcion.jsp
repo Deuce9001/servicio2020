@@ -68,7 +68,7 @@
         <div class="jumbotron">
       <div class="container">
         <h1>
-          Ni&ntildeos
+          Niños
         </h1>
         <p>
           <a class="btn btn-primary btn-lg" href="listaDeNinos.jsp" >Lista de Ninos »</a>
@@ -165,7 +165,7 @@
                       <div class="col-lg-10 col-lg-offset-2">
                           <c:if test="${not empty res}">
                               <c:if test="${empty error}">
-                                  <a href="historialClinico2.jsp" class="btn btn-success">Continar</a>
+                                  <a href="historialClinico2.jsp" class="btn btn-success">Continuar</a>
                               </c:if>
                               <c:if test="${not empty error}">
                                   <button type="submit" class="btn btn-primary">Guardar</button>

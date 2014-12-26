@@ -25,10 +25,12 @@ public class ModificaNino extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
         HttpSession session = request.getSession();
+        
         if (session.getAttribute("username") == null || session.getAttribute("permiso").equals("Administrador") == false) {
             response.sendRedirect("./index.jsp"); 
             return;
@@ -90,8 +92,6 @@ public class ModificaNino extends HttpServlet {
         
         int id = Integer.parseInt(request.getParameter("matricula"));
         String nombre = request.getParameter("nombre");
-        String apellidos = request.getParameter("apellidos");
-        String nombreCompleto = nombre + " " + apellidos;
         String dia = request.getParameter("dia");
         String mes = request.getParameter("mes");
         String anio = request.getParameter("anio");
@@ -111,8 +111,8 @@ public class ModificaNino extends HttpServlet {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             try (Connection con = DriverManager.getConnection(url,user,pass)) {
-                try (PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-                    ps.setString(1, nombreCompleto);
+                try (PreparedStatement ps = con.prepareStatement(sql)) {
+                    ps.setString(1, nombre);
                     ps.setString(2, fecha_nac);
                     ps.setString(3, direccion);
                     ps.setInt(4, tel);
@@ -122,10 +122,7 @@ public class ModificaNino extends HttpServlet {
                     ps.setString(8, estado);
                     ps.setInt(9, id);
                     ps.executeUpdate();
-                    ResultSet rs = ps.getGeneratedKeys();
-                    rs.next();
-                    int matricula = rs.getInt(1);
-                    session.setAttribute("matricula", matricula);
+                    session.setAttribute("matricula", id);
                 }
                 request.setAttribute("res", "El alumn@ " + nombre + " con matr&iacute;cula " + session.getAttribute("matricula") + " ha sido modificado exitosamente!");
                 doGet(request,response);

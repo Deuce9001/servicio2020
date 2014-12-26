@@ -1,11 +1,5 @@
 <%-- 
-    Document   : listaDeNinos
-    Created on : Nov 11, 2014, 7:53:01 PM
-    Author     : Alejandra
---%>
-
-<%-- 
-    Document   : inicio
+    Document   : tutores
     Created on : Nov 8, 2014, 8:35:10 PM
     Author     : Alejandra
 --%>
@@ -29,12 +23,6 @@
 
   
 </head>
-
-
-
-
-
-
 
 <body >
     <div class="navbar navbar-inverse navbar-fixed-top">
