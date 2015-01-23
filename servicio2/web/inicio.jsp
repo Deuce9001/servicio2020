@@ -34,15 +34,16 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="inicio.jsp">Todos Unidos Ayudando A.C.</a>
+              <a class="navbar-brand" href="inicio.jsp">Todos Ayudando Unidos A.C.</a>
             </div>
+          
             <div class="navbar-collapse collapse" id="navbar-main">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a href="#"></a>
+                        <a href="inicio.jsp"></a>
                     </li>
                     <li>
-                        <a href="ninos.jsp">Ninos</a>
+                        <a href="ninos.jsp">Niños</a>
                     </li>
                     <li>
                         <a href="general.jsp">General</a>
@@ -61,7 +62,7 @@
                     </li>
                     <li>
                         <a href="grupos.jsp">Grupos</a>
-                    </li>
+                    </li> 
                     <li>
                         <a href="perfil.jsp" class="glyphicon-user">&nbsp;${username}</a>
                     </li>

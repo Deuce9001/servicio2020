@@ -10,6 +10,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/bootstrap.css" media="screen">
         <link rel="stylesheet" href="css/bootswatch.min.css">
+        <link rel="shortcut icon" href="images/2.png" />
+        <link rel="icon" type="image/ico" href="images/2.png" />
         <meta name="description" content="">
         <meta name="author" content="">
         <title>

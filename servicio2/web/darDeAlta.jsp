@@ -33,10 +33,10 @@
             <div class="navbar-collapse collapse" id="navbar-main">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a href="#"></a>
+                        <a href="inicio.jsp"></a>
                     </li>
                     <li>
-                        <a href="ninos.jsp">Ninos</a>
+                        <a href="ninos.jsp">Niños</a>
                     </li>
                     <li>
                         <a href="general.jsp">General</a>

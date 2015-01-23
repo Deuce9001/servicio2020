@@ -28,34 +28,41 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/inicio.jsp">Todos Ayudando Unidos A.C.</a>
-                </div>
-                <div class="navbar-collapse collapse" id="navbar-main">
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                          <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="ninos.jsp">Ninos</a>
-                        </li>
-                        <li>
-                            <a href="general.jsp">General</a>
-                        </li>
-                        <li>
-                            <a href="tutores.jsp">Tutores</a>
-                        </li>
-                        <li>
-                            <a href="personal.jsp">Personal</a>
-                        </li>
-                        <li>
-                            <a href="almacen.jsp">Almacen</a>
-                        </li>
-                        <li>
-                            <a href="eventos.jsp">Eventos</a>
-                        </li>
-                        <li>
-                            <a href="grupos.jsp">Grupos</a>
-                        </li>                      
+                    <a class="navbar-brand" href="inicio.jsp">Todos Ayudando Unidos A.C.</a>
+            </div>
+          
+            <div class="navbar-collapse collapse" id="navbar-main">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="inicio.jsp"></a>
+                    </li>
+                    <li>
+                        <a href="ninos.jsp">Niños</a>
+                    </li>
+                    <li>
+                        <a href="general.jsp">General</a>
+                    </li>
+                    <li>
+                        <a href="tutores.jsp">Tutores</a>
+                    </li>
+                    <li>
+                        <a href="personal.jsp">Personal</a>
+                    </li>
+                    <li>
+                        <a href="almacen.jsp">Almacen</a>
+                    </li>
+                    <li>
+                        <a href="eventos.jsp">Eventos</a>
+                    </li>
+                    <li>
+                        <a href="grupos.jsp">Grupos</a>
+                    </li> 
+                    <li>
+                        <a href="perfil.jsp" class="glyphicon-user">&nbsp;${username}</a>
+                    </li>
+                    <li>
+                        <a href="logout.jsp">Logout</a>
+                    </li>                  
                     </ul>
                 </div>
             </div>
@@ -110,13 +117,13 @@
                                         <div class="form-horizontal">
                                             <label for="textArea" class="col-lg-2 control-label">Peso:</label>
                                             &nbsp;
-                                            <input type="text" name="Peso" class="element text" maxlength="8" size="10" />
+                                            <input type="text" name="Peso" class="element text" maxlength="8" size="10" /> &nbsp;Kg
                                         </div>
                                         <br>
                                         <div class="form-horizontal">
                                             <label for="textArea" class="col-lg-2 control-label">Estatura:</label>
                                             &nbsp;
-                                            <input type="text" name= "estatura" class="element text" maxlength="8" size="10" />
+                                            <input type="text" name= "estatura" class="element text" maxlength="8" size="10" /> &nbsp;metros
                                         </div>
                                         <br>
                                         <div class="form-group">
@@ -156,7 +163,7 @@
                                                 </c:if>
                                                 <c:if test="${empty error}">
                                                     <div class="form-horizontal">
-                                                        <label>Desea continuar con el registro de tutores?</label>
+                                                        <label>¿Desea continuar con el registro de tutores?</label>
                                                         <br>
                                                         <a href="darDeAltaT.jsp" class="btn btn-success">Continuar</a>
                                                         <a href="inicio.jsp" class="btn btn-primary">Finalizar</a>

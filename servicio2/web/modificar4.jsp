@@ -36,36 +36,36 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Todos Unidos Ayudando A.C.</a>
-        </div>
+          <a class="navbar-brand" href="inicio.jsp">Todos Ayudando Unidos A.C.</a>
+            </div>
           
-          <div class="navbar-collapse collapse" id="navbar-main">
-          <ul class="nav navbar-nav">
-            <li class="dropdown">
-              <a href="#"></a>
-            </li>
-            <li>
-                <a href="ninos.jsp">Ninos</a>
-            </li>
-            <li>
-                <a href="general.jsp">General</a>
-            </li>
-            <li>
-                <a href="tutores.jsp">Tutores</a>
-            </li>
-            <li>
-                <a href="personal.jsp">Personal</a>
-            </li>
-            <li>
-                <a href="almacen.jsp">Almacen</a>
-            </li>
-            <li>
-                <a href="eventos.jsp">Eventos</a>
-            </li>
-            <li>
-                <a href="grupos.jsp">Grupos</a>
-            </li>
-            <li>
+            <div class="navbar-collapse collapse" id="navbar-main">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="inicio.jsp"></a>
+                    </li>
+                    <li>
+                        <a href="ninos.jsp">Niños</a>
+                    </li>
+                    <li>
+                        <a href="general.jsp">General</a>
+                    </li>
+                    <li>
+                        <a href="tutores.jsp">Tutores</a>
+                    </li>
+                    <li>
+                        <a href="personal.jsp">Personal</a>
+                    </li>
+                    <li>
+                        <a href="almacen.jsp">Almacen</a>
+                    </li>
+                    <li>
+                        <a href="eventos.jsp">Eventos</a>
+                    </li>
+                    <li>
+                        <a href="grupos.jsp">Grupos</a>
+                    </li> 
+                    <li>
                         <a href="perfil.jsp" class="glyphicon-user">&nbsp;${username}</a>
                     </li>
                     <li>
